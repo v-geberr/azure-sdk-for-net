@@ -6,7 +6,7 @@
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
 
-    public class AppsTests: BaseTest
+    public class AppsTests : BaseTest
     {
         [Fact]
         public void GetApplicationsList()
@@ -47,7 +47,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetApplicationInfoAsync( appId);
+                var result = await client.Apps.GetApplicationInfoAsync(appId);
                 Assert.Equal(appId, result.Id);
             });
         }

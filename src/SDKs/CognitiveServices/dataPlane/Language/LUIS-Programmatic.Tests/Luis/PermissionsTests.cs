@@ -3,7 +3,7 @@
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Xunit;
 
-    public class PermissionsTests: BaseTest
+    public class PermissionsTests : BaseTest
     {
         [Fact]
         public void GetApplicationsList()
