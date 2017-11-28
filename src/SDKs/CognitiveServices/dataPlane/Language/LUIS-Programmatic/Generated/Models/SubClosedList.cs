@@ -15,23 +15,23 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class JSONSubClosedListResponse : JSONSubClosedList
+    public partial class SubClosedList
     {
         /// <summary>
-        /// Initializes a new instance of the JSONSubClosedListResponse class.
+        /// Initializes a new instance of the SubClosedList class.
         /// </summary>
-        public JSONSubClosedListResponse()
+        public SubClosedList()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the JSONSubClosedListResponse class.
+        /// Initializes a new instance of the SubClosedList class.
         /// </summary>
-        public JSONSubClosedListResponse(string canonicalForm = default(string), IList<string> list = default(IList<string>), double? id = default(double?))
-            : base(canonicalForm, list)
+        public SubClosedList(string canonicalForm = default(string), IList<string> list = default(IList<string>))
         {
-            Id = id;
+            CanonicalForm = canonicalForm;
+            List = list;
             CustomInit();
         }
 
@@ -42,8 +42,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public double? Id { get; set; }
+        [JsonProperty(PropertyName = "canonicalForm")]
+        public string CanonicalForm { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "list")]
+        public IList<string> List { get; set; }
 
     }
 }

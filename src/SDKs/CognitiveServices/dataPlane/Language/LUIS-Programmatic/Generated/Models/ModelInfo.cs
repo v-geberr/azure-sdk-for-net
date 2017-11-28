@@ -10,6 +10,7 @@
 
 namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 {
+    using Microsoft.Rest;
     using Newtonsoft.Json;
     using System.Linq;
 
@@ -26,14 +27,20 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ModelInfo class.
         /// </summary>
+        /// <param name="readableType">Possible values include: 'Entity
+        /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
+        /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
+        /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
+        /// Classifier'</param>
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public ModelInfo(string id = default(string), string name = default(string), double? typeId = default(double?))
+        public ModelInfo(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?))
         {
             Id = id;
             Name = name;
             TypeId = typeId;
+            ReadableType = readableType;
             CustomInit();
         }
 
@@ -60,5 +67,27 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         [JsonProperty(PropertyName = "typeId")]
         public double? TypeId { get; set; }
 
+        /// <summary>
+        /// Gets or sets possible values include: 'Entity Extractor',
+        /// 'Hierarchical Entity Extractor', 'Hierarchical Child Entity
+        /// Extractor', 'Composite Entity Extractor', 'Closed List Entity
+        /// Extractor', 'Prebuilt Entity Extractor', 'Intent Classifier'
+        /// </summary>
+        [JsonProperty(PropertyName = "readableType")]
+        public string ReadableType { get; set; }
+
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (ReadableType == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "ReadableType");
+            }
+        }
     }
 }

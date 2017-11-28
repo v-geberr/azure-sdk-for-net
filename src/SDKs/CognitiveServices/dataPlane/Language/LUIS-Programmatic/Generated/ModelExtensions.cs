@@ -244,33 +244,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Adds a closed list model to the application.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='appId'>
-            /// Format - guid. The application ID.
-            /// </param>
-            /// <param name='versionId'>
-            /// The version ID of the task.
-            /// </param>
-            /// <param name='closedListModelCreateObject'>
-            /// A model object containing the name and words for the new closed list entity
-            /// extractor.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<string> CreateClosedListEntityModelAsync(this IModel operations, string appId, string versionId, ClosedListModelCreateObject closedListModelCreateObject = default(ClosedListModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.CreateClosedListEntityModelWithHttpMessagesAsync(appId, versionId, closedListModelCreateObject, null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
             /// Gets information about the closedlist models.
             /// </summary>
             /// <param name='operations'>
@@ -294,6 +267,33 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             public static async Task<IList<ClosedListEntityExtractor>> GetApplicationVersionClosedListInfosAsync(this IModel operations, string appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetApplicationVersionClosedListInfosWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
+            }
+
+            /// <summary>
+            /// Adds a closed list model to the application.
+            /// </summary>
+            /// <param name='operations'>
+            /// The operations group for this extension method.
+            /// </param>
+            /// <param name='appId'>
+            /// Format - guid. The application ID.
+            /// </param>
+            /// <param name='versionId'>
+            /// The version ID of the task.
+            /// </param>
+            /// <param name='closedListModelCreateObject'>
+            /// A model object containing the name and words for the new closed list entity
+            /// extractor.
+            /// </param>
+            /// <param name='cancellationToken'>
+            /// The cancellation token.
+            /// </param>
+            public static async Task<string> CreateClosedListEntityModelAsync(this IModel operations, string appId, string versionId, ClosedListModelCreateObject closedListModelCreateObject, CancellationToken cancellationToken = default(CancellationToken))
+            {
+                using (var _result = await operations.CreateClosedListEntityModelWithHttpMessagesAsync(appId, versionId, closedListModelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

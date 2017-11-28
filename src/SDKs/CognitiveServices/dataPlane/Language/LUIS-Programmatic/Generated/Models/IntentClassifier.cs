@@ -13,7 +13,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    [Newtonsoft.Json.JsonObject("Intent Classifier")]
     public partial class IntentClassifier : ModelInfo
     {
         /// <summary>
@@ -27,11 +26,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the IntentClassifier class.
         /// </summary>
+        /// <param name="readableType">Possible values include: 'Entity
+        /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
+        /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
+        /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
+        /// Classifier'</param>
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public IntentClassifier(string id = default(string), string name = default(string), double? typeId = default(double?), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string))
-            : base(id, name, typeId)
+        public IntentClassifier(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string))
+            : base(readableType, id, name, typeId)
         {
             CustomPrebuiltDomainName = customPrebuiltDomainName;
             CustomPrebuiltModelName = customPrebuiltModelName;
@@ -53,5 +57,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         [JsonProperty(PropertyName = "customPrebuiltModelName")]
         public string CustomPrebuiltModelName { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public override void Validate()
+        {
+            base.Validate();
+        }
     }
 }

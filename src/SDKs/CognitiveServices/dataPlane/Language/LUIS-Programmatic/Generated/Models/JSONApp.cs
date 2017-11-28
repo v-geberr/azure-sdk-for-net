@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the JSONApp class.
         /// </summary>
-        public JSONApp(string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<JSONAction> actions = default(IList<JSONAction>), IList<JSONClosedList> closedLists = default(IList<JSONClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
+        public JSONApp(string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<JSONAction> actions = default(IList<JSONAction>), IList<ClosedList> closedLists = default(IList<ClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
         {
             Name = name;
             VersionId = versionId;
@@ -94,7 +94,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "closedLists")]
-        public IList<JSONClosedList> ClosedLists { get; set; }
+        public IList<ClosedList> ClosedLists { get; set; }
 
         /// <summary>
         /// </summary>
