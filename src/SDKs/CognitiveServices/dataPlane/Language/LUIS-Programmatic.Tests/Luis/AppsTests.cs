@@ -71,6 +71,30 @@
         }
 
         [Fact]
+        public void DeleteApplication()
+        {
+            UseClientFor(async client =>
+            {
+                // Setup - Add app
+                var appId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                {
+                    Name = "New LUIS App (DeleteTest)",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                // Test - Remove app
+                await client.Apps.DeleteApplicationAsync(appId);
+
+                // Assert
+                var result = await client.Apps.GetApplicationsListAsync();
+                Assert.DoesNotContain(result, o => o.Id == appId);
+            });
+        }
+
+        [Fact]
         public void GetApplicationDomains()
         {
             UseClientFor(async client =>
