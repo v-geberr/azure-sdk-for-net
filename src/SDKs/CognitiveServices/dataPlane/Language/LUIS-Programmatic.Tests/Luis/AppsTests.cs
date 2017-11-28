@@ -95,6 +95,20 @@
         }
 
         [Fact]
+        public void GetApplicationEndpoints()
+        {
+            UseClientFor(async client =>
+            {
+                var result = await client.Apps.GetEndpointsAsync(appId);
+
+                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Westus);
+                Assert.Equal("https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Eastus2);
+                Assert.Equal("https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Westcentralus);
+                Assert.Equal("https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Southeastasia);
+            });
+        }
+
+        [Fact]
         public void GetApplicationDomains()
         {
             UseClientFor(async client =>
