@@ -13,21 +13,21 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class UserToAdd
+    public partial class UserCollaborator
     {
         /// <summary>
-        /// Initializes a new instance of the UserToAdd class.
+        /// Initializes a new instance of the UserCollaborator class.
         /// </summary>
-        public UserToAdd()
+        public UserCollaborator()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the UserToAdd class.
+        /// Initializes a new instance of the UserCollaborator class.
         /// </summary>
-        /// <param name="email">The email address of the user to add.</param>
-        public UserToAdd(string email = default(string))
+        /// <param name="email">The email address of the user.</param>
+        public UserCollaborator(string email = default(string))
         {
             Email = email;
             CustomInit();
@@ -39,7 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the email address of the user to add.
+        /// Gets or sets the email address of the user.
         /// </summary>
         [JsonProperty(PropertyName = "email")]
         public string Email { get; set; }

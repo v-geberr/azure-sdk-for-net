@@ -56,14 +56,14 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task AddUserToAccessListAsync(this IPermissions operations, string appId, UserToAdd userToAdd, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task AddUserToAccessListAsync(this IPermissions operations, string appId, UserCollaborator userToAdd, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.AddUserToAccessListWithHttpMessagesAsync(appId, userToAdd, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
             /// Removed a user to the allowed list of users to access this LUIS
-            /// application.Users are removed using their email address.
+            /// application. Users are removed using their email address.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -71,15 +71,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='appId'>
             /// Format - guid. The application ID.
             /// </param>
-            /// <param name='body'>
+            /// <param name='userToDelete'>
             /// A JSON object containing the user's email address.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RemoveUserFromAccessListAsync(this IPermissions operations, string appId, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task RemoveUserFromAccessListAsync(this IPermissions operations, string appId, UserCollaborator userToDelete, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RemoveUserFromAccessListWithHttpMessagesAsync(appId, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.RemoveUserFromAccessListWithHttpMessagesAsync(appId, userToDelete, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>

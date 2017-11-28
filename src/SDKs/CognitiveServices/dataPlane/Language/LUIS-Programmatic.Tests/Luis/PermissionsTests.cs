@@ -17,12 +17,13 @@
                 Assert.Equal(new string[] { "guest@outlook.com" }, result.Emails);
             });
         }
+
         [Fact]
         public void AddUserToAccessList()
         {
             UseClientFor(async client =>
             {
-                var userToAdd = new UserToAdd
+                var userToAdd = new UserCollaborator
                 {
                     Email = "guest@outlook.com"
                 };
@@ -31,6 +32,23 @@
                 var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
 
                 Assert.True(result.Emails.Contains(userToAdd.Email));
+            });
+        }
+
+        [Fact]
+        public void RemoveUserFromAccessList()
+        {
+            UseClientFor(async client =>
+            {
+                var userToRemove = new UserCollaborator
+                {
+                    Email = "guest@outlook.com"
+                };
+
+                await client.Permissions.RemoveUserFromAccessListAsync(appId, userToRemove);
+                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+
+                Assert.False(result.Emails.Contains(userToRemove.Email));
             });
         }
     }
