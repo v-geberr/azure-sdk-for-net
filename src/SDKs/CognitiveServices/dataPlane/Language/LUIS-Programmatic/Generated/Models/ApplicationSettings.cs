@@ -26,7 +26,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ApplicationSettings class.
         /// </summary>
-        public ApplicationSettings(string id = default(string), bool? publicProperty = default(bool?))
+        public ApplicationSettings(string id = default(string), bool publicProperty = default(bool))
         {
             Id = id;
             PublicProperty = publicProperty;
@@ -46,7 +46,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "public")]
-        public bool? PublicProperty { get; set; }
+        public bool PublicProperty { get; set; }
 
     }
 }

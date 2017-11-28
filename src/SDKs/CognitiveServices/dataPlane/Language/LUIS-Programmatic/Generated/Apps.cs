@@ -1946,8 +1946,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("applicationSettingUpdateObject", applicationSettingUpdateObject);
                 tracingParameters.Add("appId", appId);
+                tracingParameters.Add("applicationSettingUpdateObject", applicationSettingUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateApplicationSettings", tracingParameters);
             }
