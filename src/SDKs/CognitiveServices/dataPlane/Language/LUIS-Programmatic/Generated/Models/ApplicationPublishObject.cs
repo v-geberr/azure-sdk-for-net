@@ -26,10 +26,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ApplicationPublishObject class.
         /// </summary>
-        public ApplicationPublishObject(string versionId = default(string), bool? isStaging = default(bool?))
+        public ApplicationPublishObject(string versionId = default(string), bool? isStaging = default(bool?), string region = default(string))
         {
             VersionId = versionId;
             IsStaging = isStaging;
+            Region = region;
             CustomInit();
         }
 
@@ -47,6 +48,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         [JsonProperty(PropertyName = "isStaging")]
         public bool? IsStaging { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "region")]
+        public string Region { get; set; }
 
     }
 }

@@ -247,7 +247,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// Format - guid. The application ID.
             /// </param>
             /// <param name='applicationPublishObject'>
-            /// The application publish object.The region is the target region that the
+            /// The application publish object. The region is the target region that the
             /// application is published to. Possible values are "westus", "eastus2",
             /// "westcentralus" or "southeastasia" for applications created in west US, and
             /// "westeurope" for applications created in West Europe.
@@ -255,7 +255,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ApplicationPublishResponse> PublishApplicationAsync(this IApps operations, string appId, ApplicationPublishObject applicationPublishObject = default(ApplicationPublishObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ProductionOrStagingEndpointInfo> PublishApplicationAsync(this IApps operations, string appId, ApplicationPublishObject applicationPublishObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.PublishApplicationWithHttpMessagesAsync(appId, applicationPublishObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -293,18 +293,18 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// Format - guid. The application ID.
             /// </param>
             /// <param name='applicationSettingUpdateObject'>
-            /// An app setting object contains the new app settings
+            /// An object containing the new application settings.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateApplicationSettingsAsync(this IApps operations, string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject = default(ApplicationSettingUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateApplicationSettingsAsync(this IApps operations, string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateApplicationSettingsWithHttpMessagesAsync(appId, applicationSettingUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
-            /// Returns the available endpoint deployment regions and urls
+            /// Returns the available endpoint deployment regions and URLs
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
