@@ -23,7 +23,7 @@
             });
         }
 
-        [Fact]
+        [Fact(Skip = "HTTP 410 Gone")]
         public void RenameSubscription()
         {
             var subscriptionName = $"LUIS Subscription name updated ({Guid.NewGuid().ToString()})";
@@ -43,20 +43,43 @@
             });
         }
 
-        [Fact]
+        [Fact(Skip = "HTTP 410 Gone")]
         public void AddSubscription()
         {
-            var subscriptionName = $"LUIS Subscription name ({Guid.NewGuid().ToString()})";
+            var subscriptionKey = Guid.NewGuid().ToString().Replace("-", string.Empty);
+            var subscriptionName = $"LUIS Subscription name ({subscriptionKey})";
             UseClientFor(async client =>
             {
                 await client.User.AddSubscriptionKeyAsync(new UserSubscriptionCreateObject
                 {
+                    SubscriptionKey = subscriptionKey,
                     SubscriptionName = subscriptionName
                 });
 
                 var subscriptionList = await client.User.GetUserSubscriptionKeysAsync();
 
-                Assert.Contains(subscriptionList, s => s.SubscriptionName == subscriptionName);
+                Assert.Contains(subscriptionList, s => s.SubscriptionKey == subscriptionKey);
+            });
+        }
+
+        [Fact(Skip = "HTTP 410 Gone")]
+        public void DeleteSubscription()
+        {
+            var subscriptionKey = Guid.NewGuid().ToString().Replace("-", string.Empty);
+            var subscriptionName = $"LUIS Subscription name ({subscriptionKey})";
+            UseClientFor(async client =>
+            {
+                await client.User.AddSubscriptionKeyAsync(new UserSubscriptionCreateObject
+                {
+                    SubscriptionKey = subscriptionKey,
+                    SubscriptionName = subscriptionName
+                });
+
+                await client.User.DeleteSubscriptionKeyAsync(subscriptionKey);
+
+                var subscriptionList = await client.User.GetUserSubscriptionKeysAsync();
+
+                Assert.DoesNotContain(subscriptionList, s => s.SubscriptionKey == subscriptionKey);
             });
         }
     }
