@@ -2,6 +2,7 @@
 {
     using System;
     using System.Globalization;
+    using System.IO;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
@@ -163,6 +164,19 @@
                 Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.EndpointUrl);
                 Assert.Equal("westus", result.EndpointRegion);
                 Assert.False(result.IsStaging);
+            });
+        }
+
+        [Fact]
+        public void DownloadApplicationQueryLogs()
+        {
+            UseClientFor(async client =>
+            {
+                var downloadStream = await client.Apps.DownloadApplicationQueryLogsAsync(appId);
+                var reader = new StreamReader(downloadStream);
+
+                var csv = reader.ReadToEnd();
+                Assert.False(string.IsNullOrEmpty(csv));
             });
         }
 
