@@ -201,13 +201,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Adds a user to the allowed list of users to access this LUIS
-        /// application.Users are added using their email address.
+        /// Adds a user to the allowed list of users to access this LUIS application.
+        /// Users are added using their email address.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='userToAdd'>
         /// A JSON object containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
@@ -228,11 +228,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, UserToAdd userToAdd, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "appId");
+            }
+            if (userToAdd == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "userToAdd");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -241,8 +245,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
                 tracingParameters.Add("appId", appId);
+                tracingParameters.Add("userToAdd", userToAdd);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddUserToAccessList", tracingParameters);
             }
@@ -273,9 +277,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(userToAdd != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(userToAdd, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

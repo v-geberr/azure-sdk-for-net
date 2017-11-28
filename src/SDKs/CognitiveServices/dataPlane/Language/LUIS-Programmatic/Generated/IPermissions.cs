@@ -47,12 +47,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         Task<HttpOperationResponse<UserAccessList>> GetApplicationUserAccessListWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a user to the allowed list of users to access this LUIS
-        /// application.Users are added using their email address.
+        /// application. Users are added using their email address.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='userToAdd'>
         /// A JSON object containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
@@ -67,7 +67,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, UserToAdd userToAdd, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Removed a user to the allowed list of users to access this LUIS
         /// application.Users are removed using their email address.
