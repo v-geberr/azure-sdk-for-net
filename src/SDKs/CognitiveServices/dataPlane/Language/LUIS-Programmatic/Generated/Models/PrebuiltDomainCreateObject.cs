@@ -40,12 +40,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "DomainName")]
+        [JsonProperty(PropertyName = "domainName")]
         public string DomainName { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Culture")]
+        [JsonProperty(PropertyName = "culture")]
         public string Culture { get; set; }
 
     }

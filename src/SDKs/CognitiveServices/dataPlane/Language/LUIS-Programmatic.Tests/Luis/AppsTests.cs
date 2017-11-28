@@ -2,7 +2,6 @@
 {
     using System;
     using System.Globalization;
-    using System.Linq;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
@@ -143,6 +142,23 @@
                 {
                     Assert.DoesNotContain(resultsUS, r => r.Description == resultCN.Description);
                 }
+            });
+        }
+
+        [Fact]
+        public void AddCustomPrebuiltApplication()
+        {
+            UseClientFor(async client =>
+            {
+                var domain = new PrebuiltDomainCreateObject
+                {
+                    Culture = "en-US",
+                    DomainName = "Calendar"
+                };
+                var result = await client.Apps.AddCustomPrebuiltApplicationAsync(domain);
+
+                Assert.True(Guid.TryParse(result, out Guid appGuid));
+                Assert.Equal(new Guid("5be09431-8360-4bba-b969-a33aa6093b5d"), appGuid);
             });
         }
     }

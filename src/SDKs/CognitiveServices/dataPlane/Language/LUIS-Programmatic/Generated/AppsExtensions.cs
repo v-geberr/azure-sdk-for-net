@@ -353,7 +353,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> AddCustomPrebuiltApplicationAsync(this IApps operations, PrebuiltDomainCreateObject prebuiltDomainCreateObject = default(PrebuiltDomainCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> AddCustomPrebuiltApplicationAsync(this IApps operations, PrebuiltDomainCreateObject prebuiltDomainCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddCustomPrebuiltApplicationWithHttpMessagesAsync(prebuiltDomainCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
