@@ -302,7 +302,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='applicationSettingUpdateObject'>
-        /// An app setting object contains the new app settings
+        /// An object containing the new application settings.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -316,7 +316,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject = default(ApplicationSettingUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the available endpoint deployment regions and URLs
         /// </summary>

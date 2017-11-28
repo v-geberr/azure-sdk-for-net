@@ -1913,7 +1913,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='applicationSettingUpdateObject'>
-        /// An app setting object contains the new app settings
+        /// An object containing the new application settings.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1933,11 +1933,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject = default(ApplicationSettingUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "appId");
+            }
+            if (applicationSettingUpdateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "applicationSettingUpdateObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;

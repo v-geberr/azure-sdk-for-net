@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the ApplicationSettingUpdateObject
         /// class.
         /// </summary>
-        public ApplicationSettingUpdateObject(bool? publicProperty = default(bool?))
+        public ApplicationSettingUpdateObject(bool publicProperty = default(bool))
         {
             PublicProperty = publicProperty;
             CustomInit();
@@ -41,8 +41,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Public")]
-        public bool? PublicProperty { get; set; }
+        [JsonProperty(PropertyName = "public")]
+        public bool PublicProperty { get; set; }
 
     }
 }

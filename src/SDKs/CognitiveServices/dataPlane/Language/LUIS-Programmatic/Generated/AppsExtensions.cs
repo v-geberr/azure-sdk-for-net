@@ -293,12 +293,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// Format - guid. The application ID.
             /// </param>
             /// <param name='applicationSettingUpdateObject'>
-            /// An app setting object contains the new app settings
+            /// An object containing the new application settings.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateApplicationSettingsAsync(this IApps operations, string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject = default(ApplicationSettingUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateApplicationSettingsAsync(this IApps operations, string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateApplicationSettingsWithHttpMessagesAsync(appId, applicationSettingUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
