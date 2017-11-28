@@ -193,6 +193,22 @@
         }
 
         [Fact]
+        public void UpdateApplicationSettings()
+        {
+            UseClientFor(async client =>
+            {
+                await client.Apps.UpdateApplicationSettingsAsync(appId, new ApplicationSettingUpdateObject
+                {
+                    PublicProperty = false
+                });
+
+                // Assert
+                var settings = await client.Apps.GetApplicationSettingsAsync(appId);
+                Assert.False(settings.PublicProperty);
+            });
+        }
+
+        [Fact]
         public void GetAvailableCustomPrebuiltDomains()
         {
             UseClientFor(async client =>
