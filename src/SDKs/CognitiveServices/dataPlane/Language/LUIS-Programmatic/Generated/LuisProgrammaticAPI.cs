@@ -210,8 +210,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                         new Iso8601TimeSpanConverter()
                     }
             };
-            SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<ModelInfo>("readableType"));
-            DeserializationSettings.Converters.Add(new  PolymorphicDeserializeJsonConverter<ModelInfo>("readableType"));
             SerializationSettings.Converters.Add(new PolymorphicSerializeJsonConverter<ModelInfoResponse>("readableType"));
             DeserializationSettings.Converters.Add(new  PolymorphicDeserializeJsonConverter<ModelInfoResponse>("readableType"));
             CustomInitialize();

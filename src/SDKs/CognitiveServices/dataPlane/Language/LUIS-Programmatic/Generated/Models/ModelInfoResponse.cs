@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public ModelInfoResponse(IList<ChildEntity> children = default(IList<ChildEntity>), IList<JSONSubClosedListResponse> subLists = default(IList<JSONSubClosedListResponse>), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string), string id = default(string), string name = default(string), double? typeId = default(double?))
+        public ModelInfoResponse(IList<ChildEntity> children = default(IList<ChildEntity>), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string), string id = default(string), string name = default(string), double? typeId = default(double?))
         {
             Children = children;
             SubLists = subLists;
@@ -56,7 +56,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
-        public IList<JSONSubClosedListResponse> SubLists { get; set; }
+        public IList<SubClosedListResponse> SubLists { get; set; }
 
         /// <summary>
         /// </summary>

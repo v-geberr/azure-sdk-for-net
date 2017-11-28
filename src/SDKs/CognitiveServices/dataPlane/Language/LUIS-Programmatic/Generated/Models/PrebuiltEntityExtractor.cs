@@ -10,10 +10,8 @@
 
 namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 {
-    using Newtonsoft.Json;
     using System.Linq;
 
-    [Newtonsoft.Json.JsonObject("Prebuilt Entity Extractor")]
     public partial class PrebuiltEntityExtractor : ModelInfo
     {
         /// <summary>
@@ -27,11 +25,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the PrebuiltEntityExtractor class.
         /// </summary>
+        /// <param name="readableType">Possible values include: 'Entity
+        /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
+        /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
+        /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
+        /// Classifier'</param>
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public PrebuiltEntityExtractor(string id = default(string), string name = default(string), double? typeId = default(double?))
-            : base(id, name, typeId)
+        public PrebuiltEntityExtractor(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?))
+            : base(readableType, id, name, typeId)
         {
             CustomInit();
         }
@@ -41,5 +44,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         partial void CustomInit();
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public override void Validate()
+        {
+            base.Validate();
+        }
     }
 }

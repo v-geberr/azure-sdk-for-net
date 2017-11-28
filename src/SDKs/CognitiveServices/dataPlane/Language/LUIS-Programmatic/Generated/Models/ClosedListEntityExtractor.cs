@@ -15,7 +15,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    [Newtonsoft.Json.JsonObject("Closed List Entity Extractor")]
     public partial class ClosedListEntityExtractor : ModelInfo
     {
         /// <summary>
@@ -29,11 +28,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ClosedListEntityExtractor class.
         /// </summary>
+        /// <param name="readableType">Possible values include: 'Entity
+        /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
+        /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
+        /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
+        /// Classifier'</param>
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public ClosedListEntityExtractor(string id = default(string), string name = default(string), double? typeId = default(double?), IList<JSONSubClosedListResponse> subLists = default(IList<JSONSubClosedListResponse>))
-            : base(id, name, typeId)
+        public ClosedListEntityExtractor(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>))
+            : base(readableType, id, name, typeId)
         {
             SubLists = subLists;
             CustomInit();
@@ -47,7 +51,17 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
-        public IList<JSONSubClosedListResponse> SubLists { get; set; }
+        public IList<SubClosedListResponse> SubLists { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public override void Validate()
+        {
+            base.Validate();
+        }
     }
 }

@@ -44,12 +44,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "SubLists")]
+        [JsonProperty(PropertyName = "subLists")]
         public IList<WordListCreateObject> SubLists { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
     }
