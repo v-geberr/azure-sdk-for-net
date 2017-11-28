@@ -149,6 +149,24 @@
         }
 
         [Fact]
+        public void PublishApplication()
+        {
+            UseClientFor(async client =>
+            {
+                var result = await client.Apps.PublishApplicationAsync(appId, new ApplicationPublishObject
+                {
+                    IsStaging = false,
+                    Region = AzureRegions.Westus.ToString().ToLowerInvariant(),
+                    VersionId = "0.1"
+                });
+
+                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.EndpointUrl);
+                Assert.Equal("westus", result.EndpointRegion);
+                Assert.False(result.IsStaging);
+            });
+        }
+
+        [Fact]
         public void GetAvailableCustomPrebuiltDomains()
         {
             UseClientFor(async client =>
