@@ -11,6 +11,8 @@
 namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 {
     using Models;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -61,9 +63,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task GetApplicationVersionsAsync(this IVersions operations, string appId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<VersionInfo>> GetApplicationVersionsAsync(this IVersions operations, string appId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.GetApplicationVersionsWithHttpMessagesAsync(appId, skip, take, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.GetApplicationVersionsWithHttpMessagesAsync(appId, skip, take, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
