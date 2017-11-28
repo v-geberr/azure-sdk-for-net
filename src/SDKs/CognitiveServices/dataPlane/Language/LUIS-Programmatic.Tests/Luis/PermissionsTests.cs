@@ -51,5 +51,26 @@
                 Assert.False(result.Emails.Contains(userToRemove.Email));
             });
         }
+
+        [Fact]
+        public void UpdateAccessList()
+        {
+            UseClientFor(async client =>
+            {
+                var collaborators = new CollaboratorsArray
+                {
+                    Emails = new string[] 
+                    {
+                        "guest@outlook.com",
+                        "invited.user@live.com"
+                    }
+                };
+
+                await client.Permissions.UpdateAccessListAsync(appId, collaborators);
+                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+
+                Assert.Equal(collaborators.Emails, result.Emails);
+            });
+        }
     }
 }

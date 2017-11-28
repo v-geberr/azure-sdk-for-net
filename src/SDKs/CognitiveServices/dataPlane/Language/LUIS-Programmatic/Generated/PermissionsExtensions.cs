@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Replaces the current users access list with the one sent in the body.If an
+            /// Replaces the current users access list with the one sent in the body. If an
             /// empty list is sent, all access to other users will be removed.
             /// </summary>
             /// <param name='operations'>
@@ -92,15 +92,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='appId'>
             /// Format - guid. The application ID.
             /// </param>
-            /// <param name='body'>
+            /// <param name='collaborators'>
             /// A JSON object containing a list of user's email addresses.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateAccessListAsync(this IPermissions operations, string appId, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateAccessListAsync(this IPermissions operations, string appId, CollaboratorsArray collaborators, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.UpdateAccessListWithHttpMessagesAsync(appId, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateAccessListWithHttpMessagesAsync(appId, collaborators, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }
