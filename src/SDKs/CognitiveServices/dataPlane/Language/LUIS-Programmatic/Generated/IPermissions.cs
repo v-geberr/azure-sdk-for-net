@@ -47,12 +47,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         Task<HttpOperationResponse<UserAccessList>> GetApplicationUserAccessListWithHttpMessagesAsync(string appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a user to the allowed list of users to access this LUIS
-        /// application.Users are added using their email address.
+        /// application. Users are added using their email address.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='userToAdd'>
         /// A JSON object containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
@@ -67,15 +67,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(string appId, UserCollaborator userToAdd, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Removed a user to the allowed list of users to access this LUIS
-        /// application.Users are removed using their email address.
+        /// application. Users are removed using their email address.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='userToDelete'>
         /// A JSON object containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
@@ -90,16 +90,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RemoveUserFromAccessListWithHttpMessagesAsync(string appId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> RemoveUserFromAccessListWithHttpMessagesAsync(string appId, UserCollaborator userToDelete, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Replaces the current users access list with the one sent in the
-        /// body.If an empty list is sent, all access to other users will be
+        /// body. If an empty list is sent, all access to other users will be
         /// removed.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='collaborators'>
         /// A JSON object containing a list of user's email addresses.
         /// </param>
         /// <param name='customHeaders'>
@@ -108,12 +108,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='cancellationToken'>
         /// The cancellation token.
         /// </param>
-        /// <exception cref="ErrorResponseException">
+        /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateAccessListWithHttpMessagesAsync(string appId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateAccessListWithHttpMessagesAsync(string appId, CollaboratorsArray collaborators, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }
