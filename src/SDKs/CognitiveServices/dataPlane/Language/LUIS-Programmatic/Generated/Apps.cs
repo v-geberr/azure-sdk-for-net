@@ -1598,7 +1598,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='applicationPublishObject'>
-        /// The application publish object.The region is the target region that the
+        /// The application publish object. The region is the target region that the
         /// application is published to. Possible values are "westus", "eastus2",
         /// "westcentralus" or "southeastasia" for applications created in west US, and
         /// "westeurope" for applications created in West Europe.
@@ -1624,11 +1624,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<ApplicationPublishResponse>> PublishApplicationWithHttpMessagesAsync(string appId, ApplicationPublishObject applicationPublishObject = default(ApplicationPublishObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<ProductionOrStagingEndpointInfo>> PublishApplicationWithHttpMessagesAsync(string appId, ApplicationPublishObject applicationPublishObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "appId");
+            }
+            if (applicationPublishObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "applicationPublishObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1725,7 +1729,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<ApplicationPublishResponse>();
+            var _result = new HttpOperationResponse<ProductionOrStagingEndpointInfo>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -1734,7 +1738,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ApplicationPublishResponse>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<ProductionOrStagingEndpointInfo>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -2034,7 +2038,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Returns the available endpoint deployment regions and urls
+        /// Returns the available endpoint deployment regions and URLs
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

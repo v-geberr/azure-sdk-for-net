@@ -251,8 +251,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='applicationPublishObject'>
-        /// The application publish object.The region is the target region that
-        /// the application is published to. Possible values are "westus",
+        /// The application publish object. The region is the target region
+        /// that the application is published to. Possible values are "westus",
         /// "eastus2", "westcentralus" or "southeastasia" for applications
         /// created in west US, and "westeurope" for applications created in
         /// West Europe.
@@ -272,7 +272,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ApplicationPublishResponse>> PublishApplicationWithHttpMessagesAsync(string appId, ApplicationPublishObject applicationPublishObject = default(ApplicationPublishObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ProductionOrStagingEndpointInfo>> PublishApplicationWithHttpMessagesAsync(string appId, ApplicationPublishObject applicationPublishObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get the application settings
         /// </summary>
@@ -318,7 +318,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(string appId, ApplicationSettingUpdateObject applicationSettingUpdateObject = default(ApplicationSettingUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the available endpoint deployment regions and urls
+        /// Returns the available endpoint deployment regions and URLs
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

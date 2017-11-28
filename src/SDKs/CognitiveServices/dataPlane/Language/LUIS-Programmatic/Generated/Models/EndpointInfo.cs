@@ -30,7 +30,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the EndpointInfo class.
         /// </summary>
         /// <param name="endpointRegion">The endpoint's region.</param>
-        public EndpointInfo(object versionId = default(object), bool? isStaging = default(bool?), string endpointUrl = default(string), string region = default(string), string assignedEndpointKey = default(string), string endpointRegion = default(string), string publishedDateTime = default(string))
+        public EndpointInfo(string versionId = default(string), bool? isStaging = default(bool?), string endpointUrl = default(string), string region = default(string), string assignedEndpointKey = default(string), string endpointRegion = default(string), string publishedDateTime = default(string))
         {
             VersionId = versionId;
             IsStaging = isStaging;
@@ -50,7 +50,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionId")]
-        public object VersionId { get; set; }
+        public string VersionId { get; set; }
 
         /// <summary>
         /// </summary>

@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// class.
         /// </summary>
         /// <param name="endpointRegion">The endpoint's region.</param>
-        public ProductionOrStagingEndpointInfo(object versionId = default(object), bool? isStaging = default(bool?), string endpointUrl = default(string), string region = default(string), string assignedEndpointKey = default(string), string endpointRegion = default(string), string publishedDateTime = default(string))
+        public ProductionOrStagingEndpointInfo(string versionId = default(string), bool? isStaging = default(bool?), string endpointUrl = default(string), string region = default(string), string assignedEndpointKey = default(string), string endpointRegion = default(string), string publishedDateTime = default(string))
             : base(versionId, isStaging, endpointUrl, region, assignedEndpointKey, endpointRegion, publishedDateTime)
         {
             CustomInit();
