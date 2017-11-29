@@ -55,9 +55,37 @@
                 Assert.Contains(versionsWithUpdate, v => v.Version.Equals(versionToUpdate.Version));
                 Assert.DoesNotContain(versionsWithUpdate, v => v.Version.Equals(first.Version));
 
-                await client.Versions.RenameApplicationVersionAsync(appId, versionToUpdate.Version, new TaskUpdateObject {
+                await client.Versions.RenameApplicationVersionAsync(appId, versionToUpdate.Version, new TaskUpdateObject
+                {
                     Version = first.Version
                 });
+            });
+        }
+
+
+        [Fact]
+        public void DeleteApplicationVersion()
+        {
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.GetApplicationVersionsAsync(appId);
+                var first = versions.FirstOrDefault();
+                var testVersion = new TaskUpdateObject
+                {
+                    Version = "test"
+                };
+
+                await client.Versions.CloneVersionAsync(appId, first.Version, testVersion);
+
+                var versionsWithTest = await client.Versions.GetApplicationVersionsAsync(appId);
+
+                Assert.Contains(versionsWithTest, v => v.Version.Equals(testVersion.Version));
+
+                await client.Versions.DeleteApplicationVersionAsync(appId, testVersion.Version);
+
+                var versionsWithoutTest = await client.Versions.GetApplicationVersionsAsync(appId);
+
+                Assert.DoesNotContain(versionsWithoutTest, v => v.Version.Equals(testVersion.Version));
             });
         }
     }
