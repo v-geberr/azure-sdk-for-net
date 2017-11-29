@@ -41,7 +41,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "SubLists")]
+        [JsonProperty(PropertyName = "subLists")]
         public IList<WordListObject> SubLists { get; set; }
 
     }

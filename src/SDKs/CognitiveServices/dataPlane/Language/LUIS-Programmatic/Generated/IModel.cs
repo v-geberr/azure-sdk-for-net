@@ -828,6 +828,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <summary>
         /// Adds a batch of sublists to an existing closedlist.
         /// </summary>
+        /// <param name='appId'>
+        /// Format - guid. The application ID.
+        /// </param>
+        /// <param name='versionId'>
+        /// The version ID of the task.
+        /// </param>
+        /// <param name='clEntityId'>
+        /// Format - guid. The closed list model ID.
+        /// </param>
         /// <param name='closedListModelPatchObject'>
         /// A json object containing words list batch.
         /// </param>
@@ -840,7 +849,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> PatchClosedListEntityModelWithHttpMessagesAsync(ClosedListModelPatchObject closedListModelPatchObject = default(ClosedListModelPatchObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse> PatchClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, ClosedListModelPatchObject closedListModelPatchObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a closed list model from the application.
         /// </summary>
