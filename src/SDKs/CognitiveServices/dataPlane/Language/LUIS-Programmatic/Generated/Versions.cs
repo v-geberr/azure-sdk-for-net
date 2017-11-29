@@ -535,7 +535,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='taskUpdateObject'>
+        /// <param name='versionUpdateObject'>
         /// A JSON object containing Name and Description of the application.
         /// </param>
         /// <param name='customHeaders'>
@@ -556,7 +556,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RenameApplicationVersionWithHttpMessagesAsync(string appId, string versionId, TaskUpdateObject taskUpdateObject = default(TaskUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> RenameApplicationVersionWithHttpMessagesAsync(string appId, string versionId, TaskUpdateObject versionUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -566,6 +566,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (versionUpdateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "versionUpdateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -573,9 +577,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("taskUpdateObject", taskUpdateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("versionUpdateObject", versionUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RenameApplicationVersion", tracingParameters);
             }
@@ -607,9 +611,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(taskUpdateObject != null)
+            if(versionUpdateObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(taskUpdateObject, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(versionUpdateObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

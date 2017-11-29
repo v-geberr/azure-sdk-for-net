@@ -39,7 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Version")]
+        [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
 
     }

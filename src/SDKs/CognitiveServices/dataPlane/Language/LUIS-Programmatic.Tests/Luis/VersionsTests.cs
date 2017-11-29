@@ -1,6 +1,8 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
+    using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
+    using System.Linq;
     using Xunit;
 
     public class VersionsTests: BaseTest
@@ -32,6 +34,30 @@
                     Assert.Equal(version.Version, result.Version);
                     Assert.Equal(version.TrainingStatus, result.TrainingStatus);
                 }
+            });
+        }
+
+        [Fact]
+        public void RenameApplicationVersion()
+        {
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.GetApplicationVersionsAsync(appId);
+                var first = versions.FirstOrDefault();
+                var versionToUpdate = new TaskUpdateObject
+                {
+                    Version = "test"
+                };
+
+                await client.Versions.RenameApplicationVersionAsync(appId, first.Version, versionToUpdate);
+                var versionsWithUpdate = await client.Versions.GetApplicationVersionsAsync(appId);
+
+                Assert.Contains(versionsWithUpdate, v => v.Version.Equals(versionToUpdate.Version));
+                Assert.DoesNotContain(versionsWithUpdate, v => v.Version.Equals(first.Version));
+
+                await client.Versions.RenameApplicationVersionAsync(appId, versionToUpdate.Version, new TaskUpdateObject {
+                    Version = first.Version
+                });
             });
         }
     }

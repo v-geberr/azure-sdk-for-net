@@ -111,7 +111,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='taskUpdateObject'>
+        /// <param name='versionUpdateObject'>
         /// A JSON object containing Name and Description of the application.
         /// </param>
         /// <param name='customHeaders'>
@@ -126,7 +126,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RenameApplicationVersionWithHttpMessagesAsync(string appId, string versionId, TaskUpdateObject taskUpdateObject = default(TaskUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> RenameApplicationVersionWithHttpMessagesAsync(string appId, string versionId, TaskUpdateObject versionUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes an application version.
         /// </summary>

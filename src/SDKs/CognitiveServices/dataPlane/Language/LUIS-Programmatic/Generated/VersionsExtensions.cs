@@ -106,15 +106,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='taskUpdateObject'>
+            /// <param name='versionUpdateObject'>
             /// A JSON object containing Name and Description of the application.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RenameApplicationVersionAsync(this IVersions operations, string appId, string versionId, TaskUpdateObject taskUpdateObject = default(TaskUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task RenameApplicationVersionAsync(this IVersions operations, string appId, string versionId, TaskUpdateObject versionUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RenameApplicationVersionWithHttpMessagesAsync(appId, versionId, taskUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.RenameApplicationVersionWithHttpMessagesAsync(appId, versionId, versionUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
