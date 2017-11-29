@@ -5999,7 +5999,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='prebuiltDomainCreateBaseObject'>
+        /// <param name='prebuiltDomainObject'>
         /// A prebuilt domain create object containing the name of the domain
         /// </param>
         /// <param name='customHeaders'>
@@ -6023,7 +6023,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<string>>> AddCustomPrebuiltDomainToApplicationWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainCreateBaseObject prebuiltDomainCreateBaseObject = default(PrebuiltDomainCreateBaseObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<string>>> AddCustomPrebuiltDomainToApplicationWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainCreateBaseObject prebuiltDomainObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -6032,6 +6032,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             if (versionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
+            }
+            if (prebuiltDomainObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "prebuiltDomainObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -6042,7 +6046,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
-                tracingParameters.Add("prebuiltDomainCreateBaseObject", prebuiltDomainCreateBaseObject);
+                tracingParameters.Add("prebuiltDomainObject", prebuiltDomainObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddCustomPrebuiltDomainToApplication", tracingParameters);
             }
@@ -6074,9 +6078,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(prebuiltDomainCreateBaseObject != null)
+            if(prebuiltDomainObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(prebuiltDomainCreateBaseObject, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(prebuiltDomainObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

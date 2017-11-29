@@ -1006,15 +1006,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='prebuiltDomainCreateBaseObject'>
+            /// <param name='prebuiltDomainObject'>
             /// A prebuilt domain create object containing the name of the domain
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<string>> AddCustomPrebuiltDomainToApplicationAsync(this IModel operations, string appId, string versionId, PrebuiltDomainCreateBaseObject prebuiltDomainCreateBaseObject = default(PrebuiltDomainCreateBaseObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<string>> AddCustomPrebuiltDomainToApplicationAsync(this IModel operations, string appId, string versionId, PrebuiltDomainCreateBaseObject prebuiltDomainObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddCustomPrebuiltDomainToApplicationWithHttpMessagesAsync(appId, versionId, prebuiltDomainCreateBaseObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddCustomPrebuiltDomainToApplicationWithHttpMessagesAsync(appId, versionId, prebuiltDomainObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -41,7 +41,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "DomainName")]
+        [JsonProperty(PropertyName = "domainName")]
         public string DomainName { get; set; }
 
     }
