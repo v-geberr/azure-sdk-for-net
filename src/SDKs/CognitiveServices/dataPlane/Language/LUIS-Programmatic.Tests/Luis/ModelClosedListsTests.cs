@@ -77,6 +77,20 @@
             });
         }
 
+        [Fact]
+        public void DeleteList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "d1f95436-57ac-4524-ae81-5bdd32668ccf";
+                await client.Model.DeleteClosedListEntityModelAsync(appId, versionId, listId);
+
+                var lists = await client.Model.GetApplicationVersionClosedListInfosAsync(appId, versionId);
+
+                Assert.DoesNotContain(lists, o => o.Id == listId);
+            });
+        }
+
         private static ClosedListModelCreateObject GetClosedListSample()
         {
             ////    {

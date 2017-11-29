@@ -4728,6 +4728,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <summary>
         /// Deletes a closed list model from the application.
         /// </summary>
+        /// <param name='appId'>
+        /// Format - guid. The application ID.
+        /// </param>
+        /// <param name='versionId'>
+        /// The version ID of the task.
+        /// </param>
+        /// <param name='clEntityId'>
+        /// Format - guid. The closed list model ID.
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -4737,11 +4746,29 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteClosedListEntityModelWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (appId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "appId");
+            }
+            if (versionId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
+            }
+            if (clEntityId == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "clEntityId");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4749,6 +4776,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
+                tracingParameters.Add("appId", appId);
+                tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("clEntityId", clEntityId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteClosedListEntityModel", tracingParameters);
             }
@@ -4756,6 +4786,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             var _baseUrl = Client.BaseUri;
             var _url = _baseUrl + (_baseUrl.EndsWith("/") ? "" : "/") + "apps/{appId}/versions/{versionId}/closedlists/{clEntityId}";
             _url = _url.Replace("{AzureRegion}", Rest.Serialization.SafeJsonConvert.SerializeObject(Client.AzureRegion, Client.SerializationSettings).Trim('"'));
+            _url = _url.Replace("{appId}", System.Uri.EscapeDataString(appId));
+            _url = _url.Replace("{versionId}", System.Uri.EscapeDataString(versionId));
+            _url = _url.Replace("{clEntityId}", System.Uri.EscapeDataString(clEntityId));
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;
