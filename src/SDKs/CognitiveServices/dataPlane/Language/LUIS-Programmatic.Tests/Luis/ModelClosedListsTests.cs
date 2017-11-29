@@ -63,7 +63,7 @@
                        new WordListObject()
                        {
                            CanonicalForm = "Texas",
-                           List = new List<string>() { "TX", "Texas" }
+                           List = new List<string>() { "tx", "texas" }
                        }
                     }
                 };
@@ -91,6 +91,31 @@
             });
         }
 
+        [Fact]
+        public void AddWordListToExistingList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "6351ad05-55be-479c-9e86-93e3036c2624";
+                await client.Model.PatchClosedListEntityModelAsync(appId, versionId, listId, new ClosedListModelPatchObject
+                {
+                    SubLists = new List<WordListObject>()
+                    {
+                        new WordListObject()
+                        {
+                            CanonicalForm = "Texas",
+                            List = new List<string>() { "tx", "texas" }
+                        }
+                    }
+                });
+
+                var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                Assert.Equal(4, list.SubLists.Count);
+                Assert.Contains(list.SubLists, o => o.CanonicalForm == "Texas" && o.List.Contains("tx") && o.List.Contains("texas"));
+            });
+        }
+
         private static ClosedListModelCreateObject GetClosedListSample()
         {
             ////    {
@@ -99,15 +124,15 @@
             ////    	[
             ////    		{
             ////    			"canonicalForm": "New York",
-            ////    			"list": [ "NY", "New York" ]
+            ////    			"list": [ "ny", "new york" ]
             ////    		},
             ////    		{
             ////    			"canonicalForm": "Washington",
-            ////    			"list": [ "WA", "Washington" ]
+            ////    			"list": [ "wa", "washington" ]
             ////    		},
             ////    		{
             ////    			"canonicalForm": "California",
-            ////    			"list": [ "CA", "California", "Calif.", "Cal." ]
+            ////    			"list": [ "ca", "california", "calif.", "cal." ]
             ////    		}
             ////    	]
             ////    }
