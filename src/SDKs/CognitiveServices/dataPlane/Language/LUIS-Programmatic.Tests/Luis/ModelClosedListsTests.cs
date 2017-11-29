@@ -49,6 +49,34 @@
             });
         }
 
+        [Fact]
+        public void UpdateList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "d1f95436-57ac-4524-ae81-5bdd32668ccf";
+                var update = new ClosedListModelUpdateObject()
+                {
+                    Name = "New States",
+                    SubLists = new List<WordListObject>()
+                    {
+                       new WordListObject()
+                       {
+                           CanonicalForm = "Texas",
+                           List = new List<string>() { "TX", "Texas" }
+                       }
+                    }
+                };
+
+                await client.Model.UpdateClosedListEntityModelAsync(appId, versionId, listId, update);
+                var updated = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                Assert.Equal("New States", updated.Name);
+                Assert.Equal(1, updated.SubLists.Count);
+                Assert.Equal("Texas", updated.SubLists[0].CanonicalForm);
+            });
+        }
+
         private static ClosedListModelCreateObject GetClosedListSample()
         {
             ////    {
@@ -73,17 +101,17 @@
             return new ClosedListModelCreateObject
             {
                 Name = "States",
-                SubLists = new List<WordListCreateObject>()
+                SubLists = new List<WordListObject>()
                 {
-                    new WordListCreateObject(
+                    new WordListObject(
                         "New York",
                         new List<string>() { "NY", "New York" }),
 
-                    new WordListCreateObject(
+                    new WordListObject(
                         "Washington",
                         new List<string>() { "WA", "Washington" }),
 
-                    new WordListCreateObject(
+                    new WordListObject(
                         "California",
                         new List<string>() { "CA", "California", "Calif.", "Cal." })
                 }
