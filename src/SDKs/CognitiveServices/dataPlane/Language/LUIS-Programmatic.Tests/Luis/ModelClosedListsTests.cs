@@ -16,12 +16,10 @@
         {
             UseClientFor(async client =>
             {
-                var sample = GetClosedListSample();
-                await client.Model.CreateClosedListEntityModelAsync(appId, versionId, sample);
                 var result = await client.Model.GetApplicationVersionClosedListInfosAsync(appId, versionId);
 
                 Assert.NotEqual(0, result.Count);
-                Assert.Contains(result, o => o.Name == sample.Name);
+                Assert.Contains(result, o => o.Name == "States");
             });
         }
 
@@ -30,14 +28,8 @@
         {
             UseClientFor(async client =>
             {
-                // Initialize
                 var sample = GetClosedListSample();
-                sample.Name = Guid.NewGuid().ToString();
-
                 var listId = await client.Model.CreateClosedListEntityModelAsync(appId, versionId, sample);
-
-                // Cleanup
-                await client.Model.DeleteClosedListEntityModelAsync(appId, versionId, listId);
 
                 Assert.True(Guid.TryParse(listId, out Guid result));
             });
