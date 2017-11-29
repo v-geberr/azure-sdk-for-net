@@ -1,59 +1,55 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
-    using System;
-    using System.Linq;
     using Xunit;
 
-    public class ModelTests: BaseTest
+    public class ModelTests : BaseTest
     {
         [Fact]
-        public void AddCustomPrebuiltDomainToApplication()
+        public void GetApplicationVersionCompositeEntityInfos()
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
-                var version = versionsApp.FirstOrDefault().Version;
-                var prebuiltDomainToAdd = new PrebuiltDomainCreateBaseObject
-                {
-                    DomainName = "Gaming"
-                };
+                var result = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomainToAdd);
-                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
-
-                foreach (var result in results)
+                Assert.Equal(3, result.Count);
+                foreach (var entity in result)
                 {
-                    Assert.True(Guid.TryParse(result, out Guid modelGuid));
-                    Assert.Contains(prebuiltModels, m => m.Id.Equals(result));
+                    Assert.True(Guid.TryParse(entity.Id, out Guid id));
                 }
             });
         }
 
         [Fact]
-        public void DeleteCustomPrebuiltDomainModels()
+        public void CreateCompositeEntityExtractor()
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
-                var version = versionsApp.FirstOrDefault().Version;
-                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
-                {
-                    DomainName = "Gaming"
-                };
+                var entityId = Guid.NewGuid().ToString().Replace("-", string.Empty);
+                var childEntity = new ChildEntity(entityId, "datetime");
+                var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "Reservation");
+                var result = await client.Model.CreateCompositeEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
-                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
-
-                Assert.True(prebuiltModels.Count > 0);
-
-                await client.Model.DeleteCustomPrebuiltDomainModelsAsync(appId, version, prebuiltDomain.DomainName);
-
-                prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
-
-                Assert.True(prebuiltModels.Count == 0);
+                Assert.True(Guid.TryParse(result, out Guid id));
             });
         }
+
+        [Fact]
+        public void GetCompositeEntityInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+
+                var result = await client.Model.GetCompositeEntityInfoAsync(BaseTest.appId, "0.1", entities.First().Id);
+
+                Assert.True(Guid.TryParse(result.Id, out Guid id));
+            });
+        }
+
     }
 }
