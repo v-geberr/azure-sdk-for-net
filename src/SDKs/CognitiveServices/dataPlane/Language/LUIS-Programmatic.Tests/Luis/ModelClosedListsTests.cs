@@ -35,6 +35,20 @@
             });
         }
 
+        [Fact]
+        public void GetList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "4b501a95-2720-43d7-8ca9-4166c0faa6cb";
+                var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                // Assert
+                Assert.Equal("Retrieve Sample List", list.Name);
+                Assert.Equal(3, list.SubLists.Count);
+            });
+        }
+
         private static ClosedListModelCreateObject GetClosedListSample()
         {
             ////    {
