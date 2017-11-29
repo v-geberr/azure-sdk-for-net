@@ -34,15 +34,18 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='taskUpdateObject'>
+            /// <param name='versionCloneObject'>
             /// An object containing the new version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task CloneVersionAsync(this IVersions operations, string appId, string versionId, TaskUpdateObject taskUpdateObject = default(TaskUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CloneVersionAsync(this IVersions operations, string appId, string versionId, TaskUpdateObject versionCloneObject = default(TaskUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.CloneVersionWithHttpMessagesAsync(appId, versionId, taskUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.CloneVersionWithHttpMessagesAsync(appId, versionId, versionCloneObject, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>

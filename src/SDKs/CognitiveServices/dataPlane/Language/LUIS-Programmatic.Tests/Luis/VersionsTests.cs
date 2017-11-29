@@ -62,7 +62,6 @@
             });
         }
 
-
         [Fact]
         public void DeleteApplicationVersion()
         {
@@ -75,17 +74,41 @@
                     Version = "test"
                 };
 
-                await client.Versions.CloneVersionAsync(appId, first.Version, testVersion);
+                var newVersion = await client.Versions.CloneVersionAsync(appId, first.Version, testVersion);
 
                 var versionsWithTest = await client.Versions.GetApplicationVersionsAsync(appId);
 
-                Assert.Contains(versionsWithTest, v => v.Version.Equals(testVersion.Version));
+                Assert.Contains(versionsWithTest, v => v.Version.Equals(newVersion));
 
-                await client.Versions.DeleteApplicationVersionAsync(appId, testVersion.Version);
+                await client.Versions.DeleteApplicationVersionAsync(appId, newVersion);
 
                 var versionsWithoutTest = await client.Versions.GetApplicationVersionsAsync(appId);
 
-                Assert.DoesNotContain(versionsWithoutTest, v => v.Version.Equals(testVersion.Version));
+                Assert.DoesNotContain(versionsWithoutTest, v => v.Version.Equals(newVersion));
+            });
+        }
+
+        [Fact]
+        public void CloneVersion()
+        {
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.GetApplicationVersionsAsync(appId);
+                var first = versions.FirstOrDefault();
+                var testVersion = new TaskUpdateObject
+                {
+                    Version = "test"
+                };
+
+                Assert.DoesNotContain(versions, v => v.Version.Equals(testVersion.Version));
+
+                var newVersion = await client.Versions.CloneVersionAsync(appId, first.Version, testVersion);
+
+                var versionsWithTest = await client.Versions.GetApplicationVersionsAsync(appId);
+
+                Assert.Contains(versionsWithTest, v => v.Version.Equals(newVersion));
+
+                await client.Versions.DeleteApplicationVersionAsync(appId, newVersion);
             });
         }
     }
