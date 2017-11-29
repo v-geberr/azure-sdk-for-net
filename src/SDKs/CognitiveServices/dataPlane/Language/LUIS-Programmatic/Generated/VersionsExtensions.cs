@@ -161,49 +161,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets the given application version's subscription key.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='appId'>
-            /// Format - guid. The application ID.
-            /// </param>
-            /// <param name='versionId'>
-            /// The version ID of the task.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task GetApplicationVersionSubscriptionKeyAsync(this IVersions operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.GetApplicationVersionSubscriptionKeyWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Assigns a subscription key to the given application version.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='appId'>
-            /// Format - guid. The application ID.
-            /// </param>
-            /// <param name='versionId'>
-            /// The version ID of the task.
-            /// </param>
-            /// <param name='keyValue'>
-            /// The value of the endpoint key to assign to the application.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task AssignSubscriptionKeyToVersionAsync(this IVersions operations, string appId, string versionId, string keyValue = default(string), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.AssignSubscriptionKeyToVersionWithHttpMessagesAsync(appId, versionId, keyValue, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
             /// Assigns an external API key to the given application according to the
             /// specified key type.
             /// </summary>
