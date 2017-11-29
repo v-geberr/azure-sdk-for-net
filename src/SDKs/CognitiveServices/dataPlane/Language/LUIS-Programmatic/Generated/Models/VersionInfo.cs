@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="trainingStatus">Possible values include:
         /// 'NeedsTraining', 'InProgress', 'Trained'</param>
-        public VersionInfo(string version, System.DateTime createdDateTime, System.DateTime lastModifiedDateTime, TrainingStatus trainingStatus, System.DateTime? lastTrainedDateTime = default(System.DateTime?), System.DateTime? lastPublishedDateTime = default(System.DateTime?), string endpointUrl = default(string), IDictionary<string, string> assignedEndpointKey = default(IDictionary<string, string>), object externalApiKeys = default(object), int? intentsCount = default(int?), int? entitiesCount = default(int?), int? endpointHitsCount = default(int?))
+        public VersionInfo(string version, TrainingStatus trainingStatus, System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastModifiedDateTime = default(System.DateTime?), System.DateTime? lastTrainedDateTime = default(System.DateTime?), System.DateTime? lastPublishedDateTime = default(System.DateTime?), string endpointUrl = default(string), IDictionary<string, string> assignedEndpointKey = default(IDictionary<string, string>), object externalApiKeys = default(object), int? intentsCount = default(int?), int? entitiesCount = default(int?), int? endpointHitsCount = default(int?))
         {
             Version = version;
             CreatedDateTime = createdDateTime;
@@ -61,12 +61,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
-        public System.DateTime CreatedDateTime { get; set; }
+        public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "lastModifiedDateTime")]
-        public System.DateTime LastModifiedDateTime { get; set; }
+        public System.DateTime? LastModifiedDateTime { get; set; }
 
         /// <summary>
         /// </summary>
