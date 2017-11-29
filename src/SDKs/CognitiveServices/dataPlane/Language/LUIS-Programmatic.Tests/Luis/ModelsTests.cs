@@ -38,5 +38,19 @@ namespace Microsoft.Azure.CognitiveServices.LUIS.Programmatic.Tests.Luis
                 Assert.True(Guid.TryParse(result, out Guid id));
             });
         }
+
+        [Fact]
+        public void GetCompositeEntityInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+
+                var result = await client.Model.GetCompositeEntityInfoAsync(BaseTest.appId, "0.1", entities.First().Id);
+
+                Assert.True(Guid.TryParse(result.Id, out Guid id));
+            });
+        }
+
     }
 }
