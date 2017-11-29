@@ -810,7 +810,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The closed list model ID.
         /// </param>
         /// <param name='closedListModelUpdateObject'>
-        /// A json object containing the new entity name and words list.
+        /// The new entity name and words list.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -824,19 +824,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, ClosedListModelUpdateObject closedListModelUpdateObject = default(ClosedListModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, ClosedListModelUpdateObject closedListModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a batch of sublists to an existing closedlist.
         /// </summary>
-        /// <param name='appId'>
-        /// Format - guid. The application ID.
-        /// </param>
-        /// <param name='versionId'>
-        /// The version ID of the task.
-        /// </param>
-        /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
-        /// </param>
         /// <param name='closedListModelPatchObject'>
         /// A json object containing words list batch.
         /// </param>
@@ -849,22 +840,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> PatchClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, ClosedListModelPatchObject closedListModelPatchObject = default(ClosedListModelPatchObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> PatchClosedListEntityModelWithHttpMessagesAsync(ClosedListModelPatchObject closedListModelPatchObject = default(ClosedListModelPatchObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a closed list model from the application.
         /// </summary>
-        /// <param name='appId'>
-        /// Format - guid. The application ID.
-        /// </param>
-        /// <param name='versionId'>
-        /// The version ID of the task.
-        /// </param>
-        /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
-        /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
         /// </param>
@@ -874,10 +853,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.HttpOperationException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> DeleteClosedListEntityModelWithHttpMessagesAsync(string appId, string versionId, string clEntityId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteClosedListEntityModelWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the prebuilt entity model.
         /// </summary>
@@ -1081,7 +1057,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListCreateObject wordListCreateObject = default(WordListCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListObject wordListCreateObject = default(WordListObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a customizable prebuilt domain along with all of its models to
         /// this application.
