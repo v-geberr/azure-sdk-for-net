@@ -15,20 +15,20 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class WordListCreateObject
+    public partial class WordListObject
     {
         /// <summary>
-        /// Initializes a new instance of the WordListCreateObject class.
+        /// Initializes a new instance of the WordListObject class.
         /// </summary>
-        public WordListCreateObject()
+        public WordListObject()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the WordListCreateObject class.
+        /// Initializes a new instance of the WordListObject class.
         /// </summary>
-        public WordListCreateObject(string canonicalForm = default(string), IList<string> list = default(IList<string>))
+        public WordListObject(string canonicalForm = default(string), IList<string> list = default(IList<string>))
         {
             CanonicalForm = canonicalForm;
             List = list;

@@ -748,12 +748,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// Format - guid. The closed list model ID.
             /// </param>
             /// <param name='closedListModelUpdateObject'>
-            /// A json object containing the new entity name and words list.
+            /// The new entity name and words list.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateClosedListEntityModelAsync(this IModel operations, string appId, string versionId, string clEntityId, ClosedListModelUpdateObject closedListModelUpdateObject = default(ClosedListModelUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateClosedListEntityModelAsync(this IModel operations, string appId, string versionId, string clEntityId, ClosedListModelUpdateObject closedListModelUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateClosedListEntityModelWithHttpMessagesAsync(appId, versionId, clEntityId, closedListModelUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -764,24 +764,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='appId'>
-            /// Format - guid. The application ID.
-            /// </param>
-            /// <param name='versionId'>
-            /// The version ID of the task.
-            /// </param>
-            /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
-            /// </param>
             /// <param name='closedListModelPatchObject'>
             /// A json object containing words list batch.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task PatchClosedListEntityModelAsync(this IModel operations, string appId, string versionId, string clEntityId, ClosedListModelPatchObject closedListModelPatchObject = default(ClosedListModelPatchObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task PatchClosedListEntityModelAsync(this IModel operations, ClosedListModelPatchObject closedListModelPatchObject = default(ClosedListModelPatchObject), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.PatchClosedListEntityModelWithHttpMessagesAsync(appId, versionId, clEntityId, closedListModelPatchObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.PatchClosedListEntityModelWithHttpMessagesAsync(closedListModelPatchObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -790,21 +781,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='appId'>
-            /// Format - guid. The application ID.
-            /// </param>
-            /// <param name='versionId'>
-            /// The version ID of the task.
-            /// </param>
-            /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
-            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteClosedListEntityModelAsync(this IModel operations, string appId, string versionId, string clEntityId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteClosedListEntityModelAsync(this IModel operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteClosedListEntityModelWithHttpMessagesAsync(appId, versionId, clEntityId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteClosedListEntityModelWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -985,7 +967,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ApplicationInfoResponse>> AddSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, WordListCreateObject wordListCreateObject = default(WordListCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<ApplicationInfoResponse>> AddSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, WordListObject wordListCreateObject = default(WordListObject), CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddSubListWithHttpMessagesAsync(appId, versionId, clEntityId, wordListCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {

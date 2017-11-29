@@ -30,7 +30,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the ClosedListModelUpdateObject
         /// class.
         /// </summary>
-        public ClosedListModelUpdateObject(IList<WordListCreateObject> subLists = default(IList<WordListCreateObject>), string name = default(string))
+        public ClosedListModelUpdateObject(IList<WordListObject> subLists = default(IList<WordListObject>), string name = default(string))
         {
             SubLists = subLists;
             Name = name;
@@ -44,12 +44,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "SubLists")]
-        public IList<WordListCreateObject> SubLists { get; set; }
+        [JsonProperty(PropertyName = "subLists")]
+        public IList<WordListObject> SubLists { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
     }
