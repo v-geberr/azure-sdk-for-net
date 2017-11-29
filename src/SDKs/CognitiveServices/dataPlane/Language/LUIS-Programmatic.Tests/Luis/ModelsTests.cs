@@ -24,5 +24,19 @@ namespace Microsoft.Azure.CognitiveServices.LUIS.Programmatic.Tests.Luis
                 }
             });
         }
+
+        [Fact]
+        public void CreateCompositeEntityExtractor()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = Guid.NewGuid().ToString().Replace("-", string.Empty);
+                var childEntity = new ChildEntity(entityId, "datetime");
+                var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "Reservation");
+                var result = await client.Model.CreateCompositeEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
+
+                Assert.True(Guid.TryParse(result, out Guid id));
+            });
+        }
     }
 }
