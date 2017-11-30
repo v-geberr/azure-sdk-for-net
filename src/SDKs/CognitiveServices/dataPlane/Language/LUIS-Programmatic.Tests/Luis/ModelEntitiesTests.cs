@@ -68,5 +68,29 @@
                 await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
             });
         }
+
+        [Fact]
+        public void RenameEntity()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = await client.Model.CreateEntityExtractorAsync(appId, versionId, new ModelCreateObject
+                {
+                    Name = "Rename Entity Test"
+                });
+
+                await client.Model.RenameEntityModelAsync(appId, versionId, entityId, new ModelUpdateObject
+                {
+                    Name = "Entity Test Renamed"
+                });
+
+                var result = await client.Model.GetEntityInfoAsync(appId, versionId, entityId);
+
+                Assert.NotNull(result);
+                Assert.Equal("Entity Test Renamed", result.Name);
+
+                await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
+            });
+        }
     }
 }
