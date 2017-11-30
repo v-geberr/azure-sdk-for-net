@@ -1,6 +1,7 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
@@ -108,6 +109,39 @@
                 var results = await client.Model.GetApplicationVersionEntityInfosAsync(appId, versionId);
 
                 Assert.DoesNotContain(results, o => o.Id == entityId);
+            });
+        }
+
+        [Fact]
+        public void GetSuggestionsForUntrainedEntity_ReturnsEmpty()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = await client.Model.CreateEntityExtractorAsync(appId, versionId, new ModelCreateObject
+                {
+                    Name = "Suggestions Entity Test"
+                });
+
+                var results = await client.Model.SuggestEndpointQueriesForEntitiesAsync(appId, versionId, entityId);
+                var count = results.SelectMany(o => o.EntityPredictions).Count(o => o.EntityName == "Suggestions Entity Test");
+
+                await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
+
+                Assert.Equal(0, count);
+            });
+        }
+
+        [Fact]
+        public void GetSuggestionsForTrainedEntity_ReturnsResults()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = (await client.Model.GetApplicationVersionEntityInfosAsync(appId, versionId)).Single(o => o.Name == "RoomType").Id;
+
+                var results = await client.Model.SuggestEndpointQueriesForEntitiesAsync(appId, versionId, entityId);
+                var count = results.SelectMany(o => o.EntityPredictions).Count(o => o.EntityName == "RoomType");
+
+                Assert.NotEqual(0, count);
             });
         }
     }
