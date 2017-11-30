@@ -32,5 +32,22 @@
                 Assert.All(prebuiltEntities, e => e.ReadableType.Equals("Prebuilt Entity Extractor"));
             });
         }
+
+        [Fact]
+        public void AddPrebuiltEntityExtractors()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var prebuiltEntitiesToAdd = new string[]
+                {
+                    "number",
+                    "ordinal"
+                };
+                var prebuiltEntitiesAdded = await client.Model.AddPrebuiltEntityExtractorsAsync(appId, version, prebuiltEntitiesToAdd);
+
+                Assert.All(prebuiltEntitiesAdded, e => prebuiltEntitiesToAdd.Contains(e.Name));
+            });
+        }
     }
 }
