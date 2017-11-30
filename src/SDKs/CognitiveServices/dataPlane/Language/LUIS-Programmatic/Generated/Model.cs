@@ -59,7 +59,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='modelCreateObject'>
+        /// <param name='intentCreateObject'>
         /// A model object containing the name of the new intent classifier.
         /// </param>
         /// <param name='customHeaders'>
@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject intentCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -93,6 +93,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (intentCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "intentCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -100,9 +104,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("modelCreateObject", modelCreateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("intentCreateObject", intentCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateIntentClassifier", tracingParameters);
             }
@@ -134,9 +138,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(modelCreateObject != null)
+            if(intentCreateObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(modelCreateObject, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(intentCreateObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1822,7 +1826,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<PrebuiltEntityExtractor>>> AddPrebuiltEntityExtractorsWithHttpMessagesAsync(string appId, string versionId, IList<string> prebuiltExtractorNames = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<PrebuiltEntityExtractor>>> AddPrebuiltEntityExtractorsWithHttpMessagesAsync(string appId, string versionId, IList<string> prebuiltExtractorNames, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -1832,6 +1836,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (prebuiltExtractorNames == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "prebuiltExtractorNames");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1839,9 +1847,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("prebuiltExtractorNames", prebuiltExtractorNames);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("prebuiltExtractorNames", prebuiltExtractorNames);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddPrebuiltEntityExtractors", tracingParameters);
             }
@@ -2673,7 +2681,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> RenameIntentModelWithHttpMessagesAsync(string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject = default(ModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> RenameIntentModelWithHttpMessagesAsync(string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -2687,6 +2695,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "intentId");
             }
+            if (modelUpdateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "modelUpdateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -2694,10 +2706,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("modelUpdateObject", modelUpdateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("intentId", intentId);
+                tracingParameters.Add("modelUpdateObject", modelUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "RenameIntentModel", tracingParameters);
             }
@@ -5640,6 +5652,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
@@ -5649,7 +5664,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(string appId, string versionId, string intentId, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<IntentsSuggestionExample>>> SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(string appId, string versionId, string intentId, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -5765,9 +5780,27 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse();
+            var _result = new HttpOperationResponse<IList<IntentsSuggestionExample>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<IntentsSuggestionExample>>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
             if (_shouldTrace)
             {
                 ServiceClientTracing.Exit(_invocationId, _result);
@@ -6344,7 +6377,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> AddCustomPrebuiltIntentModelWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject = default(PrebuiltDomainModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> AddCustomPrebuiltIntentModelWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -6354,6 +6387,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (prebuiltDomainModelCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "prebuiltDomainModelCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -6361,9 +6398,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("prebuiltDomainModelCreateObject", prebuiltDomainModelCreateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("prebuiltDomainModelCreateObject", prebuiltDomainModelCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "AddCustomPrebuiltIntentModel", tracingParameters);
             }
@@ -6509,7 +6546,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<IntentClassifier>>> GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -6609,7 +6646,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<ModelInfo>>();
+            var _result = new HttpOperationResponse<IList<IntentClassifier>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6618,7 +6655,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<ModelInfo>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<IntentClassifier>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -6998,7 +7035,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<CustomPrebuiltModel>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -7098,7 +7135,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<ModelInfo>>();
+            var _result = new HttpOperationResponse<IList<CustomPrebuiltModel>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7107,7 +7144,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<ModelInfo>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<CustomPrebuiltModel>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

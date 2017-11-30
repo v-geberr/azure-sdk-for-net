@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='modelCreateObject'>
+        /// <param name='intentCreateObject'>
         /// A model object containing the name of the new intent classifier.
         /// </param>
         /// <param name='customHeaders'>
@@ -49,7 +49,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject intentCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the intent models.
         /// </summary>
@@ -352,7 +352,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<PrebuiltEntityExtractor>>> AddPrebuiltEntityExtractorsWithHttpMessagesAsync(string appId, string versionId, IList<string> prebuiltExtractorNames = default(IList<string>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<PrebuiltEntityExtractor>>> AddPrebuiltEntityExtractorsWithHttpMessagesAsync(string appId, string versionId, IList<string> prebuiltExtractorNames, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the prebuilt entity models.
         /// </summary>
@@ -498,7 +498,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RenameIntentModelWithHttpMessagesAsync(string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject = default(ModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> RenameIntentModelWithHttpMessagesAsync(string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes an intent classifier from the application.
         /// </summary>
@@ -1017,10 +1017,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(string appId, string versionId, string intentId, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<IntentsSuggestionExample>>> SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(string appId, string versionId, string intentId, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get suggestion examples that would improve the accuracy of the
         /// entity model.
@@ -1142,7 +1145,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> AddCustomPrebuiltIntentModelWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject = default(PrebuiltDomainModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> AddCustomPrebuiltIntentModelWithHttpMessagesAsync(string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets custom prebuilt intents information of this application
         /// </summary>
@@ -1167,7 +1170,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<IntentClassifier>>> GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a custom prebuilt entity model to the application
         /// </summary>
@@ -1246,7 +1249,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<CustomPrebuiltModel>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a prebuilt domain's models from the application.
         /// </summary>

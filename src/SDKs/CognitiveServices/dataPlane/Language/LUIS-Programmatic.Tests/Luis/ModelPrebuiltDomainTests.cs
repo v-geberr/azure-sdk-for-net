@@ -94,5 +94,65 @@
                 Assert.Contains(prebuiltEntities, entity => entity.Id == guidModel);
             });
         }
+
+        [Fact]
+        public void GetCustomPrebuiltDomainIntentsInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
+                {
+                    DomainName = "Gaming"
+                };
+
+                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
+                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+
+                Assert.Contains(prebuiltIntents, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
+            });
+        }
+
+        [Fact]
+        public void AddCustomPrebuiltIntentModel()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltModel = new PrebuiltDomainModelCreateObject
+                {
+                    DomainName = "Calendar",
+                    ModelName = "Add"
+                };
+
+                var guidModel = await client.Model.AddCustomPrebuiltIntentModelAsync(appId, version, prebuiltModel);
+                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+
+                Assert.Contains(prebuiltIntents, entity => entity.Id == guidModel);
+            });
+        }
+
+        [Fact]
+        public void GetCustomPrebuiltDomainModelsInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
+                {
+                    DomainName = "Calendar"
+                };
+
+                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
+                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                
+                var validTypes = new string[] { "Intent Classifier", "Entity Extractor" };
+
+                Assert.True(prebuiltModels.All(m => validTypes.Contains(m.ReadableType)));
+            });
+        }
     }
 }

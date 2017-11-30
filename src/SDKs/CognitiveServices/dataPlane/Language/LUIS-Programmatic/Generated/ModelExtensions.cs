@@ -33,15 +33,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='modelCreateObject'>
+            /// <param name='intentCreateObject'>
             /// A model object containing the name of the new intent classifier.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CreateIntentClassifierAsync(this IModel operations, string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateIntentClassifierAsync(this IModel operations, string appId, string versionId, ModelCreateObject intentCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateIntentClassifierWithHttpMessagesAsync(appId, versionId, modelCreateObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateIntentClassifierWithHttpMessagesAsync(appId, versionId, intentCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -317,7 +317,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<PrebuiltEntityExtractor>> AddPrebuiltEntityExtractorsAsync(this IModel operations, string appId, string versionId, IList<string> prebuiltExtractorNames = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<PrebuiltEntityExtractor>> AddPrebuiltEntityExtractorsAsync(this IModel operations, string appId, string versionId, IList<string> prebuiltExtractorNames, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddPrebuiltEntityExtractorsWithHttpMessagesAsync(appId, versionId, prebuiltExtractorNames, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -453,7 +453,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RenameIntentModelAsync(this IModel operations, string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject = default(ModelUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task RenameIntentModelAsync(this IModel operations, string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.RenameIntentModelWithHttpMessagesAsync(appId, versionId, intentId, modelUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -933,9 +933,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SuggestEndpointQueriesForIntentsAsync(this IModel operations, string appId, string versionId, string intentId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<IntentsSuggestionExample>> SuggestEndpointQueriesForIntentsAsync(this IModel operations, string appId, string versionId, string intentId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(appId, versionId, intentId, take, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(appId, versionId, intentId, take, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -1043,7 +1046,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> AddCustomPrebuiltIntentModelAsync(this IModel operations, string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject = default(PrebuiltDomainModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> AddCustomPrebuiltIntentModelAsync(this IModel operations, string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddCustomPrebuiltIntentModelWithHttpMessagesAsync(appId, versionId, prebuiltDomainModelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1066,7 +1069,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ModelInfo>> GetCustomPrebuiltDomainIntentsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<IntentClassifier>> GetCustomPrebuiltDomainIntentsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -1139,7 +1142,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ModelInfo>> GetCustomPrebuiltDomainModelsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<CustomPrebuiltModel>> GetCustomPrebuiltDomainModelsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
