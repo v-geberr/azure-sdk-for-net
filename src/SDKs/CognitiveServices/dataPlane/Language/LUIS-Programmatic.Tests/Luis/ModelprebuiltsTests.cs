@@ -63,5 +63,20 @@
                 Assert.Equal(prebuiltId, prebuiltEntity.Id);
             });
         }
+
+        [Fact]
+        public void DeletePrebuiltModel()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var prebuiltId = "1e14dc89-be04-46ef-ab26-2a9768fad89b";
+
+                await client.Model.DeletePrebuiltModelAsync(appId, version, prebuiltId);
+                var prebuiltEntitiesWithoutDeleted = await client.Model.GetApplicationVersionPrebuiltInfosAsync(appId, version);
+
+                Assert.DoesNotContain(prebuiltEntitiesWithoutDeleted, e => e.Id.Equals(prebuiltId));
+            });
+        }
     }
 }
