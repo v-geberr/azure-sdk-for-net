@@ -49,5 +49,19 @@
                 Assert.All(prebuiltEntitiesAdded, e => prebuiltEntitiesToAdd.Contains(e.Name));
             });
         }
+
+        [Fact]
+        public void GetPrebuiltInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var prebuiltId = "a065c863-918e-4c56-a267-9aaae3c7dced";
+
+                var prebuiltEntity = await client.Model.GetPrebuiltInfoAsync(appId, version, prebuiltId);
+
+                Assert.Equal(prebuiltId, prebuiltEntity.Id);
+            });
+        }
     }
 }
