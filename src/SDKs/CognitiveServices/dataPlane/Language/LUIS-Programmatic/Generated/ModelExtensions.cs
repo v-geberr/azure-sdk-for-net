@@ -453,7 +453,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RenameIntentModelAsync(this IModel operations, string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject = default(ModelUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task RenameIntentModelAsync(this IModel operations, string appId, string versionId, string intentId, ModelUpdateObject modelUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.RenameIntentModelWithHttpMessagesAsync(appId, versionId, intentId, modelUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
