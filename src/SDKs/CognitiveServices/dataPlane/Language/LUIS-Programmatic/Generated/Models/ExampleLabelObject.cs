@@ -43,17 +43,17 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Text")]
+        [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "EntityLabels")]
+        [JsonProperty(PropertyName = "entityLabels")]
         public IList<EntityLabelObject> EntityLabels { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "IntentName")]
+        [JsonProperty(PropertyName = "intentName")]
         public string IntentName { get; set; }
 
     }

@@ -34,12 +34,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The version ID of the task.
             /// </param>
             /// <param name='exampleLabelObject'>
-            /// A JSON object containing the example label.
+            /// An example label with the expected intent and entities.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<LabelExampleResponse> AddLabelAsync(this IExamples operations, string appId, string versionId, ExampleLabelObject exampleLabelObject = default(ExampleLabelObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<LabelExampleResponse> AddLabelAsync(this IExamples operations, string appId, string versionId, ExampleLabelObject exampleLabelObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddLabelWithHttpMessagesAsync(appId, versionId, exampleLabelObject, null, cancellationToken).ConfigureAwait(false))
                 {
