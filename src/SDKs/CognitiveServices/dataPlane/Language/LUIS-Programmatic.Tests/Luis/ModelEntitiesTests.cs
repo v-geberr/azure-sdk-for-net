@@ -92,5 +92,23 @@
                 await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
             });
         }
+
+        [Fact]
+        public void DeleteEntity()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = await client.Model.CreateEntityExtractorAsync(appId, versionId, new ModelCreateObject
+                {
+                    Name = "Delete Entity Test"
+                });
+
+                await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
+
+                var results = await client.Model.GetApplicationVersionEntityInfosAsync(appId, versionId);
+
+                Assert.DoesNotContain(results, o => o.Id == entityId);
+            });
+        }
     }
 }
