@@ -43,6 +43,7 @@
             {
                 var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
                 var entityId = entities.Last().Id;
+
                 var result = await client.Model.GetCompositeEntityInfoAsync(BaseTest.appId, "0.1", entityId);
 
                 Assert.True(Guid.TryParse(result.Id, out Guid id));
@@ -77,6 +78,40 @@
 
                 entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entityId);
+            });
+        }
+
+        [Fact(Skip = "Bad Request")]
+        public void CreateCompositeEntityChildModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entityId = entities.Last().Id;
+
+                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new { name = "datetime" });
+                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new ChildEntity { Name = "datetime" });
+                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "datetime");
+                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "{\t\"name\" : \"datetime\"}");
+                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "{ name: datetime }");
+
+                Assert.True(Guid.TryParse(result, out Guid id));
+            });
+        }
+
+        [Fact(Skip = "Bad Request")]
+        public void DeleteCompositeEntityChildModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entity = entities.Where(e => e.Children.Any()).Last();
+                var childEntityId = entity.Children.Last().Id;
+
+                await client.Model.DeleteCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entity.Id, childEntityId);
+
+                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                Assert.DoesNotContain(entities, e => e.Id == entity.Id && entity.Children.Any(c => c.Id == childEntityId));
             });
         }
     }
