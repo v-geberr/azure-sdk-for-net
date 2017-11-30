@@ -92,11 +92,12 @@
         }
 
         [Fact]
-        public void AddWordListToExistingList()
+        public void AddWordListsToExistingList()
         {
             UseClientFor(async client =>
             {
-                var listId = "6351ad05-55be-479c-9e86-93e3036c2624";
+                var listId = "f64b2c73-3a8d-4f00-a98b-f4adf57d5553";
+
                 await client.Model.PatchClosedListEntityModelAsync(appId, versionId, listId, new ClosedListModelPatchObject
                 {
                     SubLists = new List<WordListObject>()
@@ -105,12 +106,39 @@
                         {
                             CanonicalForm = "Texas",
                             List = new List<string>() { "tx", "texas" }
+                        },
+                        new WordListObject()
+                        {
+                            CanonicalForm = "Florida",
+                            List = new List<string>() { "fl", "florida" }
                         }
                     }
                 });
 
                 var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
 
+                Assert.Equal(5, list.SubLists.Count);
+                Assert.Contains(list.SubLists, o => o.CanonicalForm == "Texas" && o.List.Contains("tx") && o.List.Contains("texas"));
+                Assert.Contains(list.SubLists, o => o.CanonicalForm == "Florida" && o.List.Contains("fl") && o.List.Contains("florida"));
+            });
+        }
+
+        [Fact]
+        public void AddWordListToExistingList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "28027e3b-8356-4cdf-b395-24afb94e9469";
+
+                string sublistId = await client.Model.AddSubListAsync(appId, versionId, listId, new WordListObject()
+                {
+                    CanonicalForm = "Texas",
+                    List = new List<string>() { "tx", "texas" }
+                });
+
+                var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                Assert.True(int.TryParse(sublistId, out int id));
                 Assert.Equal(4, list.SubLists.Count);
                 Assert.Contains(list.SubLists, o => o.CanonicalForm == "Texas" && o.List.Contains("tx") && o.List.Contains("texas"));
             });

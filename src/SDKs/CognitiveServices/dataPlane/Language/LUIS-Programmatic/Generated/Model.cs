@@ -5935,7 +5935,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The closed list entity extractor ID.
         /// </param>
         /// <param name='wordListCreateObject'>
-        /// A json object containing words list.
+        /// Words list.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -5958,7 +5958,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListObject wordListCreateObject = default(WordListObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListObject wordListCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -5971,6 +5971,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             if (clEntityId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "clEntityId");
+            }
+            if (wordListCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "wordListCreateObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -6071,7 +6075,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<ApplicationInfoResponse>>();
+            var _result = new HttpOperationResponse<string>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -6080,7 +6084,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<ApplicationInfoResponse>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<string>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {

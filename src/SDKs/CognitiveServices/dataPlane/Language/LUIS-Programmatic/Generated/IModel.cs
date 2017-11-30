@@ -1064,7 +1064,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The closed list entity extractor ID.
         /// </param>
         /// <param name='wordListCreateObject'>
-        /// A json object containing words list.
+        /// Words list.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1081,7 +1081,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListObject wordListCreateObject = default(WordListObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> AddSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, WordListObject wordListCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a customizable prebuilt domain along with all of its models to
         /// this application.

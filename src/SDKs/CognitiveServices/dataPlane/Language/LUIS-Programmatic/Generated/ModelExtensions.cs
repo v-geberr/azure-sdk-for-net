@@ -980,12 +980,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// Format - guid. The closed list entity extractor ID.
             /// </param>
             /// <param name='wordListCreateObject'>
-            /// A json object containing words list.
+            /// Words list.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ApplicationInfoResponse>> AddSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, WordListObject wordListCreateObject = default(WordListObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> AddSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, WordListObject wordListCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddSubListWithHttpMessagesAsync(appId, versionId, clEntityId, wordListCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
