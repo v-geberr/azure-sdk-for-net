@@ -42,12 +42,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "CanonicalForm")]
+        [JsonProperty(PropertyName = "canonicalForm")]
         public string CanonicalForm { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "List")]
+        [JsonProperty(PropertyName = "list")]
         public IList<string> List { get; set; }
 
     }

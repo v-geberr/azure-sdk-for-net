@@ -1,12 +1,10 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
     using System;
-    using System.Linq;
     using System.Collections.Generic;
-    using System.Text;
-    using Xunit;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
+    using Xunit;
 
     public class ModelClosedListsTests : BaseTest
     {
