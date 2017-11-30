@@ -74,5 +74,22 @@
                 Assert.Contains(newPatterns, p => p.Name.Equals(modifiedPattern.Name));
             });
         }
+
+        [Fact]
+        public void DeletePatternFeature()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var patternId = 601781;
+
+                var patterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
+                await client.Features.DeletePatternFeatureAsync(appId, version, patternId);
+                var newPatterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
+
+                Assert.Contains(patterns, p => p.Id == patternId);
+                Assert.DoesNotContain(newPatterns, p => p.Id == patternId);
+            });
+        }
     }
 }
