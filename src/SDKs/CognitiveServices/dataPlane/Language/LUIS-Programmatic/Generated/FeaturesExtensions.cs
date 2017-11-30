@@ -212,7 +212,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject = default(PatternUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdatePatternFeatureWithHttpMessagesAsync(appId, versionId, patternId, patternUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

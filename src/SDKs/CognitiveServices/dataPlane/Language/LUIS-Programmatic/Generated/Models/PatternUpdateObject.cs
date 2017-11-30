@@ -41,17 +41,17 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Pattern")]
+        [JsonProperty(PropertyName = "pattern")]
         public string Pattern { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "IsActive")]
+        [JsonProperty(PropertyName = "isActive")]
         public bool? IsActive { get; set; }
 
     }

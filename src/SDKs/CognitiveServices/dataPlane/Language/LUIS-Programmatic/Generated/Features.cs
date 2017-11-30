@@ -1128,7 +1128,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject = default(PatternUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -1138,6 +1138,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (patternUpdateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "patternUpdateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -1145,10 +1149,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("patternUpdateObject", patternUpdateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("patternId", patternId);
+                tracingParameters.Add("patternUpdateObject", patternUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdatePatternFeature", tracingParameters);
             }

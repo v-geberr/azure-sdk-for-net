@@ -234,7 +234,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject = default(PatternUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a pattern feature from an application version.
         /// </summary>

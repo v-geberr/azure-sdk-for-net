@@ -52,5 +52,27 @@
                 Assert.Equal(patternId, pattern.Id);
             });
         }
+
+        [Fact]
+        public void UpdatePatternFeature()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var patternId = 601781;
+                var modifiedPattern = new PatternUpdateObject
+                {
+                    Name = "ModifiedEmailPattern",
+                    Pattern = "\\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}\\b"
+                };
+
+                var patterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
+                await client.Features.UpdatePatternFeatureAsync(appId, version, patternId, modifiedPattern);
+                var newPatterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
+
+                Assert.DoesNotContain(patterns, p => p.Name.Equals(modifiedPattern.Name));
+                Assert.Contains(newPatterns, p => p.Name.Equals(modifiedPattern.Name));
+            });
+        }
     }
 }
