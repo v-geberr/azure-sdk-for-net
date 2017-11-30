@@ -94,5 +94,24 @@
                 Assert.Contains(prebuiltEntities, entity => entity.Id == guidModel);
             });
         }
+
+        [Fact]
+        public void GetCustomPrebuiltDomainIntentsInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
+                {
+                    DomainName = "Gaming"
+                };
+
+                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
+                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+
+                Assert.Contains(prebuiltIntents, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
+            });
+        }
     }
 }

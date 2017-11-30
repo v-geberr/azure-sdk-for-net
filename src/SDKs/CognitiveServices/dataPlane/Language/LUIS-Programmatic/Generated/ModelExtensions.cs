@@ -1066,7 +1066,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ModelInfo>> GetCustomPrebuiltDomainIntentsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<IntentClassifier>> GetCustomPrebuiltDomainIntentsInfoAsync(this IModel operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
