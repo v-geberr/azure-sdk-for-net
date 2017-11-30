@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
-        /// <param name='modelCreateObject'>
+        /// <param name='intentCreateObject'>
         /// A model object containing the name of the new intent classifier.
         /// </param>
         /// <param name='customHeaders'>
@@ -49,7 +49,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateIntentClassifierWithHttpMessagesAsync(string appId, string versionId, ModelCreateObject intentCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the intent models.
         /// </summary>

@@ -33,15 +33,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='modelCreateObject'>
+            /// <param name='intentCreateObject'>
             /// A model object containing the name of the new intent classifier.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CreateIntentClassifierAsync(this IModel operations, string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateIntentClassifierAsync(this IModel operations, string appId, string versionId, ModelCreateObject intentCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateIntentClassifierWithHttpMessagesAsync(appId, versionId, modelCreateObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateIntentClassifierWithHttpMessagesAsync(appId, versionId, intentCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
