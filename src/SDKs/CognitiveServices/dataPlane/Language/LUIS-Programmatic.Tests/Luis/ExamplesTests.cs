@@ -1,6 +1,6 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
-    using System.Linq;
+    using System.Collections.Generic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
@@ -39,6 +39,31 @@
                 await client.Apps.DeleteApplicationAsync(appId);
 
                 Assert.Empty(examples);
+            });
+        }
+
+        [Fact]
+        public void AddExample()
+        {
+            UseClientFor(async client =>
+            {
+                var example = new ExampleLabelObject
+                {
+                    Text = "whats the weather in buenos aires?",
+                    IntentName = "WeatherInPlace",
+                    EntityLabels = new List<EntityLabelObject>()
+                    {
+                        new EntityLabelObject()
+                        {
+                            EntityName = "Place",
+                            StartCharIndex = 21,
+                            EndCharIndex = 34
+                        }
+                    }
+                };
+                var result = await client.Examples.AddLabelAsync(appId, versionId, example);
+
+                Assert.Equal(example.Text, result.UtteranceText);
             });
         }
     }
