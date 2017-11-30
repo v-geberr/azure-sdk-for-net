@@ -1,8 +1,6 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
-    using System;
     using System.Linq;
-    using System.Collections.Generic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
