@@ -1246,7 +1246,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<CustomPrebuiltModel>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a prebuilt domain's models from the application.
         /// </summary>

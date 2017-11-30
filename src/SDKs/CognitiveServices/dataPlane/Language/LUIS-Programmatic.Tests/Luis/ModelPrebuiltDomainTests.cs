@@ -128,9 +128,30 @@
                 };
 
                 var guidModel = await client.Model.AddCustomPrebuiltIntentModelAsync(appId, version, prebuiltModel);
-                var prebuiltEntities = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
 
-                Assert.Contains(prebuiltEntities, entity => entity.Id == guidModel);
+                Assert.Contains(prebuiltIntents, entity => entity.Id == guidModel);
+            });
+        }
+
+        [Fact]
+        public void GetCustomPrebuiltDomainModelsInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
+                {
+                    DomainName = "Calendar"
+                };
+
+                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
+                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                
+                var validTypes = new string[] { "Intent Classifier", "Entity Extractor" };
+
+                Assert.True(prebuiltModels.All(m => validTypes.Contains(m.ReadableType)));
             });
         }
     }

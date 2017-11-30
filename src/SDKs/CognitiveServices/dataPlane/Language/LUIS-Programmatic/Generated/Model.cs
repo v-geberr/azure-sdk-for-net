@@ -7002,7 +7002,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ModelInfo>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<CustomPrebuiltModel>>> GetCustomPrebuiltDomainModelsInfoWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -7102,7 +7102,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<IList<ModelInfo>>();
+            var _result = new HttpOperationResponse<IList<CustomPrebuiltModel>>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -7111,7 +7111,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<ModelInfo>>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<IList<CustomPrebuiltModel>>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
