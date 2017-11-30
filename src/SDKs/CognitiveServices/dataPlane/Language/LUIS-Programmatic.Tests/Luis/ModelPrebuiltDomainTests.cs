@@ -113,5 +113,25 @@
                 Assert.Contains(prebuiltIntents, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
             });
         }
+
+        [Fact]
+        public void AddCustomPrebuiltIntentModel()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltModel = new PrebuiltDomainModelCreateObject
+                {
+                    DomainName = "Calendar",
+                    ModelName = "Add"
+                };
+
+                var guidModel = await client.Model.AddCustomPrebuiltIntentModelAsync(appId, version, prebuiltModel);
+                var prebuiltEntities = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+
+                Assert.Contains(prebuiltEntities, entity => entity.Id == guidModel);
+            });
+        }
     }
 }

@@ -1043,7 +1043,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> AddCustomPrebuiltIntentModelAsync(this IModel operations, string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject = default(PrebuiltDomainModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> AddCustomPrebuiltIntentModelAsync(this IModel operations, string appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddCustomPrebuiltIntentModelWithHttpMessagesAsync(appId, versionId, prebuiltDomainModelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
