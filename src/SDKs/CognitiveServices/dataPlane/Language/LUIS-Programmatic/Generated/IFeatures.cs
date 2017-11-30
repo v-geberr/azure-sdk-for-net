@@ -49,7 +49,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<double?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject = default(PatternCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<double?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all application version pattern features.
         /// </summary>
