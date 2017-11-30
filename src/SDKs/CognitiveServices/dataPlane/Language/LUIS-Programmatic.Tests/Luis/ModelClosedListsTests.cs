@@ -144,6 +144,22 @@
             });
         }
 
+        [Fact]
+        public void DeleteWordListFromExistingList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "7b64b7c8-65a5-494c-a465-d6e60b2542b9";
+
+                await client.Model.DeleteSubListAsync(appId, versionId, listId, 6135013);
+
+                var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                Assert.Equal(2, list.SubLists.Count);
+                Assert.DoesNotContain(list.SubLists, o => o.CanonicalForm == "New York");
+            });
+        }
+
         private static ClosedListModelCreateObject GetClosedListSample()
         {
             ////    {
