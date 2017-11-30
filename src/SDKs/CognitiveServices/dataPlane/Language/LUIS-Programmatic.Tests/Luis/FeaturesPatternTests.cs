@@ -20,7 +20,6 @@
             });
         }
 
-
         [Fact]
         public void CreatePatternFeature()
         {
@@ -37,6 +36,20 @@
                 var patterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
 
                 Assert.Contains(patterns, p => p.Id.Equals(patternId));
+            });
+        }
+
+        [Fact]
+        public void GetPatternFeatureInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var patternId = 601781;
+
+                var pattern = await client.Features.GetPatternFeatureInfoAsync(appId, version, patternId);
+
+                Assert.Equal(patternId, pattern.Id);
             });
         }
     }
