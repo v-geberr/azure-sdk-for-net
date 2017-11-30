@@ -63,6 +63,7 @@
                         }
                     }
                 };
+
                 var result = await client.Examples.AddLabelAsync(appId, versionId, example);
 
                 Assert.Equal(example.Text, result.UtteranceText);
@@ -109,6 +110,19 @@
 
                 Assert.Equal(examples.Count, result.Count);
                 Assert.Contains(result, o => examples.Any(e => e.Text.Equals(o.Value.UtteranceText, StringComparison.OrdinalIgnoreCase)));
+            });
+        }
+
+        [Fact]
+        public void DeleteExample()
+        {
+            UseClientFor(async client =>
+            {
+                var exampleId = -5313926;
+                await client.Examples.DeleteExampleLabelsAsync(appId, versionId, exampleId);
+                var examples = await client.Examples.ReviewLabeledExamplesAsync(appId, versionId);
+
+                Assert.DoesNotContain(examples, o => o.Id == exampleId);
             });
         }
     }
