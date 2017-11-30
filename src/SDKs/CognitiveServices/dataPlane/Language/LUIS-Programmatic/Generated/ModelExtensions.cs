@@ -939,7 +939,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Suggests examples that would improve the accuracy of the entity model.
+            /// Get suggestion examples that would improve the accuracy of the entity
+            /// model.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -959,9 +960,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SuggestEndpointQueriesForEntitiesAsync(this IModel operations, string appId, string versionId, string entityId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<EntitiesSuggestionExample>> SuggestEndpointQueriesForEntitiesAsync(this IModel operations, string appId, string versionId, string entityId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SuggestEndpointQueriesForEntitiesWithHttpMessagesAsync(appId, versionId, entityId, take, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.SuggestEndpointQueriesForEntitiesWithHttpMessagesAsync(appId, versionId, entityId, take, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
