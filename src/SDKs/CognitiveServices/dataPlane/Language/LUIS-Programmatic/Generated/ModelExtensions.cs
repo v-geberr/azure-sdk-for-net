@@ -317,7 +317,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<PrebuiltEntityExtractor>> AddPrebuiltEntityExtractorsAsync(this IModel operations, string appId, string versionId, IList<string> prebuiltExtractorNames = default(IList<string>), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<PrebuiltEntityExtractor>> AddPrebuiltEntityExtractorsAsync(this IModel operations, string appId, string versionId, IList<string> prebuiltExtractorNames, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddPrebuiltEntityExtractorsWithHttpMessagesAsync(appId, versionId, prebuiltExtractorNames, null, cancellationToken).ConfigureAwait(false))
                 {
