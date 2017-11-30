@@ -990,7 +990,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, int subListId, WordListBaseUpdateObject wordListBaseUpdateObject = default(WordListBaseUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateSubListWithHttpMessagesAsync(string appId, string versionId, string clEntityId, int subListId, WordListBaseUpdateObject wordListBaseUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Suggests examples that would improve the accuracy of the intent
         /// model.

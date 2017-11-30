@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the SubClosedListResponse class.
         /// </summary>
-        public SubClosedListResponse(string canonicalForm = default(string), IList<string> list = default(IList<string>), double? id = default(double?))
+        public SubClosedListResponse(string canonicalForm = default(string), IList<string> list = default(IList<string>), int id = default(int))
             : base(canonicalForm, list)
         {
             Id = id;
@@ -43,7 +43,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public double? Id { get; set; }
+        public int Id { get; set; }
 
     }
 }

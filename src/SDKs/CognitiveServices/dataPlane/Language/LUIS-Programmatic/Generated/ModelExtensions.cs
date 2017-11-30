@@ -907,7 +907,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, int subListId, WordListBaseUpdateObject wordListBaseUpdateObject = default(WordListBaseUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateSubListAsync(this IModel operations, string appId, string versionId, string clEntityId, int subListId, WordListBaseUpdateObject wordListBaseUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateSubListWithHttpMessagesAsync(appId, versionId, clEntityId, subListId, wordListBaseUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
