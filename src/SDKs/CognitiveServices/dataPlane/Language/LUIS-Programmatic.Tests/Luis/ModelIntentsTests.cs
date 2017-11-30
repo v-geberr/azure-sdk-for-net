@@ -92,5 +92,20 @@
                 Assert.DoesNotContain(intentsWithoutDeleted, i => i.Id.Equals(intentId));
             });
         }
+
+        [Fact]
+        public void SuggestEndpointQueriesForIntents()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var intentId = "d81d151e-59a1-49d0-bd2d-dce0533c7efe";
+
+                var intent = await client.Model.GetIntentInfoAsync(appId, version, intentId);
+                var suggestions = await client.Model.SuggestEndpointQueriesForIntentsAsync(appId, version, intentId);
+
+                Assert.Contains(suggestions, s => s.IntentPredictions.Any(i => i.Name.Equals(intent.Name)));
+            });
+        }
     }
 }

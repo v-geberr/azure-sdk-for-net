@@ -933,9 +933,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task SuggestEndpointQueriesForIntentsAsync(this IModel operations, string appId, string versionId, string intentId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<IntentsSuggestionExample>> SuggestEndpointQueriesForIntentsAsync(this IModel operations, string appId, string versionId, string intentId, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(appId, versionId, intentId, take, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.SuggestEndpointQueriesForIntentsWithHttpMessagesAsync(appId, versionId, intentId, take, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
