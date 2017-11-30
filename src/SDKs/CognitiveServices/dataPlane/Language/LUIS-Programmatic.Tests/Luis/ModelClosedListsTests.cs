@@ -1,6 +1,7 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
     using System;
+    using System.Linq;
     using System.Collections.Generic;
     using System.Text;
     using Xunit;
@@ -157,6 +158,28 @@
 
                 Assert.Equal(2, list.SubLists.Count);
                 Assert.DoesNotContain(list.SubLists, o => o.CanonicalForm == "New York");
+            });
+        }
+
+        [Fact]
+        public void UpdateWordListFromExistingList()
+        {
+            UseClientFor(async client =>
+            {
+                var listId = "2ca6cb19-c9c2-4542-bc04-fe2472ba1d13";
+                var sublistId = 6135019;
+
+                await client.Model.UpdateSubListAsync(appId, versionId, listId, sublistId, new WordListBaseUpdateObject()
+                {
+                    CanonicalForm = "New Yorkers",
+                    List = new List<string>() { "NYC", "NY", "New York" },
+                });
+
+                var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
+
+                Assert.Equal(3, list.SubLists.Count);
+                Assert.DoesNotContain(list.SubLists, o => o.CanonicalForm == "New York");
+                Assert.Contains(list.SubLists, o => o.CanonicalForm == "New Yorkers" && o.List.Contains("NYC") && o.List.Contains("NY") && o.List.Contains("New York"));
             });
         }
 
