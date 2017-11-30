@@ -122,7 +122,7 @@
             {
                 var result = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
 
-                Assert.Equal(0, result.Count);
+                Assert.Equal(1, result.Count);
             });
         }
     }
