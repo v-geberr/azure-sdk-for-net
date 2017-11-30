@@ -75,5 +75,22 @@
                 Assert.Equal(newName.Name, newIntent.Name);
             });
         }
+
+        [Fact]
+        public void DeleteIntentModel()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var intentId = "d7a08f1a-d276-4364-b2d5-b0235c61e37f";
+
+                var intents = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
+                await client.Model.DeleteIntentModelAsync(appId, version, intentId);
+                var intentsWithoutDeleted = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
+
+                Assert.Contains(intents, i => i.Id.Equals(intentId));
+                Assert.DoesNotContain(intentsWithoutDeleted, i => i.Id.Equals(intentId));
+            });
+        }
     }
 }
