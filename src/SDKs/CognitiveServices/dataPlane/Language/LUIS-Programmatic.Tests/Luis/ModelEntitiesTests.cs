@@ -30,6 +30,26 @@
         }
 
         [Fact]
+        public void GetEntity()
+        {
+            UseClientFor(async client =>
+            {
+                var entityId = await client.Model.CreateEntityExtractorAsync(appId, versionId, new ModelCreateObject
+                {
+                    Name = "New Entity Test"
+                });
+
+                var result = await client.Model.GetEntityInfoAsync(appId, versionId, entityId);
+
+                Assert.NotNull(result);
+                Assert.Equal("New Entity Test", result.Name);
+                Assert.Equal("Entity Extractor", result.ReadableType);
+
+                await client.Model.DeleteEntityModelAsync(appId, versionId, entityId);
+            });
+        }
+
+        [Fact]
         public void CreateEntity()
         {
             UseClientFor(async client =>
