@@ -232,7 +232,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='exampleLabelObjectArray'>
-        /// A JSON array containing example labels.
+        /// Array of example labels.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -255,7 +255,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchAddLabelsWithHttpMessagesAsync(string appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray = default(IList<ExampleLabelObject>), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchAddLabelsWithHttpMessagesAsync(string appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -264,6 +264,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             if (versionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
+            }
+            if (exampleLabelObjectArray == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "exampleLabelObjectArray");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
