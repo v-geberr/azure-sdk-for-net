@@ -114,5 +114,16 @@
                 Assert.DoesNotContain(entities, e => e.Id == entity.Id && entity.Children.Any(c => c.Id == childEntityId));
             });
         }
+
+        [Fact]
+        public void GetApplicationVersionHierarchicalEntityInfos()
+        {
+            UseClientFor(async client =>
+            {
+                var result = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+
+                Assert.Equal(0, result.Count);
+            });
+        }
     }
 }
