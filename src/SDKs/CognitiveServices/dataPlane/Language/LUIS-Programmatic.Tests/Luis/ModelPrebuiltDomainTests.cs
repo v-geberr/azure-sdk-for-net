@@ -55,5 +55,24 @@
                 Assert.True(prebuiltModels.Count == 0);
             });
         }
+
+        [Fact]
+        public void GetCustomPrebuiltDomainEntitiesInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var version = versionsApp.FirstOrDefault().Version;
+                var prebuiltDomain = new PrebuiltDomainCreateBaseObject
+                {
+                    DomainName = "Gaming"
+                };
+
+                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
+                var prebuiltEntities = await client.Model.GetCustomPrebuiltDomainEntitiesInfoAsync(appId, version);
+
+                Assert.Contains(prebuiltEntities, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
+            });
+        }
     }
 }
