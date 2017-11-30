@@ -16,7 +16,7 @@
             {
                 var result = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
 
-                Assert.Equal(3, result.Count);
+                Assert.Equal(4, result.Count);
                 foreach (var entity in result)
                 {
                     Assert.True(Guid.TryParse(entity.Id, out Guid id));
@@ -62,6 +62,21 @@
 
                 entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
                 Assert.Equal(hierarchicalModel.Name, entities.Single(e => e.Id == entityId).Name);
+            });
+        }
+
+        [Fact]
+        public void DeleteCompositeEntityModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entityId = entities.Last().Id;
+
+                await client.Model.DeleteCompositeEntityModelAsync(BaseTest.appId, "0.1", entityId);
+
+                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                Assert.DoesNotContain(entities, e => e.Id == entityId);
             });
         }
     }
