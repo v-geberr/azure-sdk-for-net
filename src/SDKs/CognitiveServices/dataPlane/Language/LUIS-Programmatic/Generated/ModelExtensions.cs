@@ -94,7 +94,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CreateEntityExtractorAsync(this IModel operations, string appId, string versionId, ModelCreateObject modelCreateObject = default(ModelCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateEntityExtractorAsync(this IModel operations, string appId, string versionId, ModelCreateObject modelCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreateEntityExtractorWithHttpMessagesAsync(appId, versionId, modelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
