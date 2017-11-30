@@ -125,5 +125,32 @@
                 Assert.Equal(1, result.Count);
             });
         }
+
+        [Fact(Skip = "Bad Request")]
+        public void CreateHierarchicalEntityExtractor()
+        {
+            UseClientFor(async client =>
+            {
+                var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>(), name: "Reservation");
+
+                var result = await client.Model.CreateHierarchicalEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
+
+                Assert.True(Guid.TryParse(result, out Guid id));
+            });
+        }
+
+        [Fact]
+        public void GetHierarchicalEntityInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entityId = entities.Last().Id;
+
+                var result = await client.Model.GetHierarchicalEntityInfoAsync(BaseTest.appId, "0.1", entityId);
+
+                Assert.True(Guid.TryParse(result.Id, out Guid id));
+            });
+        }
     }
 }
