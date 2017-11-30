@@ -1,16 +1,16 @@
 {
   "Entries": [
     {
-      "RequestUri": "/luis/api/v2.0/apps/",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy8=",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/entities",
+      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy84NjIyNmM1My1iN2E2LTQxNmYtODc2Yi0yMjZiMmI1YWIwN2IvdmVyc2lvbnMvMC4xL2VudGl0aWVz",
       "RequestMethod": "POST",
-      "RequestBody": "{\r\n  \"culture\": \"en-us\",\r\n  \"domain\": \"Comics\",\r\n  \"description\": \"New LUIS App\",\r\n  \"usageScenario\": \"IoT\",\r\n  \"name\": \"LUIS App for endpoint test\"\r\n}",
+      "RequestBody": "{\r\n  \"name\": \"New Entity Test\"\r\n}",
       "RequestHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"
         ],
         "Content-Length": [
-          "151"
+          "33"
         ],
         "Ocp-Apim-Subscription-Key": [
           "00000000000000000000000000000000"
@@ -20,7 +20,7 @@
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
-      "ResponseBody": "\"03b0b96c-78eb-46cf-8b95-8c232e9c51f0\"",
+      "ResponseBody": "\"d0b494b6-6c08-49cd-b033-233aada7b5ab\"",
       "ResponseHeaders": {
         "Content-Length": [
           "38"
@@ -32,22 +32,22 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Thu, 30 Nov 2017 04:07:44 GMT"
+          "Thu, 30 Nov 2017 14:35:38 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Location": [
-          "https://api.luis.ai/api/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0"
+          "https://api.luis.ai/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/entities/d0b494b6-6c08-49cd-b033-233aada7b5ab"
         ],
         "Apim-Request-Id": [
-          "1480a553-6857-433a-ba60-3740589074a0"
+          "f70288d8-e789-4594-a2a7-a3b50fea04de"
         ],
         "Request-Id": [
-          "1480a553-6857-433a-ba60-3740589074a0"
+          "f70288d8-e789-4594-a2a7-a3b50fea04de"
         ],
         "Operation-Location": [
-          "https://api.luis.ai/api/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0"
+          "https://api.luis.ai/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/entities/d0b494b6-6c08-49cd-b033-233aada7b5ab"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"
@@ -68,8 +68,8 @@
       "StatusCode": 201
     },
     {
-      "RequestUri": "/luis/api/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0/endpoints",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy8wM2IwYjk2Yy03OGViLTQ2Y2YtOGI5NS04YzIzMmU5YzUxZjAvZW5kcG9pbnRz",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/entities/d0b494b6-6c08-49cd-b033-233aada7b5ab",
+      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy84NjIyNmM1My1iN2E2LTQxNmYtODc2Yi0yMjZiMmI1YWIwN2IvdmVyc2lvbnMvMC4xL2VudGl0aWVzL2QwYjQ5NGI2LTZjMDgtNDljZC1iMDMzLTIzM2FhZGE3YjVhYg==",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
@@ -81,10 +81,10 @@
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
-      "ResponseBody": "{\r\n  \"westus\": \"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0\",\r\n  \"eastus2\": \"https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0\",\r\n  \"westcentralus\": \"https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0\",\r\n  \"southeastasia\": \"https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0\"\r\n}",
+      "ResponseBody": "{\r\n  \"id\": \"d0b494b6-6c08-49cd-b033-233aada7b5ab\",\r\n  \"name\": \"New Entity Test\",\r\n  \"typeId\": 1,\r\n  \"readableType\": \"Entity Extractor\"\r\n}",
       "ResponseHeaders": {
         "Content-Length": [
-          "455"
+          "115"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -93,16 +93,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Thu, 30 Nov 2017 04:07:44 GMT"
+          "Thu, 30 Nov 2017 14:35:40 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "ef8df03d-1163-4d17-9a65-62cbdaa3ad5d"
+          "6e1c85a2-df0f-4675-8728-989b9e491ca4"
         ],
         "Request-Id": [
-          "ef8df03d-1163-4d17-9a65-62cbdaa3ad5d"
+          "6e1c85a2-df0f-4675-8728-989b9e491ca4"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"
@@ -123,8 +123,8 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/luis/api/v2.0/apps/03b0b96c-78eb-46cf-8b95-8c232e9c51f0",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy8wM2IwYjk2Yy03OGViLTQ2Y2YtOGI5NS04YzIzMmU5YzUxZjA=",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/entities/d0b494b6-6c08-49cd-b033-233aada7b5ab",
+      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy84NjIyNmM1My1iN2E2LTQxNmYtODc2Yi0yMjZiMmI1YWIwN2IvdmVyc2lvbnMvMC4xL2VudGl0aWVzL2QwYjQ5NGI2LTZjMDgtNDljZC1iMDMzLTIzM2FhZGE3YjVhYg==",
       "RequestMethod": "DELETE",
       "RequestBody": "",
       "RequestHeaders": {
@@ -145,16 +145,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Thu, 30 Nov 2017 04:07:46 GMT"
+          "Thu, 30 Nov 2017 14:35:40 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "94390f6f-b551-41cf-b626-aceeef34bd87"
+          "69399c8a-23a6-449b-96e5-7a4eb8b2a718"
         ],
         "Request-Id": [
-          "94390f6f-b551-41cf-b626-aceeef34bd87"
+          "69399c8a-23a6-449b-96e5-7a4eb8b2a718"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"
