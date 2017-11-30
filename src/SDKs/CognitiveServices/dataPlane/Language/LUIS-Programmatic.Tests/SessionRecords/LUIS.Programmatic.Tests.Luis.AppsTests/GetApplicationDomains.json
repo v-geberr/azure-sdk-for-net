@@ -2,6 +2,7 @@
   "Entries": [
     {
       "RequestUri": "/luis/api/v2.0/apps/domains",
+      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy9kb21haW5z",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
@@ -9,7 +10,7 @@
           "00000000000000000000000000000000"
         ],
         "User-Agent": [
-          "FxVersion/4.6.25815.04",
+          "FxVersion/4.6.25211.01",
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
@@ -25,16 +26,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Mon, 27 Nov 2017 17:30:32 GMT"
+          "Thu, 30 Nov 2017 04:07:50 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "42d90f5a-0564-41a4-861a-7534bd02db0f"
+          "4d6dbd52-6e2b-42b7-a437-6794a6335be5"
         ],
         "Request-Id": [
-          "42d90f5a-0564-41a4-861a-7534bd02db0f"
+          "4d6dbd52-6e2b-42b7-a437-6794a6335be5"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"

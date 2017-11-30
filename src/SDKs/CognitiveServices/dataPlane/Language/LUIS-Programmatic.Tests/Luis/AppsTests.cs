@@ -14,13 +14,25 @@
         {
             UseClientFor(async client =>
             {
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "Existing LUIS App",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                // Test
                 var result = await client.Apps.GetApplicationsListAsync();
 
-                Assert.Equal(12, result.Count);
-                foreach (var app in result)
-                {
-                    Assert.True(Guid.TryParse(app.Id, out Guid id));
-                }
+                Assert.NotEqual(0, result.Count);
+                Assert.All(result, o => Guid.TryParse(o.Id, out Guid id));
+                Assert.Contains(result, o => o.Name == "Existing LUIS App");
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
             });
         }
 
@@ -29,7 +41,7 @@
         {
             UseClientFor(async client =>
             {
-                var appId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
                 {
                     Name = "New LUIS App",
                     Description = "New LUIS App",
@@ -38,8 +50,18 @@
                     UsageScenario = "IoT"
                 });
 
-                Assert.True(Guid.TryParse(appId, out Guid appGuid));
-                Assert.Equal(new Guid("9e6703ec-56fe-48ce-8a72-10d592f6056d"), appGuid);
+                var savedApp = await client.Apps.GetApplicationInfoAsync(testAppId);
+
+                Assert.True(Guid.TryParse(testAppId, out Guid appGuid));
+                Assert.NotNull(savedApp);
+                Assert.Equal("New LUIS App", savedApp.Name);
+                Assert.Equal("New LUIS App", savedApp.Description);
+                Assert.Equal("en-us", savedApp.Culture);
+                Assert.Equal("Comics", savedApp.Domain);
+                Assert.Equal("IoT", savedApp.UsageScenario);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
             });
         }
 
@@ -48,8 +70,25 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetApplicationInfoAsync(appId);
-                Assert.Equal(appId, result.Id);
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "Existing LUIS App",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                var result = await client.Apps.GetApplicationInfoAsync(testAppId);
+                Assert.Equal(testAppId, result.Id);
+                Assert.Equal("Existing LUIS App", result.Name);
+                Assert.Equal("en-us", result.Culture);
+                Assert.Equal("Comics", result.Domain);
+                Assert.Equal("IoT", result.UsageScenario);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
             });
         }
 
@@ -58,16 +97,29 @@
         {
             UseClientFor(async client =>
             {
-                await client.Apps.RenameApplicationAsync(appId, new ApplicationUpdateObject
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "LUIS App to be renamed",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                await client.Apps.RenameApplicationAsync(testAppId, new ApplicationUpdateObject
                 {
                     Name = "LUIS App name updated",
                     Description = "LUIS App description updated"
                 });
 
-                var app = await client.Apps.GetApplicationInfoAsync(appId);
+                var app = await client.Apps.GetApplicationInfoAsync(testAppId);
 
                 Assert.Equal("LUIS App name updated", app.Name);
                 Assert.Equal("LUIS App description updated", app.Description);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
             });
         }
 
@@ -76,22 +128,21 @@
         {
             UseClientFor(async client =>
             {
-                // Setup - Add app
-                var appId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
                 {
-                    Name = "New LUIS App (DeleteTest)",
+                    Name = "LUIS App to be deleted",
                     Description = "New LUIS App",
                     Culture = "en-us",
                     Domain = "Comics",
                     UsageScenario = "IoT"
                 });
 
-                // Test - Remove app
-                await client.Apps.DeleteApplicationAsync(appId);
+                await client.Apps.DeleteApplicationAsync(testAppId);
 
                 // Assert
                 var result = await client.Apps.GetApplicationsListAsync();
-                Assert.DoesNotContain(result, o => o.Id == appId);
+                Assert.DoesNotContain(result, o => o.Id == testAppId);
             });
         }
 
@@ -100,12 +151,123 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetEndpointsAsync(appId);
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "LUIS App for endpoint test",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
 
-                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Westus);
-                Assert.Equal("https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Eastus2);
-                Assert.Equal("https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Westcentralus);
-                Assert.Equal("https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.Southeastasia);
+                var result = await client.Apps.GetEndpointsAsync(testAppId);
+
+                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Westus);
+                Assert.Equal("https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Eastus2);
+                Assert.Equal("https://westcentralus.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Westcentralus);
+                Assert.Equal("https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Southeastasia);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
+            });
+        }
+
+        [Fact]
+        public void PublishApplication()
+        {
+            UseClientFor(async client =>
+            {
+                var result = await client.Apps.PublishApplicationAsync(appId, new ApplicationPublishObject
+                {
+                    IsStaging = false,
+                    Region = AzureRegions.Westus.ToString().ToLowerInvariant(),
+                    VersionId = "0.1"
+                });
+
+                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + appId, result.EndpointUrl);
+                Assert.Equal("westus", result.EndpointRegion);
+                Assert.False(result.IsStaging);
+            });
+        }
+
+        [Fact]
+        public void DownloadApplicationQueryLogs()
+        {
+            UseClientFor(async client =>
+            {
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "LUIS App for Query Logs test",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                var downloadStream = await client.Apps.DownloadApplicationQueryLogsAsync(testAppId);
+                var reader = new StreamReader(downloadStream);
+
+                var csv = reader.ReadToEnd();
+                Assert.False(string.IsNullOrEmpty(csv));
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
+            });
+        }
+
+        [Fact]
+        public void GetApplicationSettings()
+        {
+            UseClientFor(async client =>
+            {
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "LUIS App for Settings test",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
+
+                Assert.Equal(testAppId, settings.Id);
+                Assert.False(settings.PublicProperty);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
+            });
+        }
+
+        [Fact]
+        public void UpdateApplicationSettings()
+        {
+            UseClientFor(async client =>
+            {
+                // Initialize
+                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                {
+                    Name = "LUIS App for Settings test",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                await client.Apps.UpdateApplicationSettingsAsync(testAppId, new ApplicationSettingUpdateObject
+                {
+                    PublicProperty = true
+                });
+
+                // Assert
+                var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
+                Assert.True(settings.PublicProperty);
+
+                // Cleanup
+                await client.Apps.DeleteApplicationAsync(testAppId);
             });
         }
 
@@ -146,65 +308,6 @@
                 {
                     Assert.False(string.IsNullOrWhiteSpace(scenario));
                 }
-            });
-        }
-
-        [Fact]
-        public void PublishApplication()
-        {
-            UseClientFor(async client =>
-            {
-                var result = await client.Apps.PublishApplicationAsync(appId, new ApplicationPublishObject
-                {
-                    IsStaging = false,
-                    Region = AzureRegions.Westus.ToString().ToLowerInvariant(),
-                    VersionId = "0.1"
-                });
-
-                Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b", result.EndpointUrl);
-                Assert.Equal("westus", result.EndpointRegion);
-                Assert.False(result.IsStaging);
-            });
-        }
-
-        [Fact]
-        public void DownloadApplicationQueryLogs()
-        {
-            UseClientFor(async client =>
-            {
-                var downloadStream = await client.Apps.DownloadApplicationQueryLogsAsync(appId);
-                var reader = new StreamReader(downloadStream);
-
-                var csv = reader.ReadToEnd();
-                Assert.False(string.IsNullOrEmpty(csv));
-            });
-        }
-
-        [Fact]
-        public void GetApplicationSettings()
-        {
-            UseClientFor(async client =>
-            {
-                var settings = await client.Apps.GetApplicationSettingsAsync(appId);
-
-                Assert.Equal(appId, settings.Id);
-                Assert.False(settings.PublicProperty);
-            });
-        }
-
-        [Fact]
-        public void UpdateApplicationSettings()
-        {
-            UseClientFor(async client =>
-            {
-                await client.Apps.UpdateApplicationSettingsAsync(appId, new ApplicationSettingUpdateObject
-                {
-                    PublicProperty = false
-                });
-
-                // Assert
-                var settings = await client.Apps.GetApplicationSettingsAsync(appId);
-                Assert.False(settings.PublicProperty);
             });
         }
 
@@ -256,7 +359,6 @@
                 var result = await client.Apps.AddCustomPrebuiltApplicationAsync(domain);
 
                 Assert.True(Guid.TryParse(result, out Guid appGuid));
-                Assert.Equal(new Guid("5be09431-8360-4bba-b969-a33aa6093b5d"), appGuid);
             });
         }
     }

@@ -2,6 +2,7 @@
   "Entries": [
     {
       "RequestUri": "/luis/api/v2.0/apps/cultures",
+      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy9jdWx0dXJlcw==",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
@@ -9,7 +10,7 @@
           "00000000000000000000000000000000"
         ],
         "User-Agent": [
-          "FxVersion/4.6.25815.04",
+          "FxVersion/4.6.25211.01",
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
@@ -25,16 +26,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Mon, 27 Nov 2017 18:21:11 GMT"
+          "Thu, 30 Nov 2017 04:08:11 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "f35f4fe8-e708-49f4-b693-9f0e5acda7b1"
+          "5c89cbd4-efa7-4de3-bc59-3c3d696a2837"
         ],
         "Request-Id": [
-          "f35f4fe8-e708-49f4-b693-9f0e5acda7b1"
+          "5c89cbd4-efa7-4de3-bc59-3c3d696a2837"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"
