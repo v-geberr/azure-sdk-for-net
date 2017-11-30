@@ -16,7 +16,7 @@
             {
                 var result = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
 
-                Assert.Equal(4, result.Count);
+                Assert.Equal(3, result.Count);
                 foreach (var entity in result)
                 {
                     Assert.True(Guid.TryParse(entity.Id, out Guid id));
