@@ -1,6 +1,8 @@
 ﻿namespace LUIS.Programmatic.Tests.Luis
 {
+    using System;
     using System.Collections.Generic;
+    using System.Linq;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
@@ -64,6 +66,49 @@
                 var result = await client.Examples.AddLabelAsync(appId, versionId, example);
 
                 Assert.Equal(example.Text, result.UtteranceText);
+            });
+        }
+
+        [Fact]
+        public void AddExamplesInBatch()
+        {
+            UseClientFor(async client =>
+            {
+                var examples = new List<ExampleLabelObject>() {
+                    new ExampleLabelObject
+                    {
+                        Text = "whats the weather in seattle?",
+                        IntentName = "WeatherInPlace",
+                        EntityLabels = new List<EntityLabelObject>()
+                        {
+                            new EntityLabelObject()
+                            {
+                                EntityName = "Place",
+                                StartCharIndex = 21,
+                                EndCharIndex = 29
+                            }
+                        }
+                    },
+                    new ExampleLabelObject
+                    {
+                        Text = "whats the weather in buenos aires?",
+                        IntentName = "WeatherInPlace",
+                        EntityLabels = new List<EntityLabelObject>()
+                        {
+                            new EntityLabelObject()
+                            {
+                                EntityName = "Place",
+                                StartCharIndex = 21,
+                                EndCharIndex = 34
+                            }
+                        }
+                    },
+                };
+
+                var result = await client.Examples.BatchAddLabelsAsync(appId, versionId, examples);
+
+                Assert.Equal(examples.Count, result.Count);
+                Assert.Contains(result, o => examples.Any(e => e.Text.Equals(o.Value.UtteranceText, StringComparison.OrdinalIgnoreCase)));
             });
         }
     }
