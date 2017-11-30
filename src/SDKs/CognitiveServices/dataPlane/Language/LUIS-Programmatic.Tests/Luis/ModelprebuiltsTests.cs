@@ -19,5 +19,18 @@
                 Assert.True(prebuiltEntities.Count > 0);
             });
         }
+
+        [Fact]
+        public void GetApplicationVersionPrebuiltInfos()
+        {
+            UseClientFor(async client =>
+            {
+                var version = "0.1";
+                var prebuiltEntities = await client.Model.GetApplicationVersionPrebuiltInfosAsync(appId, version);
+
+                Assert.True(prebuiltEntities.Count > 0);
+                Assert.All(prebuiltEntities, e => e.ReadableType.Equals("Prebuilt Entity Extractor"));
+            });
+        }
     }
 }
