@@ -1,8 +1,7 @@
 {
   "Entries": [
     {
-      "RequestUri": "/luis/api/v2.0/apps/fb6de620-1cb9-46bb-bec8-0f5131a11070/versions/0.1/hierarchicalentities?skip=0&take=100",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy9mYjZkZTYyMC0xY2I5LTQ2YmItYmVjOC0wZjUxMzFhMTEwNzAvdmVyc2lvbnMvMC4xL2hpZXJhcmNoaWNhbGVudGl0aWVzP3NraXA9MCZ0YWtlPTEwMA==",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/hierarchicalentities?skip=0&take=100",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
@@ -56,8 +55,7 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/luis/api/v2.0/apps/fb6de620-1cb9-46bb-bec8-0f5131a11070/versions/0.1/hierarchicalentities/7d2dd1d4-dc52-43fa-8054-b3710c414f16",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy9mYjZkZTYyMC0xY2I5LTQ2YmItYmVjOC0wZjUxMzFhMTEwNzAvdmVyc2lvbnMvMC4xL2hpZXJhcmNoaWNhbGVudGl0aWVzLzdkMmRkMWQ0LWRjNTItNDNmYS04MDU0LWIzNzEwYzQxNGYxNg==",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/hierarchicalentities/7d2dd1d4-dc52-43fa-8054-b3710c414f16",
       "RequestMethod": "GET",
       "RequestBody": "",
       "RequestHeaders": {
