@@ -126,12 +126,12 @@
             });
         }
 
-        [Fact(Skip = "Bad Request")]
+        [Fact]
         public void CreateHierarchicalEntityExtractor()
         {
             UseClientFor(async client =>
             {
-                var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>(), name: "Reservation");
+                var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>() { Guid.NewGuid().ToString() }, name: "Reservation");
 
                 var result = await client.Model.CreateHierarchicalEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
 
