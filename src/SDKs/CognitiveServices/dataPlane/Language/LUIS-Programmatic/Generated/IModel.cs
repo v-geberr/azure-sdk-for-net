@@ -838,7 +838,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The closed list model ID.
         /// </param>
         /// <param name='closedListModelPatchObject'>
-        /// A json object containing words list batch.
+        /// A words list batch.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

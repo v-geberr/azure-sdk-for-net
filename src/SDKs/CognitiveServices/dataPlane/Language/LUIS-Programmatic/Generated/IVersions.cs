@@ -33,7 +33,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='versionCloneObject'>
-        /// An object containing the new version ID.
+        /// An model containing the new version ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -115,7 +115,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='versionUpdateObject'>
-        /// A JSON object containing Name and Description of the application.
+        /// A model containing Name and Description of the application.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

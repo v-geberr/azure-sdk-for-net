@@ -208,7 +208,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='userToAdd'>
-        /// A JSON object containing the user's email address.
+        /// A model containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -351,7 +351,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='userToDelete'>
-        /// A JSON object containing the user's email address.
+        /// A model containing the user's email address.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -494,7 +494,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='collaborators'>
-        /// A JSON object containing a list of user's email addresses.
+        /// A model containing a list of user's email addresses.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

@@ -54,9 +54,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Creates a new LUIS app.
         /// </summary>
         /// <param name='applicationCreateObject'>
-        /// A JSON object containing Name, Description (optional), Culture, Usage
-        /// Scenario (optional), Domain (optional) and initial version ID (optional) of
-        /// the application.
+        /// A model containing Name, Description (optional), Culture, Usage Scenario
+        /// (optional), Domain (optional) and initial version ID (optional) of the
+        /// application.
         /// Default value for the version ID is 0.1.
         /// Note that the culture cannot be changed after the app is created.
         /// </param>
@@ -1353,7 +1353,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Format - guid. The application ID.
         /// </param>
         /// <param name='applicationUpdateObject'>
-        /// A JSON object containing Name and Description of the application.
+        /// A model containing Name and Description of the application.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

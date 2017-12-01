@@ -60,7 +60,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='patternCreateObject'>
-        /// A JSON object containing Name and Pattern of the feature.
+        /// The Name and Pattern of the feature.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1108,10 +1108,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The pattern feature ID.
         /// </param>
         /// <param name='patternUpdateObject'>
-        /// A JSON object containing either:&lt;/br&gt;1- Just a boolean called
-        /// IsActive, in which case the status of the feature will be
-        /// changed.&lt;/br&gt;2- Name, Pattern and a boolean called IsActive to update
-        /// the feature.
+        /// The new values for: - Just a boolean called IsActive, in which case the
+        /// status of the feature will be changed. - Name, Pattern and a boolean called
+        /// IsActive to update the feature.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
