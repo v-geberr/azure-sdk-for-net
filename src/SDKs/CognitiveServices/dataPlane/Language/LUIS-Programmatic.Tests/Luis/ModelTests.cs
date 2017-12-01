@@ -99,7 +99,7 @@
             });
         }
 
-        [Fact(Skip = "Bad Request")]
+        [Fact]
         public void DeleteCompositeEntityChildModel()
         {
             UseClientFor(async client =>
