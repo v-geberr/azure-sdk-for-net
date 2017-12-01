@@ -235,6 +235,25 @@
         }
 
         [Fact]
+        public void CreateHierarchicalEntityChildModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entity = entities.Where(e => e.Children.Any()).Last();
+                var childEntity = new HierarchicalChildEntity
+                {
+                    Name = "NewChildEntity",
+                    TypeId = 6
+                };
+
+                var result = await client.Model.CreateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity);
+
+                Assert.True(Guid.TryParse(result, out Guid id));
+            });
+        }
+
+        [Fact]
         public void GetApplicationVersionModelInfos()
         {
             UseClientFor(async client =>
