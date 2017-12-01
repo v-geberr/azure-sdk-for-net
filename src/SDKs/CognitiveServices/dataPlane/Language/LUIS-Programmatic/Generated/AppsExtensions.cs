@@ -70,24 +70,25 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Imports an application to LUIS, the application's JSON should be included
-            /// in in the request body.
+            /// Imports an application to LUIS, the application's structure should be
+            /// included in in the request body.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
-            /// <param name='appName'>
-            /// The imported application name.
+            /// <param name='luisApp'>
+            /// A LUIS application structure.
             /// </param>
-            /// <param name='jSONApp'>
-            /// A JSON representing the LUIS application structure.
+            /// <param name='appName'>
+            /// The application name to create. If not specified, the application name will
+            /// be read from the imported object.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> ImportApplicationAsync(this IApps operations, string appName = default(string), JSONApp jSONApp = default(JSONApp), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> ImportApplicationAsync(this IApps operations, LuisApp luisApp, string appName = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ImportApplicationWithHttpMessagesAsync(appName, jSONApp, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ImportApplicationWithHttpMessagesAsync(luisApp, appName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

@@ -155,9 +155,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ExportApplicationVersionAsync(this IVersions operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<LuisApp> ExportApplicationVersionAsync(this IVersions operations, string appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.ExportApplicationVersionWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.ExportApplicationVersionWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>
@@ -229,8 +232,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Imports a new version into a LUIS application, the version's JSON should be
-            /// included in in the request body.
+            /// Imports a new version into a LUIS application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -238,18 +240,22 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='appId'>
             /// Format - guid. The application ID.
             /// </param>
-            /// <param name='versionId'>
-            /// The imported versionId.
+            /// <param name='luisApp'>
+            /// A LUIS application structure.
             /// </param>
-            /// <param name='jSONApp'>
-            /// A JSON representing the LUIS application structure.
+            /// <param name='versionId'>
+            /// The new versionId to import. If not specified, the versionId will be read
+            /// from the imported object.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ImportVersionToApplicationAsync(this IVersions operations, string appId, string versionId = default(string), JSONApp jSONApp = default(JSONApp), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> ImportVersionToApplicationAsync(this IVersions operations, string appId, LuisApp luisApp, string versionId = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.ImportVersionToApplicationWithHttpMessagesAsync(appId, versionId, jSONApp, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.ImportVersionToApplicationWithHttpMessagesAsync(appId, luisApp, versionId, null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
             /// <summary>

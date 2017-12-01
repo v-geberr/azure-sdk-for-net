@@ -170,10 +170,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ExportApplicationVersionWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<LuisApp>> ExportApplicationVersionWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Assigns an external API key to the given application according to
         /// the specified key type.
@@ -249,17 +252,17 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse> DeleteApplicationVersionExternalKeyWithHttpMessagesAsync(string appId, string versionId, string keyType, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Imports a new version into a LUIS application, the version's JSON
-        /// should be included in in the request body.
+        /// Imports a new version into a LUIS application.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='versionId'>
-        /// The imported versionId.
+        /// <param name='luisApp'>
+        /// A LUIS application structure.
         /// </param>
-        /// <param name='jSONApp'>
-        /// A JSON representing the LUIS application structure.
+        /// <param name='versionId'>
+        /// The new versionId to import. If not specified, the versionId will
+        /// be read from the imported object.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -270,10 +273,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="Microsoft.Rest.SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> ImportVersionToApplicationWithHttpMessagesAsync(string appId, string versionId = default(string), JSONApp jSONApp = default(JSONApp), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> ImportVersionToApplicationWithHttpMessagesAsync(string appId, LuisApp luisApp, string versionId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deleted an unlabelled utterance.
         /// </summary>

@@ -364,14 +364,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Imports an application to LUIS, the application's JSON should be included
-        /// in in the request body.
+        /// Imports an application to LUIS, the application's structure should be
+        /// included in in the request body.
         /// </summary>
-        /// <param name='appName'>
-        /// The imported application name.
+        /// <param name='luisApp'>
+        /// A LUIS application structure.
         /// </param>
-        /// <param name='jSONApp'>
-        /// A JSON representing the LUIS application structure.
+        /// <param name='appName'>
+        /// The application name to create. If not specified, the application name will
+        /// be read from the imported object.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -385,11 +386,21 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
+        /// <exception cref="ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        /// <exception cref="System.ArgumentNullException">
+        /// Thrown when a required parameter is null
+        /// </exception>
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> ImportApplicationWithHttpMessagesAsync(string appName = default(string), JSONApp jSONApp = default(JSONApp), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> ImportApplicationWithHttpMessagesAsync(LuisApp luisApp, string appName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
+            if (luisApp == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "luisApp");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -398,7 +409,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appName", appName);
-                tracingParameters.Add("jSONApp", jSONApp);
+                tracingParameters.Add("luisApp", luisApp);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ImportApplication", tracingParameters);
             }
@@ -437,9 +448,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(jSONApp != null)
+            if(luisApp != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(jSONApp, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(luisApp, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

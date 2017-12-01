@@ -15,21 +15,24 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
-    public partial class JSONApp
+    public partial class LuisApp
     {
         /// <summary>
-        /// Initializes a new instance of the JSONApp class.
+        /// Initializes a new instance of the LuisApp class.
         /// </summary>
-        public JSONApp()
+        public LuisApp()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the JSONApp class.
+        /// Initializes a new instance of the LuisApp class.
         /// </summary>
-        public JSONApp(string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<JSONAction> actions = default(IList<JSONAction>), IList<ClosedList> closedLists = default(IList<ClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
+        /// <param name="additionalProperties">Unmatched properties from the
+        /// message are deserialized this collection</param>
+        public LuisApp(IDictionary<string, object> additionalProperties = default(IDictionary<string, object>), string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<JSONAction> actions = default(IList<JSONAction>), IList<ClosedList> closedLists = default(IList<ClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
         {
+            AdditionalProperties = additionalProperties;
             Name = name;
             VersionId = versionId;
             Desc = desc;
@@ -50,6 +53,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// An initialization method that performs custom operations like setting defaults
         /// </summary>
         partial void CustomInit();
+
+        /// <summary>
+        /// Gets or sets unmatched properties from the message are deserialized
+        /// this collection
+        /// </summary>
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// </summary>

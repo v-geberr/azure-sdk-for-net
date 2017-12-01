@@ -853,6 +853,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
@@ -862,7 +865,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ExportApplicationVersionWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<LuisApp>> ExportApplicationVersionWithHttpMessagesAsync(string appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -962,9 +965,27 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse();
+            var _result = new HttpOperationResponse<LuisApp>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 200)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<LuisApp>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
             if (_shouldTrace)
             {
                 ServiceClientTracing.Exit(_invocationId, _result);
@@ -1405,17 +1426,17 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Imports a new version into a LUIS application, the version's JSON should be
-        /// included in in the request body.
+        /// Imports a new version into a LUIS application.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
         /// </param>
-        /// <param name='versionId'>
-        /// The imported versionId.
+        /// <param name='luisApp'>
+        /// A LUIS application structure.
         /// </param>
-        /// <param name='jSONApp'>
-        /// A JSON representing the LUIS application structure.
+        /// <param name='versionId'>
+        /// The new versionId to import. If not specified, the versionId will be read
+        /// from the imported object.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1426,6 +1447,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
+        /// <exception cref="SerializationException">
+        /// Thrown when unable to deserialize the response
+        /// </exception>
         /// <exception cref="ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
@@ -1435,11 +1459,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> ImportVersionToApplicationWithHttpMessagesAsync(string appId, string versionId = default(string), JSONApp jSONApp = default(JSONApp), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> ImportVersionToApplicationWithHttpMessagesAsync(string appId, LuisApp luisApp, string versionId = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "appId");
+            }
+            if (luisApp == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "luisApp");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1450,7 +1478,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
-                tracingParameters.Add("jSONApp", jSONApp);
+                tracingParameters.Add("luisApp", luisApp);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "ImportVersionToApplication", tracingParameters);
             }
@@ -1490,9 +1518,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(jSONApp != null)
+            if(luisApp != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(jSONApp, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(luisApp, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -1546,9 +1574,27 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse();
+            var _result = new HttpOperationResponse<string>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
+            // Deserialize Response
+            if ((int)_statusCode == 201)
+            {
+                _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+                try
+                {
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<string>(_responseContent, Client.DeserializationSettings);
+                }
+                catch (JsonException ex)
+                {
+                    _httpRequest.Dispose();
+                    if (_httpResponse != null)
+                    {
+                        _httpResponse.Dispose();
+                    }
+                    throw new SerializationException("Unable to deserialize the response.", _responseContent, ex);
+                }
+            }
             if (_shouldTrace)
             {
                 ServiceClientTracing.Exit(_invocationId, _result);

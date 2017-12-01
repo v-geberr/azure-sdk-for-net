@@ -73,14 +73,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> GetApplicationsListWithHttpMessagesAsync(int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Imports an application to LUIS, the application's JSON should be
-        /// included in in the request body.
+        /// Imports an application to LUIS, the application's structure should
+        /// be included in in the request body.
         /// </summary>
-        /// <param name='appName'>
-        /// The imported application name.
+        /// <param name='luisApp'>
+        /// A LUIS application structure.
         /// </param>
-        /// <param name='jSONApp'>
-        /// A JSON representing the LUIS application structure.
+        /// <param name='appName'>
+        /// The application name to create. If not specified, the application
+        /// name will be read from the imported object.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -94,7 +95,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<string>> ImportApplicationWithHttpMessagesAsync(string appName = default(string), JSONApp jSONApp = default(JSONApp), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        /// <exception cref="Microsoft.Rest.ValidationException">
+        /// Thrown when a required parameter is null
+        /// </exception>
+        Task<HttpOperationResponse<string>> ImportApplicationWithHttpMessagesAsync(LuisApp luisApp, string appName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the endpoint URLs for the prebuilt Cortana applications.
         /// </summary>
