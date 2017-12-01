@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<double?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<int?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -194,7 +194,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<double?>();
+            var _result = new HttpOperationResponse<int?>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -203,7 +203,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<double?>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<int?>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -411,9 +411,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='phraselistCreateObject'>
-        /// A JSON object containing Name, comma-separated Phrases and the
-        /// isExchangeable boolean.            Default value for isExchangeable is
-        /// true.
+        /// A Phraselist object containing Name, comma-separated Phrases and the
+        /// isExchangeable boolean. Default value for isExchangeable is true.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -436,7 +435,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<double?>> CreatePhraselistFeatureWithHttpMessagesAsync(string appId, string versionId, PhraselistCreateObject phraselistCreateObject = default(PhraselistCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<int?>> CreatePhraselistFeatureWithHttpMessagesAsync(string appId, string versionId, PhraselistCreateObject phraselistCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -446,6 +445,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (phraselistCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "phraselistCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -453,9 +456,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("phraselistCreateObject", phraselistCreateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("phraselistCreateObject", phraselistCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreatePhraselistFeature", tracingParameters);
             }
@@ -543,7 +546,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 throw ex;
             }
             // Create Result
-            var _result = new HttpOperationResponse<double?>();
+            var _result = new HttpOperationResponse<int?>();
             _result.Request = _httpRequest;
             _result.Response = _httpResponse;
             // Deserialize Response
@@ -552,7 +555,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 _responseContent = await _httpResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
                 try
                 {
-                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<double?>(_responseContent, Client.DeserializationSettings);
+                    _result.Body = Rest.Serialization.SafeJsonConvert.DeserializeObject<int?>(_responseContent, Client.DeserializationSettings);
                 }
                 catch (JsonException ex)
                 {
@@ -572,7 +575,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all application phraselist features.
+        /// Gets phraselist features.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -624,10 +627,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("skip", skip);
-                tracingParameters.Add("take", take);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionPhraselistFeatures", tracingParameters);
             }

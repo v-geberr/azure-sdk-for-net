@@ -49,7 +49,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<double?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<int?>> CreatePatternFeatureWithHttpMessagesAsync(string appId, string versionId, PatternCreateObject patternCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all application version pattern features.
         /// </summary>
@@ -92,9 +92,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='phraselistCreateObject'>
-        /// A JSON object containing Name, comma-separated Phrases and the
-        /// isExchangeable boolean.            Default value for isExchangeable
-        /// is true.
+        /// A Phraselist object containing Name, comma-separated Phrases and
+        /// the isExchangeable boolean. Default value for isExchangeable is
+        /// true.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -111,9 +111,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<double?>> CreatePhraselistFeatureWithHttpMessagesAsync(string appId, string versionId, PhraselistCreateObject phraselistCreateObject = default(PhraselistCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<int?>> CreatePhraselistFeatureWithHttpMessagesAsync(string appId, string versionId, PhraselistCreateObject phraselistCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all application phraselist features.
+        /// Gets phraselist features.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

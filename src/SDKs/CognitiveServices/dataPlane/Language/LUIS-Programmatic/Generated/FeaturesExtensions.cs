@@ -39,7 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<double?> CreatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, PatternCreateObject patternCreateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<int?> CreatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, PatternCreateObject patternCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreatePatternFeatureWithHttpMessagesAsync(appId, versionId, patternCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -89,14 +89,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The version ID of the task.
             /// </param>
             /// <param name='phraselistCreateObject'>
-            /// A JSON object containing Name, comma-separated Phrases and the
-            /// isExchangeable boolean.            Default value for isExchangeable is
-            /// true.
+            /// A Phraselist object containing Name, comma-separated Phrases and the
+            /// isExchangeable boolean. Default value for isExchangeable is true.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<double?> CreatePhraselistFeatureAsync(this IFeatures operations, string appId, string versionId, PhraselistCreateObject phraselistCreateObject = default(PhraselistCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<int?> CreatePhraselistFeatureAsync(this IFeatures operations, string appId, string versionId, PhraselistCreateObject phraselistCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreatePhraselistFeatureWithHttpMessagesAsync(appId, versionId, phraselistCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -105,7 +104,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets all application phraselist features.
+            /// Gets phraselist features.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
