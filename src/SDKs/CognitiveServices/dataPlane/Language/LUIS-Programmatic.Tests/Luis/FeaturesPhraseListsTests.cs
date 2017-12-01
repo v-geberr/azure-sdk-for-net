@@ -74,6 +74,34 @@
         }
 
         [Fact]
+        public void UpdatePhraseList()
+        {
+            UseClientFor(async client =>
+            {
+                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                {
+                    Name = "DayOfWeek",
+                    Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
+                    IsExchangeable = true
+                });
+
+                await client.Features.UpdatePhraselistFeatureAsync(appId, versionId, id.Value, new PhraselistUpdateObject
+                {
+                    IsActive = false,
+                    Name = "Month",
+                    Phrases = "january,february,march,april,may,june,july,august,september,october,november,december"
+                });
+
+                var updated = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+
+                Assert.Equal("Month", updated.Name);
+                Assert.Equal("january,february,march,april,may,june,july,august,september,october,november,december", updated.Phrases);
+                Assert.False(updated.IsActive);
+            });
+        }
+
+        [Fact]
         public void DeletePhraseList()
         {
             UseClientFor(async client =>
