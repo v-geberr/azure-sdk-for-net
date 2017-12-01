@@ -252,7 +252,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The version ID of the task.
             /// </param>
             /// <param name='phraselistId'>
-            /// The ID of the feature to be deleted.
+            /// The ID of the feature to be retrieved.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

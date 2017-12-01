@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="id">A six-digit ID used for Features.</param>
         /// <param name="name">The name of the Feature.</param>
-        public FeatureInfoObject(double? id = default(double?), string name = default(string), bool? isActive = default(bool?))
+        public FeatureInfoObject(int? id = default(int?), string name = default(string), bool? isActive = default(bool?))
         {
             Id = id;
             Name = name;
@@ -48,7 +48,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets a six-digit ID used for Features.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public double? Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the name of the Feature.

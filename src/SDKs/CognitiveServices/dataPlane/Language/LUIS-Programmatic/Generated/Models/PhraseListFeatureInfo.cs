@@ -29,7 +29,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <param name="id">A six-digit ID used for Features.</param>
         /// <param name="name">The name of the Feature.</param>
         /// <param name="phrases">A list of comma-separated values.</param>
-        public PhraseListFeatureInfo(double? id = default(double?), string name = default(string), bool? isActive = default(bool?), string phrases = default(string), bool? isExchangeable = default(bool?))
+        public PhraseListFeatureInfo(int? id = default(int?), string name = default(string), bool? isActive = default(bool?), string phrases = default(string), bool? isExchangeable = default(bool?))
             : base(id, name, isActive)
         {
             Phrases = phrases;

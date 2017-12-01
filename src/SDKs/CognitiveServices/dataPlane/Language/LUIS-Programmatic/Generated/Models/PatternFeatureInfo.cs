@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="id">A six-digit ID used for Features.</param>
         /// <param name="name">The name of the Feature.</param>
-        public PatternFeatureInfo(double? id = default(double?), string name = default(string), bool? isActive = default(bool?), string pattern = default(string))
+        public PatternFeatureInfo(int? id = default(int?), string name = default(string), bool? isActive = default(bool?), string pattern = default(string))
             : base(id, name, isActive)
         {
             Pattern = pattern;
