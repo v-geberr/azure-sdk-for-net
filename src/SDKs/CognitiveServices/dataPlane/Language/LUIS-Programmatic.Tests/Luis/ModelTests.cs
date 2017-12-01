@@ -216,6 +216,25 @@
         }
 
         [Fact]
+        public void UpdateHierarchicalEntityChildModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entity = entities.Where(e => e.Children.Any()).Last();
+                var childEntity = entity.Children.Last();
+                childEntity.Name = "RenamedChildEntity";
+
+                await client.Model.UpdateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity.Id, childEntity);
+
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                entity = entities.Last(e => e.Id == entity.Id);
+                childEntity = entity.Children.Last(c=> c.Id == childEntity.Id);
+                Assert.Equal("RenamedChildEntity", childEntity.Name);
+            });
+        }
+
+        [Fact]
         public void GetApplicationVersionModelInfos()
         {
             UseClientFor(async client =>
