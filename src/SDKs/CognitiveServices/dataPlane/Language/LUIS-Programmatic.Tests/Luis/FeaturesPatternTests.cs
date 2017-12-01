@@ -35,7 +35,7 @@
                 var patternId = await client.Features.CreatePatternFeatureAsync(appId, version, newPattern);
                 var patterns = await client.Features.GetApplicationVersionPatternFeaturesAsync(appId, version);
 
-                Assert.Contains(patterns, p => p.Id.Equals(patternId));
+                Assert.Contains(patterns, p => p.Id == patternId);
             });
         }
 
