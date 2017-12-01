@@ -153,19 +153,19 @@
             });
         }
 
-        [Fact(Skip = "Bad Request")]
+        [Fact]
         public void UpdateHierarchicalEntityModel()
         {
             UseClientFor(async client =>
             {
-                var hierarchicalModel = new HierarchicalModelUpdateObject(new List<string>() { "datetime" }, name: "Renamed Entity");
+                var hierarchicalModel = new HierarchicalModelUpdateObject(new List<string>() { "dummy" }, name: "Renamed Entity");
                 var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
-                var entityId = entities.Last().Id;
+                var entity = entities.Last();
 
-                await client.Model.UpdateHierarchicalEntityModelAsync(BaseTest.appId, "0.1", entityId, hierarchicalModel);
+                await client.Model.UpdateHierarchicalEntityModelAsync(BaseTest.appId, "0.1", entity.Id, hierarchicalModel);
 
                 entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
-                Assert.Equal(hierarchicalModel.Name, entities.Single(e => e.Id == entityId).Name);
+                Assert.Equal(hierarchicalModel.Name, entities.Single(e => e.Id == entity.Id).Name);
             });
         }
 
