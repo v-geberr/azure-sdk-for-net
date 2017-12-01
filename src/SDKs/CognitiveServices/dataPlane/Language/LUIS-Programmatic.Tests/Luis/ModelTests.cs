@@ -183,5 +183,21 @@
                 Assert.DoesNotContain(entities, e => e.Id == entityId);
             });
         }
+
+        [Fact]
+        public void GetApplicationVersionModelInfos()
+        {
+            UseClientFor(async client =>
+            {
+                var versionId = "0.1";
+                var models = await client.Model.GetApplicationVersionModelInfosAsync(appId, versionId);
+
+                foreach (var model in models)
+                {
+                    var modelInfo = await client.Model.GetEntityInfoAsync(appId, versionId, model.Id);
+                    Assert.Equal(model.Name, modelInfo.Name);
+                }
+            });
+        }
     }
 }
