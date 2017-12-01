@@ -65,7 +65,7 @@
       "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/phraselists/603420",
       "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy84NjIyNmM1My1iN2E2LTQxNmYtODc2Yi0yMjZiMmI1YWIwN2IvdmVyc2lvbnMvMC4xL3BocmFzZWxpc3RzLzYwMzQyMA==",
       "RequestMethod": "PUT",
-      "RequestBody": "{\r\n  \"Phrases\": \"january,february,march,april,may,june,july,august,september,october,november,december\",\r\n  \"Name\": \"Month\",\r\n  \"IsActive\": false\r\n}",
+      "RequestBody": "{\r\n  \"phrases\": \"january,february,march,april,may,june,july,august,september,october,november,december\",\r\n  \"name\": \"month\",\r\n  \"isActive\": false\r\n}",
       "RequestHeaders": {
         "Content-Type": [
           "application/json; charset=utf-8"

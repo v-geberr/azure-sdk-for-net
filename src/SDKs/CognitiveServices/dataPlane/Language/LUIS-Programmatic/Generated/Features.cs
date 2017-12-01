@@ -1569,13 +1569,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='phraselistId'>
-        /// The ID of the feature to be deleted.
+        /// The ID of the feature to be updated.
         /// </param>
         /// <param name='phraselistUpdateObject'>
-        /// A JSON object containing either:&lt;/br&gt;1- Just a boolean called
-        /// IsActive, in which case the status of the feature will be
-        /// changed.&lt;/br&gt;2- Name, Pattern, Mode, and a boolean called IsActive to
-        /// update the feature.
+        /// A PhraselistUpdateObject object containing either: - Just a boolean called
+        /// IsActive, in which case the status of the feature will be changed. - Name,
+        /// Pattern, Mode, and a boolean called IsActive to update the feature.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.

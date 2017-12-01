@@ -42,22 +42,22 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Phrases")]
+        [JsonProperty(PropertyName = "phrases")]
         public string Phrases { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "Name")]
+        [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "IsActive")]
+        [JsonProperty(PropertyName = "isActive")]
         public bool? IsActive { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "IsExchangeable")]
+        [JsonProperty(PropertyName = "isExchangeable")]
         public bool? IsExchangeable { get; set; }
 
     }
