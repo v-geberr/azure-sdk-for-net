@@ -51,5 +51,47 @@
                 Assert.True(phrases.Count > 0);
             });
         }
+
+        [Fact]
+        public void GetSinglePhraseList()
+        {
+            UseClientFor(async client =>
+            {
+                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                {
+                    Name = "DayOfWeek",
+                    Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
+                    IsExchangeable = true
+                });
+
+                var phrase = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+
+                Assert.Equal("DayOfWeek", phrase.Name);
+                Assert.True(phrase.IsActive);
+                Assert.True(phrase.IsExchangeable);
+            });
+        }
+
+        [Fact]
+        public void DeletePhraseList()
+        {
+            UseClientFor(async client =>
+            {
+                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                {
+                    Name = "DayOfWeek",
+                    Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
+                    IsExchangeable = true
+                });
+
+                var phrase = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+
+                var phrases = await client.Features.GetApplicationVersionPhraselistFeaturesAsync(appId, versionId);
+
+                Assert.DoesNotContain(phrases, o => o.Id == id);
+            });
+        }
     }
 }
