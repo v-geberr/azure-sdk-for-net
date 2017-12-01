@@ -743,7 +743,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateCompositeEntityModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject = default(HierarchicalModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateCompositeEntityModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a composite entity extractor from the application.
         /// </summary>
@@ -1336,7 +1336,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a hierarchical entity extractor child from the application.
         /// </summary>

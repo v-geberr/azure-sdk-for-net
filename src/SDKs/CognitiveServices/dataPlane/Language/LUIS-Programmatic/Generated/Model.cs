@@ -4096,7 +4096,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateCompositeEntityModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject = default(HierarchicalModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateCompositeEntityModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -4110,6 +4110,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "cEntityId");
             }
+            if (hierarchicalModelUpdateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "hierarchicalModelUpdateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -4117,10 +4121,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("hierarchicalModelUpdateObject", hierarchicalModelUpdateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("cEntityId", cEntityId);
+                tracingParameters.Add("hierarchicalModelUpdateObject", hierarchicalModelUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateCompositeEntityModel", tracingParameters);
             }
@@ -7521,7 +7525,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -7539,6 +7543,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "hChildId");
             }
+            if (body == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "body");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -7546,11 +7554,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("body", body);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("hEntityId", hEntityId);
                 tracingParameters.Add("hChildId", hChildId);
+                tracingParameters.Add("body", body);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateHierarchicalEntityChildModel", tracingParameters);
             }
