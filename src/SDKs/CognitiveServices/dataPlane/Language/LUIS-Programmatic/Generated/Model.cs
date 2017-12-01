@@ -1144,9 +1144,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("hierarchicalModelCreateObject", hierarchicalModelCreateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("hierarchicalModelCreateObject", hierarchicalModelCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateCompositeEntityExtractor", tracingParameters);
             }
@@ -1315,10 +1315,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("skip", skip);
-                tracingParameters.Add("take", take);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionCompositeEntityInfos", tracingParameters);
             }
