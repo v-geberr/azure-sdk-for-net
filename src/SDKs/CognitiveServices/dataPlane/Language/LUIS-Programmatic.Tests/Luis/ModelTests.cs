@@ -81,7 +81,7 @@
             });
         }
 
-        [Fact(Skip = "Bad Request")]
+        [Fact]
         public void CreateCompositeEntityChildModel()
         {
             UseClientFor(async client =>
@@ -89,11 +89,7 @@
                 var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new { name = "datetime" });
-                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new ChildEntity { Name = "datetime" });
-                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "datetime");
-                //var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "{\t\"name\" : \"datetime\"}");
-                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, "{ name: datetime }");
+                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new ChildEntity { Name = "datetimeV2" });
 
                 Assert.True(Guid.TryParse(result, out Guid id));
             });
