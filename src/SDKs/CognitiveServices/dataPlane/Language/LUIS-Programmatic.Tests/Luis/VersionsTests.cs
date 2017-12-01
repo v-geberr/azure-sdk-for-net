@@ -111,5 +111,27 @@
                 await client.Versions.DeleteApplicationVersionAsync(appId, newVersion);
             });
         }
+        
+        [Fact]
+        public void DeleteUnlabelledUtterance()
+        {
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionId = versions.FirstOrDefault().Version;
+                var intents = await client.Model.GetApplicationVersionIntentInfosAsync(appId, versionId);
+                var intentId = intents.FirstOrDefault().Id;
+
+                var suggestions = await client.Model.SuggestEndpointQueriesForIntentsAsync(appId, versionId, intentId);
+
+                var utteranceToDelete = suggestions.FirstOrDefault().Text;
+
+                await client.Versions.DeleteUnlabelledUtteranceAsync(appId, versionId, utteranceToDelete);
+
+                var suggestionsWithoutDeleted = await client.Model.SuggestEndpointQueriesForIntentsAsync(appId, versionId, intentId);
+
+                Assert.DoesNotContain(suggestionsWithoutDeleted, v => v.Text.Equals(utteranceToDelete));
+            });
+        }
     }
 }

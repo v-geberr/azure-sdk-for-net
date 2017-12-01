@@ -6,6 +6,7 @@
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
     using Xunit;
+    using System.Linq;
 
     public class AppsTests : BaseTest
     {
@@ -359,6 +360,17 @@
                 var result = await client.Apps.AddCustomPrebuiltApplicationAsync(domain);
 
                 Assert.True(Guid.TryParse(result, out Guid appGuid));
+            });
+        }
+        
+        [Fact]
+        public void GetPersonalAssistantApplications()
+        {
+            UseClientFor(async client =>
+            {
+                var result = await client.Apps.GetPersonalAssistantApplicationsAsync();
+
+                Assert.True(result.EndpointUrls.Values.All(url => Uri.TryCreate(url, UriKind.Absolute, out Uri uri)));
             });
         }
     }

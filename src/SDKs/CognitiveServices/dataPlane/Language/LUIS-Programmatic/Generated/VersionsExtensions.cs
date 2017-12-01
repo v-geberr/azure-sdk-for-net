@@ -202,15 +202,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
-            /// <param name='body'>
+            /// <param name='utterance'>
             /// The utterance text to delete
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteUnlabelledUtteranceAsync(this IVersions operations, string appId, string versionId, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteUnlabelledUtteranceAsync(this IVersions operations, string appId, string versionId, string utterance, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteUnlabelledUtteranceWithHttpMessagesAsync(appId, versionId, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteUnlabelledUtteranceWithHttpMessagesAsync(appId, versionId, utterance, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }
