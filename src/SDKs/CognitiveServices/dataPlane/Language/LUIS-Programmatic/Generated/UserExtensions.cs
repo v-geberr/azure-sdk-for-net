@@ -11,8 +11,6 @@
 namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 {
     using Models;
-    using System.Collections;
-    using System.Collections.Generic;
     using System.Threading;
     using System.Threading.Tasks;
 
@@ -21,105 +19,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
     /// </summary>
     public static partial class UserExtensions
     {
-            /// <summary>
-            /// Adds a subscription key to the user.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='userSubscriptionCreateObject'>
-            /// Subscription key object.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task AddSubscriptionKeyAsync(this IUser operations, UserSubscriptionCreateObject userSubscriptionCreateObject = default(UserSubscriptionCreateObject), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.AddSubscriptionKeyWithHttpMessagesAsync(userSubscriptionCreateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Gets the user's endpoint subscription keys.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task<IList<SubscriptionKeyInfo>> GetUserSubscriptionKeysAsync(this IUser operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                using (var _result = await operations.GetUserSubscriptionKeysWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
-                {
-                    return _result.Body;
-                }
-            }
-
-            /// <summary>
-            /// Renames a subscription key owned by the user.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='body'>
-            /// Subscription key object.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task RenameSubscriptionKeyAsync(this IUser operations, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.RenameSubscriptionKeyWithHttpMessagesAsync(body, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Deletes a user subscription key.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='subscriptionKey'>
-            /// The subscription key.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task DeleteSubscriptionKeyAsync(this IUser operations, string subscriptionKey, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.DeleteSubscriptionKeyWithHttpMessagesAsync(subscriptionKey, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Adds an external API key to the user.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='externalKeyCreateObject'>
-            /// External API key object.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task AddExternalApiKeyAsync(this IUser operations, ExternalKeyCreateObject externalKeyCreateObject = default(ExternalKeyCreateObject), CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.AddExternalApiKeyWithHttpMessagesAsync(externalKeyCreateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Gets a list of the user's external api keys.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task GetUserExternalApiKeysAsync(this IUser operations, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.GetUserExternalApiKeysWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
             /// <summary>
             /// Resets the user programmatic key.
             /// </summary>
@@ -132,23 +31,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             public static async Task ResetProgrammaticKeyAsync(this IUser operations, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.ResetProgrammaticKeyWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
-            }
-
-            /// <summary>
-            /// Deletes a user external API key.
-            /// </summary>
-            /// <param name='operations'>
-            /// The operations group for this extension method.
-            /// </param>
-            /// <param name='externalKeyValue'>
-            /// The external API key.
-            /// </param>
-            /// <param name='cancellationToken'>
-            /// The cancellation token.
-            /// </param>
-            public static async Task DeleteExternalApiKeyAsync(this IUser operations, string externalKeyValue, CancellationToken cancellationToken = default(CancellationToken))
-            {
-                (await operations.DeleteExternalApiKeyWithHttpMessagesAsync(externalKeyValue, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

@@ -23,102 +23,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
     public partial interface IUser
     {
         /// <summary>
-        /// Adds a subscription key to the user.
-        /// </summary>
-        /// <param name='userSubscriptionCreateObject'>
-        /// Subscription key object.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        Task<HttpOperationResponse> AddSubscriptionKeyWithHttpMessagesAsync(UserSubscriptionCreateObject userSubscriptionCreateObject = default(UserSubscriptionCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Gets the user's endpoint subscription keys.
-        /// </summary>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.SerializationException">
-        /// Thrown when unable to deserialize the response
-        /// </exception>
-        Task<HttpOperationResponse<IList<SubscriptionKeyInfo>>> GetUserSubscriptionKeysWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Renames a subscription key owned by the user.
-        /// </summary>
-        /// <param name='body'>
-        /// Subscription key object.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        Task<HttpOperationResponse> RenameSubscriptionKeyWithHttpMessagesAsync(object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Deletes a user subscription key.
-        /// </summary>
-        /// <param name='subscriptionKey'>
-        /// The subscription key.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> DeleteSubscriptionKeyWithHttpMessagesAsync(string subscriptionKey, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Adds an external API key to the user.
-        /// </summary>
-        /// <param name='externalKeyCreateObject'>
-        /// External API key object.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        Task<HttpOperationResponse> AddExternalApiKeyWithHttpMessagesAsync(ExternalKeyCreateObject externalKeyCreateObject = default(ExternalKeyCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Gets a list of the user's external api keys.
-        /// </summary>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        Task<HttpOperationResponse> GetUserExternalApiKeysWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
         /// Resets the user programmatic key.
         /// </summary>
         /// <param name='customHeaders'>
@@ -131,24 +35,5 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Thrown when the operation returned an invalid status code
         /// </exception>
         Task<HttpOperationResponse> ResetProgrammaticKeyWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
-        /// <summary>
-        /// Deletes a user external API key.
-        /// </summary>
-        /// <param name='externalKeyValue'>
-        /// The external API key.
-        /// </param>
-        /// <param name='customHeaders'>
-        /// The headers that will be added to request.
-        /// </param>
-        /// <param name='cancellationToken'>
-        /// The cancellation token.
-        /// </param>
-        /// <exception cref="ErrorResponseException">
-        /// Thrown when the operation returned an invalid status code
-        /// </exception>
-        /// <exception cref="Microsoft.Rest.ValidationException">
-        /// Thrown when a required parameter is null
-        /// </exception>
-        Task<HttpOperationResponse> DeleteExternalApiKeyWithHttpMessagesAsync(string externalKeyValue, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="trainingStatus">Possible values include:
         /// 'NeedsTraining', 'InProgress', 'Trained'</param>
-        public VersionInfo(string version, TrainingStatus trainingStatus, System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastModifiedDateTime = default(System.DateTime?), System.DateTime? lastTrainedDateTime = default(System.DateTime?), System.DateTime? lastPublishedDateTime = default(System.DateTime?), string endpointUrl = default(string), IDictionary<string, string> assignedEndpointKey = default(IDictionary<string, string>), object externalApiKeys = default(object), int? intentsCount = default(int?), int? entitiesCount = default(int?), int? endpointHitsCount = default(int?))
+        public VersionInfo(string version, TrainingStatus trainingStatus, System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastModifiedDateTime = default(System.DateTime?), System.DateTime? lastTrainedDateTime = default(System.DateTime?), System.DateTime? lastPublishedDateTime = default(System.DateTime?), string endpointUrl = default(string), IDictionary<string, string> assignedEndpointKey = default(IDictionary<string, string>), int? intentsCount = default(int?), int? entitiesCount = default(int?), int? endpointHitsCount = default(int?))
         {
             Version = version;
             CreatedDateTime = createdDateTime;
@@ -40,7 +40,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
             LastPublishedDateTime = lastPublishedDateTime;
             EndpointUrl = endpointUrl;
             AssignedEndpointKey = assignedEndpointKey;
-            ExternalApiKeys = externalApiKeys;
             IntentsCount = intentsCount;
             EntitiesCount = entitiesCount;
             EndpointHitsCount = endpointHitsCount;
@@ -87,11 +86,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         [JsonProperty(PropertyName = "assignedEndpointKey")]
         public IDictionary<string, string> AssignedEndpointKey { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "externalApiKeys")]
-        public object ExternalApiKeys { get; set; }
 
         /// <summary>
         /// </summary>
