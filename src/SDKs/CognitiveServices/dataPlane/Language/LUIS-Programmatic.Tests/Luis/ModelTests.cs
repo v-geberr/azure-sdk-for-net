@@ -111,7 +111,7 @@
                 await client.Model.DeleteCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entity.Id, childEntityId);
 
                 entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
-                Assert.DoesNotContain(entities, e => e.Id == entity.Id && entity.Children.Any(c => c.Id == childEntityId));
+                Assert.DoesNotContain(entities, e => e.Id == entity.Id && e.Children.Any(c => c.Id == childEntityId));
             });
         }
 
@@ -181,6 +181,37 @@
 
                 entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entityId);
+            });
+        }
+
+        [Fact]
+        public void GetHierarchicalEntityChildInfo()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entity = entities.Where(e => e.Children.Any()).Last();
+                var childEntityId = entity.Children.Last().Id;
+
+                var result = await client.Model.GetHierarchicalEntityChildInfoAsync(appId, "0.1", entity.Id, childEntityId);
+
+                Assert.True(Guid.TryParse(result.Id, out Guid id));
+            });
+        }
+
+        [Fact]
+        public void DeleteHierarchicalEntityChildModel()
+        {
+            UseClientFor(async client =>
+            {
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entity = entities.Where(e => e.Children.Any()).Last();
+                var childEntityId = entity.Children.Last().Id;
+
+                await client.Model.DeleteHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntityId);
+
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                Assert.DoesNotContain(entities, e => e.Id == entity.Id && e.Children.Any(c => c.Id == childEntityId));
             });
         }
 
