@@ -39,7 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<double?> CreatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, PatternCreateObject patternCreateObject = default(PatternCreateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<double?> CreatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, PatternCreateObject patternCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.CreatePatternFeatureWithHttpMessagesAsync(appId, versionId, patternCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -212,7 +212,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject = default(PatternUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdatePatternFeatureAsync(this IFeatures operations, string appId, string versionId, int patternId, PatternUpdateObject patternUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdatePatternFeatureWithHttpMessagesAsync(appId, versionId, patternId, patternUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
