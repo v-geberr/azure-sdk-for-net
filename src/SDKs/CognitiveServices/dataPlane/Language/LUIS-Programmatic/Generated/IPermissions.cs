@@ -27,7 +27,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -47,7 +47,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// application. Users are added using their email address.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='userToAdd'>
         /// A model containing the user's email address.
@@ -66,11 +66,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse> AddUserToAccessListWithHttpMessagesAsync(System.Guid appId, UserCollaborator userToAdd, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Removed a user to the allowed list of users to access this LUIS
+        /// Removes a user from the allowed list of users to access this LUIS
         /// application. Users are removed using their email address.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='userToDelete'>
         /// A model containing the user's email address.
@@ -94,7 +94,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// removed.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='collaborators'>
         /// A model containing a list of user's email addresses.

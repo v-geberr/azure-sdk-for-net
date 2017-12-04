@@ -29,9 +29,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='applicationCreateObject'>
         /// A model containing Name, Description (optional), Culture, Usage
         /// Scenario (optional), Domain (optional) and initial version ID
-        /// (optional) of the application.
-        /// Default value for the version ID is 0.1.
-        /// Note that the culture cannot be changed after the app is created.
+        /// (optional) of the application. Default value for the version ID is
+        /// 0.1. Note: the culture cannot be changed after the app is created.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -167,7 +166,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets the query logs of the past month for the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -186,7 +185,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets the application info.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -205,7 +204,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the name or description of the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='applicationUpdateObject'>
         /// A model containing Name and Description of the application.
@@ -227,7 +226,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes an application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -243,14 +242,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Publishes a specific version of the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='applicationPublishObject'>
         /// The application publish object. The region is the target region
-        /// that the application is published to. Possible values are "westus",
-        /// "eastus2", "westcentralus" or "southeastasia" for applications
-        /// created in west US, and "westeurope" for applications created in
-        /// West Europe.
+        /// that the application is published to.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -269,10 +265,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<ProductionOrStagingEndpointInfo>> PublishApplicationWithHttpMessagesAsync(System.Guid appId, ApplicationPublishObject applicationPublishObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Get the application settings
+        /// Get the application settings.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -288,10 +284,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<ApplicationSettings>> GetApplicationSettingsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates the application settings
+        /// Updates the application settings.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='applicationSettingUpdateObject'>
         /// An object containing the new application settings.
@@ -310,10 +306,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(System.Guid appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Returns the available endpoint deployment regions and URLs
+        /// Returns the available endpoint deployment regions and URLs.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -329,7 +325,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<AvailableEndpoints>> GetEndpointsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all the available custom prebuilt domains for all cultures
+        /// Gets all the available custom prebuilt domains for all cultures.
         /// </summary>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -349,7 +345,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </summary>
         /// <param name='prebuiltDomainCreateObject'>
         /// A prebuilt domain create object containing the name and culture of
-        /// the domain
+        /// the domain.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -369,10 +365,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         Task<HttpOperationResponse<System.Guid>> AddCustomPrebuiltApplicationWithHttpMessagesAsync(PrebuiltDomainCreateObject prebuiltDomainCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all the available custom prebuilt domains for a specific
-        /// culture
+        /// culture.
         /// </summary>
         /// <param name='culture'>
-        /// Format - string. Culture
+        /// Culture.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

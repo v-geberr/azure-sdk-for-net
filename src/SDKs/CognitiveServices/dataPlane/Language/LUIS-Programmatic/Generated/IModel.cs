@@ -26,7 +26,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds an intent classifier to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -54,7 +54,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the intent models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -86,7 +86,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds an entity extractor to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -114,7 +114,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the entity models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -146,13 +146,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds a hierarchical entity extractor to the application version.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
+        /// A model containing the name and children of the new entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
@@ -175,7 +175,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the hierarchical entity models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -207,13 +207,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds a composite entity extractor to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
+        /// A model containing the name and children of the new entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
@@ -236,7 +236,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the composite entity models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -268,7 +268,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the closedlist models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -300,14 +300,14 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds a closed list model to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='closedListModelCreateObject'>
-        /// A model object containing the name and words for the new closed
-        /// list entity extractor.
+        /// A model containing the name and words for the new closed list
+        /// entity extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -329,7 +329,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds a list of prebuilt entity extractors to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -357,7 +357,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the prebuilt entity models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -390,7 +390,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -415,7 +415,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the application version models.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -447,13 +447,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the intent model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='intentId'>
-        /// Format - guid. The intent classifier ID.
+        /// The intent classifier ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -475,13 +475,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the name of an intent classifier.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='intentId'>
-        /// Format - guid. The intent classifier ID.
+        /// The intent classifier ID.
         /// </param>
         /// <param name='modelUpdateObject'>
         /// A model object containing the new intent classifier name.
@@ -503,13 +503,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes an intent classifier from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='intentId'>
-        /// Format - guid. The intent classifier ID.
+        /// The intent classifier ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -528,13 +528,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='entityId'>
-        /// Format - guid. The entity extractor ID.
+        /// The entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -556,13 +556,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the name of an entity extractor.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='entityId'>
-        /// Format - guid. The entity extractor ID.
+        /// The entity extractor ID.
         /// </param>
         /// <param name='modelUpdateObject'>
         /// A model object containing the new entity extractor name.
@@ -584,13 +584,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes an entity extractor from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='entityId'>
-        /// Format - guid. The entity extractor ID.
+        /// The entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -609,13 +609,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the hierarchical entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -637,13 +637,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the name and children of a hierarchical entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hierarchicalModelUpdateObject'>
         /// Model containing names of the children of the hierarchical entity.
@@ -660,19 +660,19 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateHierarchicalEntityModelWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject = default(HierarchicalModelUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateHierarchicalEntityModelWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a hierarchical entity extractor from the application
         /// version.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -691,13 +691,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the composite entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='cEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -719,13 +719,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the composite entity extractor.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='cEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hierarchicalModelUpdateObject'>
         /// A model object containing the new entity extractor name and
@@ -748,13 +748,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a composite entity extractor from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='cEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -773,13 +773,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information of a closed list model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
+        /// The closed list model ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -801,13 +801,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the closed list model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
+        /// The closed list model ID.
         /// </param>
         /// <param name='closedListModelUpdateObject'>
         /// The new entity name and words list.
@@ -829,13 +829,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Adds a batch of sublists to an existing closedlist.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
+        /// The closed list model ID.
         /// </param>
         /// <param name='closedListModelPatchObject'>
         /// A words list batch.
@@ -857,13 +857,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a closed list model from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list model ID.
+        /// The closed list model ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -882,13 +882,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the prebuilt entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='prebuiltId'>
-        /// Format - guid. The prebuilt entity extractor ID.
+        /// The prebuilt entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -910,13 +910,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a prebuilt entity extractor from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='prebuiltId'>
-        /// Format - guid. The prebuilt entity extractor ID.
+        /// The prebuilt entity extractor ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -935,13 +935,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a sublist of a specific closed list model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list entity extractor ID.
+        /// The closed list entity extractor ID.
         /// </param>
         /// <param name='subListId'>
         /// The sublist ID.
@@ -960,16 +960,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse> DeleteSubListWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid clEntityId, int subListId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Updates one of the closed list's sublists
+        /// Updates one of the closed list's sublists.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list entity extractor ID.
+        /// The closed list entity extractor ID.
         /// </param>
         /// <param name='subListId'>
         /// The sublist ID.
@@ -996,13 +996,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='intentId'>
-        /// Format - guid. The intent classifier ID.
+        /// The intent classifier ID.
         /// </param>
         /// <param name='take'>
         /// The number of entries to return. Maximum page size is 500. Default
@@ -1029,13 +1029,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='entityId'>
-        /// Format - guid. The target entity extractor model to enhance.
+        /// The target entity extractor model to enhance.
         /// </param>
         /// <param name='take'>
         /// The number of entries to return. Maximum page size is 500. Default
@@ -1058,16 +1058,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<EntitiesSuggestionExample>>> SuggestEndpointQueriesForEntitiesWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid entityId, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Adds a list to an existing closed list
+        /// Adds a list to an existing closed list.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='clEntityId'>
-        /// Format - guid. The closed list entity extractor ID.
+        /// The closed list entity extractor ID.
         /// </param>
         /// <param name='wordListCreateObject'>
         /// Words list.
@@ -1093,13 +1093,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// this application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='prebuiltDomainObject'>
-        /// A prebuilt domain create object containing the name of the domain
+        /// A prebuilt domain create object containing the name of the domain.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1118,10 +1118,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<System.Guid?>>> AddCustomPrebuiltDomainToApplicationWithHttpMessagesAsync(System.Guid appId, string versionId, PrebuiltDomainCreateBaseObject prebuiltDomainObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Adds a custom prebuilt intent model to the application
+        /// Adds a custom prebuilt intent model to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1147,10 +1147,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<System.Guid>> AddCustomPrebuiltIntentModelWithHttpMessagesAsync(System.Guid appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets custom prebuilt intents information of this application
+        /// Gets custom prebuilt intents information of this application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1172,10 +1172,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<IntentClassifier>>> GetCustomPrebuiltDomainIntentsInfoWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Adds a custom prebuilt entity model to the application
+        /// Adds a custom prebuilt entity model to the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1201,10 +1201,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<System.Guid>> AddCustomPrebuiltEntityModelWithHttpMessagesAsync(System.Guid appId, string versionId, PrebuiltDomainModelCreateObject prebuiltDomainModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all custom prebuilt entities information of this application
+        /// Gets all custom prebuilt entities information of this application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1226,10 +1226,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<EntityExtractor>>> GetCustomPrebuiltDomainEntitiesInfoWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Gets all custom prebuilt models information of this application
+        /// Gets all custom prebuilt models information of this application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1254,13 +1254,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a prebuilt domain's models from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='domainName'>
-        /// Domain name
+        /// Domain name.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1279,16 +1279,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets information about the hierarchical entity child model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hChildId'>
-        /// Format - guid. The hierarchical entity extractor child ID.
+        /// The hierarchical entity extractor child ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1310,16 +1310,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Renames a single child in an existing hierarchical entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hChildId'>
-        /// Format - guid. The hierarchical entity extractor child ID.
+        /// The hierarchical entity extractor child ID.
         /// </param>
         /// <param name='hierarchicalChildModelUpdateObject'>
         /// Model object containing new name of the hierarchical entity child.
@@ -1341,16 +1341,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a hierarchical entity extractor child from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hChildId'>
-        /// Format - guid. The hierarchical entity extractor child ID.
+        /// The hierarchical entity extractor child ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1369,13 +1369,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Creates a single child in an existing hierarchical entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='hEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='hierarchicalChildModelCreateObject'>
         /// A model object containing the name of the new hierarchical child
@@ -1401,13 +1401,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Creates a single child in an existing composite entity model.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='cEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='compositeChildModelCreateObject'>
         /// A model object containing the name of the new composite child
@@ -1433,16 +1433,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Deletes a composite entity extractor child from the application.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
         /// </param>
         /// <param name='cEntityId'>
-        /// Format - guid. The hierarchical entity extractor ID.
+        /// The hierarchical entity extractor ID.
         /// </param>
         /// <param name='cChildId'>
-        /// Format - guid. The hierarchical entity extractor child ID.
+        /// The hierarchical entity extractor child ID.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.

@@ -22,20 +22,20 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
     public static partial class VersionsExtensions
     {
             /// <summary>
-            /// Creates a new version equivalent to the current snapshot of the selected
+            /// Creates a new version using the current snapshot of the selected
             /// application version.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='versionCloneObject'>
-            /// An model containing the new version ID.
+            /// A model containing the new version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -55,7 +55,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='skip'>
             /// The number of entries to skip. Default value is 0.
@@ -75,13 +75,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets the task info.
+            /// Gets the version info.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -104,7 +104,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -127,7 +127,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -147,7 +147,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -170,7 +170,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='luisApp'>
             /// A LUIS application structure.
@@ -197,13 +197,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='utterance'>
-            /// The utterance text to delete
+            /// The utterance text to delete.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

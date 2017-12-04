@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -54,7 +54,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -109,7 +109,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -138,14 +138,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hierarchicalModelCreateObject'>
-            /// A model object containing the name and children of the new entity
-            /// extractor.
+            /// A model containing the name and children of the new entity extractor.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -165,7 +164,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -194,14 +193,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hierarchicalModelCreateObject'>
-            /// A model object containing the name and children of the new entity
-            /// extractor.
+            /// A model containing the name and children of the new entity extractor.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -221,7 +219,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -250,7 +248,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -279,13 +277,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='closedListModelCreateObject'>
-            /// A model object containing the name and words for the new closed list entity
+            /// A model containing the name and words for the new closed list entity
             /// extractor.
             /// </param>
             /// <param name='cancellationToken'>
@@ -306,7 +304,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -332,7 +330,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -361,7 +359,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -384,7 +382,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -413,13 +411,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='intentId'>
-            /// Format - guid. The intent classifier ID.
+            /// The intent classifier ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -439,13 +437,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='intentId'>
-            /// Format - guid. The intent classifier ID.
+            /// The intent classifier ID.
             /// </param>
             /// <param name='modelUpdateObject'>
             /// A model object containing the new intent classifier name.
@@ -465,13 +463,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='intentId'>
-            /// Format - guid. The intent classifier ID.
+            /// The intent classifier ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -488,13 +486,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='entityId'>
-            /// Format - guid. The entity extractor ID.
+            /// The entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -514,13 +512,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='entityId'>
-            /// Format - guid. The entity extractor ID.
+            /// The entity extractor ID.
             /// </param>
             /// <param name='modelUpdateObject'>
             /// A model object containing the new entity extractor name.
@@ -540,13 +538,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='entityId'>
-            /// Format - guid. The entity extractor ID.
+            /// The entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -563,13 +561,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -589,13 +587,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hierarchicalModelUpdateObject'>
             /// Model containing names of the children of the hierarchical entity.
@@ -603,7 +601,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateHierarchicalEntityModelAsync(this IModel operations, System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject = default(HierarchicalModelUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateHierarchicalEntityModelAsync(this IModel operations, System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.UpdateHierarchicalEntityModelWithHttpMessagesAsync(appId, versionId, hEntityId, hierarchicalModelUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
@@ -615,13 +613,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -638,13 +636,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='cEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -664,13 +662,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='cEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hierarchicalModelUpdateObject'>
             /// A model object containing the new entity extractor name and children.
@@ -690,13 +688,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='cEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -713,13 +711,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
+            /// The closed list model ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -739,13 +737,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
+            /// The closed list model ID.
             /// </param>
             /// <param name='closedListModelUpdateObject'>
             /// The new entity name and words list.
@@ -765,13 +763,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
+            /// The closed list model ID.
             /// </param>
             /// <param name='closedListModelPatchObject'>
             /// A words list batch.
@@ -791,13 +789,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list model ID.
+            /// The closed list model ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -814,13 +812,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='prebuiltId'>
-            /// Format - guid. The prebuilt entity extractor ID.
+            /// The prebuilt entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -840,13 +838,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='prebuiltId'>
-            /// Format - guid. The prebuilt entity extractor ID.
+            /// The prebuilt entity extractor ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -863,13 +861,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list entity extractor ID.
+            /// The closed list entity extractor ID.
             /// </param>
             /// <param name='subListId'>
             /// The sublist ID.
@@ -883,19 +881,19 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Updates one of the closed list's sublists
+            /// Updates one of the closed list's sublists.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list entity extractor ID.
+            /// The closed list entity extractor ID.
             /// </param>
             /// <param name='subListId'>
             /// The sublist ID.
@@ -919,13 +917,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='intentId'>
-            /// Format - guid. The intent classifier ID.
+            /// The intent classifier ID.
             /// </param>
             /// <param name='take'>
             /// The number of entries to return. Maximum page size is 500. Default is 100.
@@ -949,13 +947,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='entityId'>
-            /// Format - guid. The target entity extractor model to enhance.
+            /// The target entity extractor model to enhance.
             /// </param>
             /// <param name='take'>
             /// The number of entries to return. Maximum page size is 500. Default is 100.
@@ -972,19 +970,19 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Adds a list to an existing closed list
+            /// Adds a list to an existing closed list.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='clEntityId'>
-            /// Format - guid. The closed list entity extractor ID.
+            /// The closed list entity extractor ID.
             /// </param>
             /// <param name='wordListCreateObject'>
             /// Words list.
@@ -1008,13 +1006,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='prebuiltDomainObject'>
-            /// A prebuilt domain create object containing the name of the domain
+            /// A prebuilt domain create object containing the name of the domain.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1028,13 +1026,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Adds a custom prebuilt intent model to the application
+            /// Adds a custom prebuilt intent model to the application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -1055,13 +1053,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets custom prebuilt intents information of this application
+            /// Gets custom prebuilt intents information of this application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -1078,13 +1076,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Adds a custom prebuilt entity model to the application
+            /// Adds a custom prebuilt entity model to the application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -1105,13 +1103,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets all custom prebuilt entities information of this application
+            /// Gets all custom prebuilt entities information of this application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -1128,13 +1126,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets all custom prebuilt models information of this application
+            /// Gets all custom prebuilt models information of this application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
@@ -1157,13 +1155,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='domainName'>
-            /// Domain name
+            /// Domain name.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1180,16 +1178,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hChildId'>
-            /// Format - guid. The hierarchical entity extractor child ID.
+            /// The hierarchical entity extractor child ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1209,16 +1207,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hChildId'>
-            /// Format - guid. The hierarchical entity extractor child ID.
+            /// The hierarchical entity extractor child ID.
             /// </param>
             /// <param name='hierarchicalChildModelUpdateObject'>
             /// Model object containing new name of the hierarchical entity child.
@@ -1238,16 +1236,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hChildId'>
-            /// Format - guid. The hierarchical entity extractor child ID.
+            /// The hierarchical entity extractor child ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -1264,13 +1262,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='hEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='hierarchicalChildModelCreateObject'>
             /// A model object containing the name of the new hierarchical child model.
@@ -1293,13 +1291,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='cEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='compositeChildModelCreateObject'>
             /// A model object containing the name of the new composite child model.
@@ -1322,16 +1320,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='versionId'>
             /// The version ID of the task.
             /// </param>
             /// <param name='cEntityId'>
-            /// Format - guid. The hierarchical entity extractor ID.
+            /// The hierarchical entity extractor ID.
             /// </param>
             /// <param name='cChildId'>
-            /// Format - guid. The hierarchical entity extractor child ID.
+            /// The hierarchical entity extractor child ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

@@ -54,7 +54,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Creates a new pattern feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -219,10 +219,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all application version pattern features.
+        /// Gets all the pattern features.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -397,7 +397,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Creates a new phraselist feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -563,10 +563,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets phraselist features.
+        /// Gets all the phraselist features.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -738,10 +738,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all application version features.
+        /// Gets all the extraction features for the specified application version.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -913,10 +913,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets pattern feature info.
+        /// Gets the specified pattern feature's info.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1075,7 +1075,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the pattern, the name and the state of the pattern feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1226,10 +1226,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Deletes a pattern feature from an application version.
+        /// Deletes a pattern feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1367,7 +1367,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Gets phraselist feature info.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1526,7 +1526,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// Updates the phrases, the state and the name of the phraselist feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -1535,9 +1535,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The ID of the feature to be updated.
         /// </param>
         /// <param name='phraselistUpdateObject'>
-        /// A PhraselistUpdateObject object containing either: - Just a boolean called
-        /// IsActive, in which case the status of the feature will be changed. - Name,
-        /// Pattern, Mode, and a boolean called IsActive to update the feature.
+        /// The new values for: - Just a boolean called IsActive, in which case the
+        /// status of the feature will be changed. - Name, Pattern, Mode, and a boolean
+        /// called IsActive to update the feature.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1673,10 +1673,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Deletes a phraselist feature from an application.
+        /// Deletes a phraselist feature.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.

@@ -31,9 +31,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='applicationCreateObject'>
             /// A model containing Name, Description (optional), Culture, Usage Scenario
             /// (optional), Domain (optional) and initial version ID (optional) of the
-            /// application.
-            /// Default value for the version ID is 0.1.
-            /// Note that the culture cannot be changed after the app is created.
+            /// application. Default value for the version ID is 0.1. Note: the culture
+            /// cannot be changed after the app is created.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -169,7 +168,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -188,7 +187,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -208,7 +207,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='applicationUpdateObject'>
             /// A model containing Name and Description of the application.
@@ -228,7 +227,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -245,13 +244,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='applicationPublishObject'>
             /// The application publish object. The region is the target region that the
-            /// application is published to. Possible values are "westus", "eastus2",
-            /// "westcentralus" or "southeastasia" for applications created in west US, and
-            /// "westeurope" for applications created in West Europe.
+            /// application is published to.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -265,13 +262,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Get the application settings
+            /// Get the application settings.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -285,13 +282,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Updates the application settings
+            /// Updates the application settings.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='applicationSettingUpdateObject'>
             /// An object containing the new application settings.
@@ -305,13 +302,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Returns the available endpoint deployment regions and URLs
+            /// Returns the available endpoint deployment regions and URLs.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='appId'>
-            /// Format - guid. The application ID.
+            /// The application ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -325,7 +322,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets all the available custom prebuilt domains for all cultures
+            /// Gets all the available custom prebuilt domains for all cultures.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -349,7 +346,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// </param>
             /// <param name='prebuiltDomainCreateObject'>
             /// A prebuilt domain create object containing the name and culture of the
-            /// domain
+            /// domain.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -363,13 +360,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Gets all the available custom prebuilt domains for a specific culture
+            /// Gets all the available custom prebuilt domains for a specific culture.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
             /// </param>
             /// <param name='culture'>
-            /// Format - string. Culture
+            /// Culture.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.

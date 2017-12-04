@@ -60,7 +60,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// training is complete.
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.
@@ -218,7 +218,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// example, "0.1".
         /// </summary>
         /// <param name='appId'>
-        /// Format - guid. The application ID.
+        /// The application ID.
         /// </param>
         /// <param name='versionId'>
         /// The version ID of the task.

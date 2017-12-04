@@ -28,8 +28,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the IntentsSuggestionExample class.
         /// </summary>
-        /// <param name="text">what's the weather like in seattle?</param>
-        /// <param name="tokenizedText">the utterance tokenized</param>
+        /// <param name="text">The utterance. E.g.: what's the weather like in
+        /// seattle?</param>
+        /// <param name="tokenizedText">the utterance tokenized.</param>
         public IntentsSuggestionExample(string text = default(string), IList<string> tokenizedText = default(IList<string>), IList<IntentPrediction> intentPredictions = default(IList<IntentPrediction>), IList<EntityPrediction> entityPredictions = default(IList<EntityPrediction>))
         {
             Text = text;
@@ -45,13 +46,14 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets what's the weather like in seattle?
+        /// Gets or sets the utterance. E.g.: what's the weather like in
+        /// seattle?
         /// </summary>
         [JsonProperty(PropertyName = "text")]
         public string Text { get; set; }
 
         /// <summary>
-        /// Gets or sets the utterance tokenized
+        /// Gets or sets the utterance tokenized.
         /// </summary>
         [JsonProperty(PropertyName = "tokenizedText")]
         public IList<string> TokenizedText { get; set; }
