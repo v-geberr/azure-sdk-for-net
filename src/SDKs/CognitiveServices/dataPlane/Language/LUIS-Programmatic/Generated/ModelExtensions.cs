@@ -1220,15 +1220,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='hChildId'>
             /// Format - guid. The hierarchical entity extractor child ID.
             /// </param>
-            /// <param name='body'>
+            /// <param name='hierarchicalChildModelUpdateObject'>
             /// Model object containing new name of the hierarchical entity child.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateHierarchicalEntityChildModelAsync(this IModel operations, string appId, string versionId, string hEntityId, string hChildId, object body, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateHierarchicalEntityChildModelAsync(this IModel operations, string appId, string versionId, string hEntityId, string hChildId, object hierarchicalChildModelUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(appId, versionId, hEntityId, hChildId, body, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(appId, versionId, hEntityId, hChildId, hierarchicalChildModelUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -1272,15 +1272,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='hEntityId'>
             /// Format - guid. The hierarchical entity extractor ID.
             /// </param>
-            /// <param name='body'>
+            /// <param name='hierarchicalChildModelCreateObject'>
             /// A model object containing the name of the new hierarchical child model.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CreateHierarchicalEntityChildModelAsync(this IModel operations, string appId, string versionId, string hEntityId, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateHierarchicalEntityChildModelAsync(this IModel operations, string appId, string versionId, string hEntityId, object hierarchicalChildModelCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateHierarchicalEntityChildModelWithHttpMessagesAsync(appId, versionId, hEntityId, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateHierarchicalEntityChildModelWithHttpMessagesAsync(appId, versionId, hEntityId, hierarchicalChildModelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -1301,15 +1301,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cEntityId'>
             /// Format - guid. The hierarchical entity extractor ID.
             /// </param>
-            /// <param name='body'>
+            /// <param name='compositeChildModelCreateObject'>
             /// A model object containing the name of the new composite child model.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CreateCompositeEntityChildModelAsync(this IModel operations, string appId, string versionId, string cEntityId, object body = default(object), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CreateCompositeEntityChildModelAsync(this IModel operations, string appId, string versionId, string cEntityId, object compositeChildModelCreateObject = default(object), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreateCompositeEntityChildModelWithHttpMessagesAsync(appId, versionId, cEntityId, body, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CreateCompositeEntityChildModelWithHttpMessagesAsync(appId, versionId, cEntityId, compositeChildModelCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

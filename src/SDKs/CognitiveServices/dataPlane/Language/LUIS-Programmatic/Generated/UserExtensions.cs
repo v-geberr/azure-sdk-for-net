@@ -28,9 +28,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task ResetProgrammaticKeyAsync(this IUser operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> ResetProgrammaticKeyAsync(this IUser operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.ResetProgrammaticKeyWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false)).Dispose();
+                using (var _result = await operations.ResetProgrammaticKeyWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                {
+                    return _result.Body;
+                }
             }
 
     }
