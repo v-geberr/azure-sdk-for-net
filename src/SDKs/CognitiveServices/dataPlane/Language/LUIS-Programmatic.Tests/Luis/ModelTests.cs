@@ -219,7 +219,6 @@
                 var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntity = entity.Children.Last();
-                childEntity.Name = "RenamedChildEntity";
 
                 var modifiedChildEntity = new HierarchicalChildModelUpdateObject
                 {
@@ -230,7 +229,7 @@
 
                 entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 entity = entities.Last(e => e.Id == entity.Id);
-                childEntity = entity.Children.Last(c=> c.Id == childEntity.Id);
+                childEntity = entity.Children.Last(c => c.Id == childEntity.Id);
                 Assert.Equal("RenamedChildEntity", childEntity.Name);
             });
         }
@@ -242,7 +241,7 @@
             {
                 var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
-                
+
                 var newChildEntity = new HierarchicalChildModelCreateObject
                 {
                     Name = "RenamedChildEntity"
