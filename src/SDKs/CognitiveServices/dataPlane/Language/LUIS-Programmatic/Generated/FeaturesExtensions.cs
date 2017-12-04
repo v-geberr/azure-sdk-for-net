@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='patternCreateObject'>
             /// The Name and Pattern of the feature.
@@ -57,7 +57,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='skip'>
             /// The number of entries to skip. Default value is 0.
@@ -86,7 +86,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='phraselistCreateObject'>
             /// A Phraselist object containing Name, comma-separated Phrases and the
@@ -113,7 +113,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='skip'>
             /// The number of entries to skip. Default value is 0.
@@ -142,7 +142,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='skip'>
             /// The number of entries to skip. Default value is 0.
@@ -171,7 +171,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='patternId'>
             /// The pattern feature ID.
@@ -197,7 +197,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='patternId'>
             /// The pattern feature ID.
@@ -225,7 +225,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='patternId'>
             /// The pattern feature ID.
@@ -248,7 +248,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='phraselistId'>
             /// The ID of the feature to be retrieved.
@@ -274,7 +274,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='phraselistId'>
             /// The ID of the feature to be updated.
@@ -302,7 +302,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='phraselistId'>
             /// The ID of the feature to be deleted.

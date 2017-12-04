@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Properties for creating a new LUIS Application
+    /// </summary>
     public partial class ApplicationCreateObject
     {
         /// <summary>
@@ -26,6 +29,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ApplicationCreateObject class.
         /// </summary>
+        /// <param name="culture">The culture for the new application. Note:
+        /// the culture cannot be changed after the app is created.</param>
         public ApplicationCreateObject(string culture = default(string), string domain = default(string), string description = default(string), string initialVersionId = default(string), string usageScenario = default(string), string name = default(string))
         {
             Culture = culture;
@@ -43,6 +48,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the culture for the new application. Note: the culture
+        /// cannot be changed after the app is created.
         /// </summary>
         [JsonProperty(PropertyName = "culture")]
         public string Culture { get; set; }

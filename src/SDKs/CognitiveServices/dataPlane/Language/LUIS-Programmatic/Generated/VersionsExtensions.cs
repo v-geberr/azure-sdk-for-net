@@ -32,7 +32,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='versionCloneObject'>
             /// A model containing the new version ID.
@@ -84,7 +84,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -107,7 +107,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='versionUpdateObject'>
             /// A model containing Name and Description of the application.
@@ -130,7 +130,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -150,7 +150,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -200,7 +200,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='utterance'>
             /// The utterance text to delete.

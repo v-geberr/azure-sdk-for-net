@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='exampleLabelObject'>
             /// An example label with the expected intent and entities.
@@ -57,7 +57,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='exampleLabelObjectArray'>
             /// Array of examples.
@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='skip'>
             /// The number of entries to skip. Default value is 0.
@@ -112,7 +112,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='exampleId'>
             /// The example ID.

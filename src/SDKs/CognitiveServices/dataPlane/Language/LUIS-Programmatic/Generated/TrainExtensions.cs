@@ -37,7 +37,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -64,7 +64,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The application ID.
             /// </param>
             /// <param name='versionId'>
-            /// The version ID of the task.
+            /// The version ID.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
