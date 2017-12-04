@@ -29,7 +29,6 @@
                 var result = await client.Apps.GetApplicationsListAsync();
 
                 Assert.NotEqual(0, result.Count);
-                Assert.All(result, o => Guid.TryParse(o.Id, out Guid id));
                 Assert.Contains(result, o => o.Name == "Existing LUIS App");
 
                 // Cleanup
@@ -53,7 +52,6 @@
 
                 var savedApp = await client.Apps.GetApplicationInfoAsync(testAppId);
 
-                Assert.True(Guid.TryParse(testAppId, out Guid appGuid));
                 Assert.NotNull(savedApp);
                 Assert.Equal("New LUIS App", savedApp.Name);
                 Assert.Equal("New LUIS App", savedApp.Description);
@@ -236,7 +234,7 @@
                 var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
 
                 Assert.Equal(testAppId, settings.Id);
-                Assert.False(settings.PublicProperty);
+                Assert.False(settings.IsPublic);
 
                 // Cleanup
                 await client.Apps.DeleteApplicationAsync(testAppId);
@@ -265,7 +263,7 @@
 
                 // Assert
                 var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
-                Assert.True(settings.PublicProperty);
+                Assert.True(settings.IsPublic);
 
                 // Cleanup
                 await client.Apps.DeleteApplicationAsync(testAppId);
@@ -359,7 +357,7 @@
                 };
                 var result = await client.Apps.AddCustomPrebuiltApplicationAsync(domain);
 
-                Assert.True(Guid.TryParse(result, out Guid appGuid));
+                Assert.True(result != Guid.Empty);
             });
         }
         

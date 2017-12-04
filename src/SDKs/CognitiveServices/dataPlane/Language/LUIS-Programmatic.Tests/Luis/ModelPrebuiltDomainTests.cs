@@ -25,7 +25,7 @@
 
                 foreach (var result in results)
                 {
-                    Assert.True(Guid.TryParse(result, out Guid modelGuid));
+                    Assert.True(result != Guid.Empty);
                     Assert.Contains(prebuiltModels, m => m.Id.Equals(result));
                 }
             });

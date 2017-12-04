@@ -14,7 +14,7 @@ namespace LUIS.Programmatic.Tests.Luis
         private const HttpRecorderMode mode = HttpRecorderMode.Playback;
 
         protected const AzureRegions region = AzureRegions.Westus;
-        protected const string appId = "86226c53-b7a6-416f-876b-226b2b5ab07b";
+        protected readonly Guid appId = new Guid("86226c53-b7a6-416f-876b-226b2b5ab07b");
         protected const string subscriptionKey = "00000000000000000000000000000000";
 
         private string ClassName => GetType().FullName;

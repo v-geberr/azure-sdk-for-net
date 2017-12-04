@@ -56,7 +56,7 @@
             UseClientFor(async client =>
             {
                 var version = "0.1";
-                var prebuiltId = "a065c863-918e-4c56-a267-9aaae3c7dced";
+                var prebuiltId = new Guid("a065c863-918e-4c56-a267-9aaae3c7dced");
 
                 var prebuiltEntity = await client.Model.GetPrebuiltInfoAsync(appId, version, prebuiltId);
 
@@ -70,7 +70,7 @@
             UseClientFor(async client =>
             {
                 var version = "0.1";
-                var prebuiltId = "1e14dc89-be04-46ef-ab26-2a9768fad89b";
+                var prebuiltId = new Guid("1e14dc89-be04-46ef-ab26-2a9768fad89b");
 
                 await client.Model.DeletePrebuiltModelAsync(appId, version, prebuiltId);
                 var prebuiltEntitiesWithoutDeleted = await client.Model.GetApplicationVersionPrebuiltInfosAsync(appId, version);

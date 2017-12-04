@@ -13,23 +13,24 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class ApplicationSettings
+    public partial class CompositeChildModelCreateObject
     {
         /// <summary>
-        /// Initializes a new instance of the ApplicationSettings class.
+        /// Initializes a new instance of the CompositeChildModelCreateObject
+        /// class.
         /// </summary>
-        public ApplicationSettings()
+        public CompositeChildModelCreateObject()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ApplicationSettings class.
+        /// Initializes a new instance of the CompositeChildModelCreateObject
+        /// class.
         /// </summary>
-        public ApplicationSettings(System.Guid id, bool isPublic)
+        public CompositeChildModelCreateObject(string name = default(string))
         {
-            Id = id;
-            IsPublic = isPublic;
+            Name = name;
             CustomInit();
         }
 
@@ -40,23 +41,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "id")]
-        public System.Guid Id { get; set; }
+        [JsonProperty(PropertyName = "name")]
+        public string Name { get; set; }
 
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "public")]
-        public bool IsPublic { get; set; }
-
-        /// <summary>
-        /// Validate the object.
-        /// </summary>
-        /// <exception cref="Rest.ValidationException">
-        /// Thrown if validation fails
-        /// </exception>
-        public virtual void Validate()
-        {
-            //Nothing to validate
-        }
     }
 }

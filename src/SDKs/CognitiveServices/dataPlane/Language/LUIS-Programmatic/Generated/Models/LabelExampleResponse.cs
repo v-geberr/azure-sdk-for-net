@@ -26,7 +26,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the LabelExampleResponse class.
         /// </summary>
-        public LabelExampleResponse(string utteranceText = default(string), double? exampleId = default(double?))
+        public LabelExampleResponse(string utteranceText = default(string), int? exampleId = default(int?))
         {
             UtteranceText = utteranceText;
             ExampleId = exampleId;
@@ -46,7 +46,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "ExampleId")]
-        public double? ExampleId { get; set; }
+        public int? ExampleId { get; set; }
 
     }
 }

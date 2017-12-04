@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="status">Possible values include: 'Queued',
         /// 'InProgress', 'UpToDate', 'Fail', 'Success'</param>
-        public ModelTrainingDetails(double? statusId = default(double?), string status = default(string), double? exampleCount = default(double?), string trainingDateTime = default(string), string failureReason = default(string))
+        public ModelTrainingDetails(int? statusId = default(int?), string status = default(string), int? exampleCount = default(int?), System.DateTime? trainingDateTime = default(System.DateTime?), string failureReason = default(string))
         {
             StatusId = statusId;
             Status = status;
@@ -46,7 +46,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "statusId")]
-        public double? StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Queued', 'InProgress',
@@ -58,12 +58,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "exampleCount")]
-        public double? ExampleCount { get; set; }
+        public int? ExampleCount { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "trainingDateTime")]
-        public string TrainingDateTime { get; set; }
+        public System.DateTime? TrainingDateTime { get; set; }
 
         /// <summary>
         /// </summary>

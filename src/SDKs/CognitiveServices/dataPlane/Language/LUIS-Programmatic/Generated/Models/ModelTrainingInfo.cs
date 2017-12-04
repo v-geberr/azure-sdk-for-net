@@ -27,7 +27,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the ModelTrainingInfo class.
         /// </summary>
         /// <param name="modelId">The GUID of the model.</param>
-        public ModelTrainingInfo(string modelId = default(string), ModelTrainingDetails details = default(ModelTrainingDetails))
+        public ModelTrainingInfo(System.Guid? modelId = default(System.Guid?), ModelTrainingDetails details = default(ModelTrainingDetails))
         {
             ModelId = modelId;
             Details = details;
@@ -43,7 +43,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the GUID of the model.
         /// </summary>
         [JsonProperty(PropertyName = "modelId")]
-        public string ModelId { get; set; }
+        public System.Guid? ModelId { get; set; }
 
         /// <summary>
         /// </summary>

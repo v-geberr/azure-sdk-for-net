@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="status">Possible values include: 'Queued',
         /// 'InProgress', 'UpToDate', 'Fail', 'Success'</param>
-        public EnqueueTrainingResponse(double? statusId = default(double?), string status = default(string))
+        public EnqueueTrainingResponse(int? statusId = default(int?), string status = default(string))
         {
             StatusId = statusId;
             Status = status;
@@ -43,7 +43,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "statusId")]
-        public double? StatusId { get; set; }
+        public int? StatusId { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Queued', 'InProgress',

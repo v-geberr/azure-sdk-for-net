@@ -30,7 +30,7 @@
                 var sample = GetClosedListSample();
                 var listId = await client.Model.CreateClosedListEntityModelAsync(appId, versionId, sample);
 
-                Assert.True(Guid.TryParse(listId, out Guid result));
+                Assert.True(listId != Guid.Empty);
             });
         }
 
@@ -39,7 +39,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "4b501a95-2720-43d7-8ca9-4166c0faa6cb";
+                var listId = new Guid("4b501a95-2720-43d7-8ca9-4166c0faa6cb");
                 var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
 
                 // Assert
@@ -53,7 +53,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "d1f95436-57ac-4524-ae81-5bdd32668ccf";
+                var listId = new Guid("d1f95436-57ac-4524-ae81-5bdd32668ccf");
                 var update = new ClosedListModelUpdateObject()
                 {
                     Name = "New States",
@@ -81,7 +81,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "d1f95436-57ac-4524-ae81-5bdd32668ccf";
+                var listId = new Guid("d1f95436-57ac-4524-ae81-5bdd32668ccf");
                 await client.Model.DeleteClosedListEntityModelAsync(appId, versionId, listId);
 
                 var lists = await client.Model.GetApplicationVersionClosedListInfosAsync(appId, versionId);
@@ -95,7 +95,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "f64b2c73-3a8d-4f00-a98b-f4adf57d5553";
+                var listId = new Guid("f64b2c73-3a8d-4f00-a98b-f4adf57d5553");
 
                 await client.Model.PatchClosedListEntityModelAsync(appId, versionId, listId, new ClosedListModelPatchObject
                 {
@@ -127,9 +127,9 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "28027e3b-8356-4cdf-b395-24afb94e9469";
+                var listId = new Guid("28027e3b-8356-4cdf-b395-24afb94e9469");
 
-                string sublistId = await client.Model.AddSubListAsync(appId, versionId, listId, new WordListObject()
+                var sublistId = await client.Model.AddSubListAsync(appId, versionId, listId, new WordListObject()
                 {
                     CanonicalForm = "Texas",
                     List = new List<string>() { "tx", "texas" }
@@ -137,7 +137,6 @@
 
                 var list = await client.Model.GetClosedListEntityInfoAsync(appId, versionId, listId);
 
-                Assert.True(int.TryParse(sublistId, out int id));
                 Assert.Equal(4, list.SubLists.Count);
                 Assert.Contains(list.SubLists, o => o.CanonicalForm == "Texas" && o.List.Contains("tx") && o.List.Contains("texas"));
             });
@@ -148,7 +147,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "7b64b7c8-65a5-494c-a465-d6e60b2542b9";
+                var listId = new Guid("7b64b7c8-65a5-494c-a465-d6e60b2542b9");
 
                 await client.Model.DeleteSubListAsync(appId, versionId, listId, 6135013);
 
@@ -164,7 +163,7 @@
         {
             UseClientFor(async client =>
             {
-                var listId = "2ca6cb19-c9c2-4542-bc04-fe2472ba1d13";
+                var listId = new Guid("2ca6cb19-c9c2-4542-bc04-fe2472ba1d13");
                 var sublistId = 6135019;
 
                 await client.Model.UpdateSubListAsync(appId, versionId, listId, sublistId, new WordListBaseUpdateObject()

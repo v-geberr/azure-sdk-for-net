@@ -27,15 +27,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the CustomPrebuiltModel class.
         /// </summary>
+        /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
         /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
         /// Classifier'</param>
-        /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public CustomPrebuiltModel(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string))
+        public CustomPrebuiltModel(System.Guid id, string readableType, string name = default(string), int? typeId = default(int?), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string))
         {
             Id = id;
             Name = name;
@@ -55,7 +55,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the GUID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets name of the Entity Model.
@@ -67,7 +67,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the type ID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "typeId")]
-        public double? TypeId { get; set; }
+        public int? TypeId { get; set; }
 
         /// <summary>
         /// Gets or sets possible values include: 'Entity Extractor',

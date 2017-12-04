@@ -27,7 +27,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the EntityLabel class.
         /// </summary>
-        public EntityLabel(string entityName, double startTokenIndex, double endTokenIndex)
+        public EntityLabel(string entityName, int startTokenIndex, int endTokenIndex)
         {
             EntityName = entityName;
             StartTokenIndex = startTokenIndex;
@@ -48,12 +48,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "startTokenIndex")]
-        public double StartTokenIndex { get; set; }
+        public int StartTokenIndex { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "endTokenIndex")]
-        public double EndTokenIndex { get; set; }
+        public int EndTokenIndex { get; set; }
 
         /// <summary>
         /// Validate the object.

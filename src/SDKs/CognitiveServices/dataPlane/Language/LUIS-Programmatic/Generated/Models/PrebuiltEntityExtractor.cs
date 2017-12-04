@@ -25,16 +25,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the PrebuiltEntityExtractor class.
         /// </summary>
+        /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
         /// Entity Extractor', 'Prebuilt Entity Extractor', 'Intent
         /// Classifier'</param>
-        /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public PrebuiltEntityExtractor(string readableType, string id = default(string), string name = default(string), double? typeId = default(double?))
-            : base(readableType, id, name, typeId)
+        public PrebuiltEntityExtractor(System.Guid id, string readableType, string name = default(string), int? typeId = default(int?))
+            : base(id, readableType, name, typeId)
         {
             CustomInit();
         }

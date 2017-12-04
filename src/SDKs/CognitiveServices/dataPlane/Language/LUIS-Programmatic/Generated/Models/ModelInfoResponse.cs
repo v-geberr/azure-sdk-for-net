@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <param name="id">The GUID of the Entity Model.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
-        public ModelInfoResponse(IList<ChildEntity> children = default(IList<ChildEntity>), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string), string id = default(string), string name = default(string), double? typeId = default(double?))
+        public ModelInfoResponse(System.Guid id, IList<ChildEntity> children = default(IList<ChildEntity>), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string), string name = default(string), int? typeId = default(int?))
         {
             Children = children;
             SubLists = subLists;
@@ -72,7 +72,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the GUID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets name of the Entity Model.
@@ -84,7 +84,26 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the type ID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "typeId")]
-        public double? TypeId { get; set; }
+        public int? TypeId { get; set; }
 
+        /// <summary>
+        /// Validate the object.
+        /// </summary>
+        /// <exception cref="Rest.ValidationException">
+        /// Thrown if validation fails
+        /// </exception>
+        public virtual void Validate()
+        {
+            if (Children != null)
+            {
+                foreach (var element in Children)
+                {
+                    if (element != null)
+                    {
+                        element.Validate();
+                    }
+                }
+            }
+        }
     }
 }

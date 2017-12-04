@@ -39,7 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<LabelExampleResponse> AddLabelAsync(this IExamples operations, string appId, string versionId, ExampleLabelObject exampleLabelObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<LabelExampleResponse> AddLabelAsync(this IExamples operations, System.Guid appId, string versionId, ExampleLabelObject exampleLabelObject, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.AddLabelWithHttpMessagesAsync(appId, versionId, exampleLabelObject, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -65,7 +65,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<BatchLabelExample>> BatchAddLabelsAsync(this IExamples operations, string appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<BatchLabelExample>> BatchAddLabelsAsync(this IExamples operations, System.Guid appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.BatchAddLabelsWithHttpMessagesAsync(appId, versionId, exampleLabelObjectArray, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -94,7 +94,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<LabeledUtterance>> ReviewLabeledExamplesAsync(this IExamples operations, string appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<LabeledUtterance>> ReviewLabeledExamplesAsync(this IExamples operations, System.Guid appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ReviewLabeledExamplesWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
                 {
@@ -120,7 +120,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteExampleLabelsAsync(this IExamples operations, string appId, string versionId, int exampleId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteExampleLabelsAsync(this IExamples operations, System.Guid appId, string versionId, int exampleId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 (await operations.DeleteExampleLabelsWithHttpMessagesAsync(appId, versionId, exampleId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }

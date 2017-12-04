@@ -28,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="phrase">The actual token(s) that comprise the
         /// entity.</param>
-        public EntityPrediction(string entityName = default(string), double? startTokenIndex = default(double?), double? endTokenIndex = default(double?), string phrase = default(string))
+        public EntityPrediction(string entityName = default(string), int? startTokenIndex = default(int?), int? endTokenIndex = default(int?), string phrase = default(string))
         {
             EntityName = entityName;
             StartTokenIndex = startTokenIndex;
@@ -50,12 +50,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "startTokenIndex")]
-        public double? StartTokenIndex { get; set; }
+        public int? StartTokenIndex { get; set; }
 
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "endTokenIndex")]
-        public double? EndTokenIndex { get; set; }
+        public int? EndTokenIndex { get; set; }
 
         /// <summary>
         /// Gets or sets the actual token(s) that comprise the entity.

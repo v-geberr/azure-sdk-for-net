@@ -31,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <param name="id">ID of Labeled Utterance.</param>
         /// <param name="text">what's the weather like in seattle?</param>
         /// <param name="tokenizedText">the utterance tokenized</param>
-        public LabeledUtterance(double? id = default(double?), string text = default(string), IList<string> tokenizedText = default(IList<string>), string intentLabel = default(string), IList<EntityLabel> entityLabels = default(IList<EntityLabel>), IList<IntentPrediction> intentPredictions = default(IList<IntentPrediction>), IList<EntityPrediction> entityPredictions = default(IList<EntityPrediction>))
+        public LabeledUtterance(int? id = default(int?), string text = default(string), IList<string> tokenizedText = default(IList<string>), string intentLabel = default(string), IList<EntityLabel> entityLabels = default(IList<EntityLabel>), IList<IntentPrediction> intentPredictions = default(IList<IntentPrediction>), IList<EntityPrediction> entityPredictions = default(IList<EntityPrediction>))
         {
             Id = id;
             Text = text;
@@ -52,7 +52,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets ID of Labeled Utterance.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public double? Id { get; set; }
+        public int? Id { get; set; }
 
         /// <summary>
         /// Gets or sets what's the weather like in seattle?

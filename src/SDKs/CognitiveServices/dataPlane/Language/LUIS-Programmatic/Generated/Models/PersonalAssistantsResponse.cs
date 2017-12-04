@@ -32,7 +32,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the PersonalAssistantsResponse class.
         /// </summary>
-        public PersonalAssistantsResponse(IList<string> endpointKeys = default(IList<string>), IDictionary<string, string> endpointUrls = default(IDictionary<string, string>))
+        public PersonalAssistantsResponse(IList<System.Guid?> endpointKeys = default(IList<System.Guid?>), IDictionary<string, string> endpointUrls = default(IDictionary<string, string>))
         {
             EndpointKeys = endpointKeys;
             EndpointUrls = endpointUrls;
@@ -47,7 +47,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "endpointKeys")]
-        public IList<string> EndpointKeys { get; set; }
+        public IList<System.Guid?> EndpointKeys { get; set; }
 
         /// <summary>
         /// </summary>

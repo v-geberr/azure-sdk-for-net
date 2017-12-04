@@ -62,7 +62,6 @@
                 var testApp = await client.Apps.GetApplicationInfoAsync(testAppId);
                 await client.Apps.DeleteApplicationAsync(testAppId);
 
-                Assert.True(Guid.TryParse(testAppId, out Guid id));
                 Assert.NotNull(testApp);
             });
         }

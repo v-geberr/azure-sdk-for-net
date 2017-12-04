@@ -27,7 +27,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the ApplicationInfoResponse class.
         /// </summary>
         /// <param name="id">The GUID of the application.</param>
-        public ApplicationInfoResponse(string id = default(string), string name = default(string), string description = default(string), string culture = default(string), string usageScenario = default(string), string domain = default(string), double? versionsCount = default(double?), string createdDateTime = default(string), object endpoints = default(object), double? endpointHitsCount = default(double?), string activeVersion = default(string))
+        public ApplicationInfoResponse(System.Guid? id = default(System.Guid?), string name = default(string), string description = default(string), string culture = default(string), string usageScenario = default(string), string domain = default(string), int? versionsCount = default(int?), string createdDateTime = default(string), object endpoints = default(object), int? endpointHitsCount = default(int?), string activeVersion = default(string))
         {
             Id = id;
             Name = name;
@@ -52,7 +52,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Gets or sets the GUID of the application.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
-        public string Id { get; set; }
+        public System.Guid? Id { get; set; }
 
         /// <summary>
         /// </summary>
@@ -82,7 +82,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "versionsCount")]
-        public double? VersionsCount { get; set; }
+        public int? VersionsCount { get; set; }
 
         /// <summary>
         /// </summary>
@@ -97,7 +97,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// </summary>
         [JsonProperty(PropertyName = "endpointHitsCount")]
-        public double? EndpointHitsCount { get; set; }
+        public int? EndpointHitsCount { get; set; }
 
         /// <summary>
         /// </summary>

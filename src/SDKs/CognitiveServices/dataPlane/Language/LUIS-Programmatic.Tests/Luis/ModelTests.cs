@@ -14,12 +14,12 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var result = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
 
                 Assert.Equal(3, result.Count);
                 foreach (var entity in result)
                 {
-                    Assert.True(Guid.TryParse(entity.Id, out Guid id));
+                    Assert.True(entity.Id != Guid.Empty);
                 }
             });
         }
@@ -30,9 +30,9 @@
             UseClientFor(async client =>
             {
                 var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "Reservation");
-                var result = await client.Model.CreateCompositeEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
+                var result = await client.Model.CreateCompositeEntityExtractorAsync(appId, "0.1", hierarchicalModel);
 
-                Assert.True(Guid.TryParse(result, out Guid id));
+                Assert.True(result != Guid.Empty);
             });
         }
 
@@ -41,12 +41,12 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                var result = await client.Model.GetCompositeEntityInfoAsync(BaseTest.appId, "0.1", entityId);
+                var result = await client.Model.GetCompositeEntityInfoAsync(appId, "0.1", entityId);
 
-                Assert.True(Guid.TryParse(result.Id, out Guid id));
+                Assert.True(result.Id != Guid.Empty);
             });
         }
 
@@ -56,12 +56,12 @@
             UseClientFor(async client =>
             {
                 var hierarchicalModel = new HierarchicalModelUpdateObject(new List<string>() { "datetime" }, name: "Renamed Entity");
-                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                await client.Model.UpdateCompositeEntityModelAsync(BaseTest.appId, "0.1", entityId, hierarchicalModel);
+                await client.Model.UpdateCompositeEntityModelAsync(appId, "0.1", entityId, hierarchicalModel);
 
-                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 Assert.Equal(hierarchicalModel.Name, entities.Single(e => e.Id == entityId).Name);
             });
         }
@@ -71,12 +71,12 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                await client.Model.DeleteCompositeEntityModelAsync(BaseTest.appId, "0.1", entityId);
+                await client.Model.DeleteCompositeEntityModelAsync(appId, "0.1", entityId);
 
-                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entityId);
             });
         }
@@ -86,12 +86,12 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new ChildEntity { Name = "datetimeV2" });
+                var result = await client.Model.CreateCompositeEntityChildModelAsync(appId, "0.1", entityId, new CompositeChildModelCreateObject { Name = "datetimeV2" });
 
-                Assert.True(Guid.TryParse(result, out Guid id));
+                Assert.True(result != Guid.Empty);
             });
         }
 
@@ -100,13 +100,13 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntityId = entity.Children.Last().Id;
 
-                await client.Model.DeleteCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entity.Id, childEntityId);
+                await client.Model.DeleteCompositeEntityChildModelAsync(appId, "0.1", entity.Id, childEntityId);
 
-                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entity.Id && e.Children.Any(c => c.Id == childEntityId));
             });
         }
@@ -116,7 +116,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var result = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
 
                 Assert.Equal(1, result.Count);
             });
@@ -129,9 +129,9 @@
             {
                 var hierarchicalModel = new HierarchicalModelCreateObject(new List<string>() { Guid.NewGuid().ToString() }, name: "Reservation");
 
-                var result = await client.Model.CreateHierarchicalEntityExtractorAsync(BaseTest.appId, "0.1", hierarchicalModel);
+                var result = await client.Model.CreateHierarchicalEntityExtractorAsync(appId, "0.1", hierarchicalModel);
 
-                Assert.True(Guid.TryParse(result, out Guid id));
+                Assert.True(result != Guid.Empty);
             });
         }
 
@@ -140,12 +140,12 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                var result = await client.Model.GetHierarchicalEntityInfoAsync(BaseTest.appId, "0.1", entityId);
+                var result = await client.Model.GetHierarchicalEntityInfoAsync(appId, "0.1", entityId);
 
-                Assert.True(Guid.TryParse(result.Id, out Guid id));
+                Assert.True(result.Id != Guid.Empty);
             });
         }
 
@@ -155,12 +155,12 @@
             UseClientFor(async client =>
             {
                 var hierarchicalModel = new HierarchicalModelUpdateObject(new List<string>() { "dummy" }, name: "Renamed Entity");
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Last();
 
-                await client.Model.UpdateHierarchicalEntityModelAsync(BaseTest.appId, "0.1", entity.Id, hierarchicalModel);
+                await client.Model.UpdateHierarchicalEntityModelAsync(appId, "0.1", entity.Id, hierarchicalModel);
 
-                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 Assert.Equal(hierarchicalModel.Name, entities.Single(e => e.Id == entity.Id).Name);
             });
         }
@@ -170,12 +170,12 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                await client.Model.DeleteHierarchicalEntityModelAsync(BaseTest.appId, "0.1", entityId);
+                await client.Model.DeleteHierarchicalEntityModelAsync(appId, "0.1", entityId);
 
-                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entityId);
             });
         }
@@ -185,13 +185,13 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntityId = entity.Children.Last().Id;
 
                 var result = await client.Model.GetHierarchicalEntityChildInfoAsync(appId, "0.1", entity.Id, childEntityId);
 
-                Assert.True(Guid.TryParse(result.Id, out Guid id));
+                Assert.True(result.Id != Guid.Empty);
             });
         }
 
@@ -200,13 +200,13 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntityId = entity.Children.Last().Id;
 
                 await client.Model.DeleteHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntityId);
 
-                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 Assert.DoesNotContain(entities, e => e.Id == entity.Id && e.Children.Any(c => c.Id == childEntityId));
             });
         }
@@ -216,14 +216,19 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntity = entity.Children.Last();
                 childEntity.Name = "RenamedChildEntity";
 
-                await client.Model.UpdateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity.Id, childEntity);
+                var modifiedChildEntity = new HierarchicalChildModelUpdateObject
+                {
+                    Name = "RenamedChildEntity"
+                };
 
-                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                await client.Model.UpdateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity.Id, modifiedChildEntity);
+
+                entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 entity = entities.Last(e => e.Id == entity.Id);
                 childEntity = entity.Children.Last(c=> c.Id == childEntity.Id);
                 Assert.Equal("RenamedChildEntity", childEntity.Name);
@@ -235,17 +240,17 @@
         {
             UseClientFor(async client =>
             {
-                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
+                var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
-                var childEntity = new HierarchicalChildEntity
+                
+                var newChildEntity = new HierarchicalChildModelCreateObject
                 {
-                    Name = "NewChildEntity",
-                    TypeId = 6
+                    Name = "RenamedChildEntity"
                 };
 
-                var result = await client.Model.CreateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity);
+                var result = await client.Model.CreateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, newChildEntity);
 
-                Assert.True(Guid.TryParse(result, out Guid id));
+                Assert.True(result != Guid.Empty);
             });
         }
 
