@@ -223,7 +223,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all the pattern features.
+        /// Gets all application version pattern features.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -575,7 +575,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all the phraselist features.
+        /// Gets phraselist features.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -754,7 +754,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets all the extraction features for the specified application version.
+        /// Gets all application version features.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -933,7 +933,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Gets the specified pattern feature's info.
+        /// Gets pattern feature info.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -1254,7 +1254,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Deletes a pattern feature.
+        /// Deletes a pattern feature from an application version.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -1571,9 +1571,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The ID of the feature to be updated.
         /// </param>
         /// <param name='phraselistUpdateObject'>
-        /// The new values for: - Just a boolean called IsActive, in which case the
-        /// status of the feature will be changed. - Name, Pattern, Mode, and a boolean
-        /// called IsActive to update the feature.
+        /// A PhraselistUpdateObject object containing either: - Just a boolean called
+        /// IsActive, in which case the status of the feature will be changed. - Name,
+        /// Pattern, Mode, and a boolean called IsActive to update the feature.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1713,7 +1713,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Deletes a phraselist feature.
+        /// Deletes a phraselist feature from an application.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

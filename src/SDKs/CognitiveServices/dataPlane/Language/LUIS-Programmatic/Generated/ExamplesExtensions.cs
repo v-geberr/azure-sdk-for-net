@@ -48,7 +48,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Adds a batch of labeled examples to the application.
+            /// Adds a batch of labeled examples to the specified application.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.
@@ -60,7 +60,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// The version ID of the task.
             /// </param>
             /// <param name='exampleLabelObjectArray'>
-            /// Array of examples.
+            /// Array of example labels.
             /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
@@ -103,7 +103,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             }
 
             /// <summary>
-            /// Deletes the labeled example with the specified ID.
+            /// Deletes the label with the specified ID.
             /// </summary>
             /// <param name='operations'>
             /// The operations group for this extension method.

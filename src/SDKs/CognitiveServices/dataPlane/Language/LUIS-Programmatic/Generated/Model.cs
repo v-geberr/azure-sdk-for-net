@@ -755,7 +755,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model containing the name and children of the new entity extractor.
+        /// A model object containing the name and children of the new entity
+        /// extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1106,7 +1107,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model containing the name and children of the new entity extractor.
+        /// A model object containing the name and children of the new entity
+        /// extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1636,7 +1638,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='closedListModelCreateObject'>
-        /// A model containing the name and words for the new closed list entity
+        /// A model object containing the name and words for the new closed list entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
