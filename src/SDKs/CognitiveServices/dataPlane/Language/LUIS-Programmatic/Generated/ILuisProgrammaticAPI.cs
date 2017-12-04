@@ -78,11 +78,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         ITrain Train { get; }
 
         /// <summary>
-        /// Gets the IUser.
-        /// </summary>
-        IUser User { get; }
-
-        /// <summary>
         /// Gets the IPermissions.
         /// </summary>
         IPermissions Permissions { get; }

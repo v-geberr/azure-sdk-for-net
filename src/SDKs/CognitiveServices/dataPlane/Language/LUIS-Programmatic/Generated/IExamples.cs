@@ -51,7 +51,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<LabelExampleResponse>> AddLabelWithHttpMessagesAsync(string appId, string versionId, ExampleLabelObject exampleLabelObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Adds a batch of labeled examples to the specified application.
+        /// Adds a batch of labeled examples to the application.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -60,7 +60,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='exampleLabelObjectArray'>
-        /// Array of example labels.
+        /// Array of examples.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -111,7 +111,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </exception>
         Task<HttpOperationResponse<IList<LabeledUtterance>>> ReviewLabeledExamplesWithHttpMessagesAsync(string appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
-        /// Deletes the label with the specified ID.
+        /// Deletes the labeled example with the specified ID.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

@@ -152,7 +152,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
+        /// A model containing the name and children of the new entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
@@ -170,7 +170,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateHierarchicalEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject = default(HierarchicalModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateHierarchicalEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the hierarchical entity models.
         /// </summary>
@@ -213,7 +213,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
+        /// A model containing the name and children of the new entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
@@ -231,7 +231,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateCompositeEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject = default(HierarchicalModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateCompositeEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the composite entity models.
         /// </summary>
@@ -306,8 +306,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='closedListModelCreateObject'>
-        /// A model object containing the name and words for the new closed
-        /// list entity extractor.
+        /// A model containing the name and words for the new closed list
+        /// entity extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -1321,7 +1321,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='hChildId'>
         /// Format - guid. The hierarchical entity extractor child ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='hierarchicalChildModelUpdateObject'>
         /// Model object containing new name of the hierarchical entity child.
         /// </param>
         /// <param name='customHeaders'>
@@ -1336,7 +1336,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, HierarchicalChildModelUpdateObject hierarchicalChildModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a hierarchical entity extractor child from the application.
         /// </summary>
@@ -1377,7 +1377,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='hEntityId'>
         /// Format - guid. The hierarchical entity extractor ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='hierarchicalChildModelCreateObject'>
         /// A model object containing the name of the new hierarchical child
         /// model.
         /// </param>
@@ -1396,7 +1396,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, HierarchicalChildModelCreateObject hierarchicalChildModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Creates a single child in an existing composite entity model.
         /// </summary>
@@ -1409,7 +1409,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='cEntityId'>
         /// Format - guid. The hierarchical entity extractor ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='compositeChildModelCreateObject'>
         /// A model object containing the name of the new composite child
         /// model.
         /// </param>
@@ -1428,7 +1428,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<string>> CreateCompositeEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<string>> CreateCompositeEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, CompositeChildModelCreateObject compositeChildModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a composite entity extractor child from the application.
         /// </summary>

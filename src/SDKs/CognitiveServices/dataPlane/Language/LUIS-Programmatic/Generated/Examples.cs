@@ -223,7 +223,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Adds a batch of labeled examples to the specified application.
+        /// Adds a batch of labeled examples to the application.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.
@@ -232,7 +232,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='exampleLabelObjectArray'>
-        /// Array of example labels.
+        /// Array of examples.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -574,7 +574,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         }
 
         /// <summary>
-        /// Deletes the label with the specified ID.
+        /// Deletes the labeled example with the specified ID.
         /// </summary>
         /// <param name='appId'>
         /// Format - guid. The application ID.

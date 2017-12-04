@@ -80,11 +80,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         public virtual ITrain Train { get; private set; }
 
         /// <summary>
-        /// Gets the IUser.
-        /// </summary>
-        public virtual IUser User { get; private set; }
-
-        /// <summary>
         /// Gets the IPermissions.
         /// </summary>
         public virtual IPermissions Permissions { get; private set; }
@@ -182,7 +177,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             Apps = new Apps(this);
             Versions = new Versions(this);
             Train = new Train(this);
-            User = new User(this);
             Permissions = new Permissions(this);
             BaseUri = "https://{AzureRegion}.api.cognitive.microsoft.com/luis/api/v2.0";
             SerializationSettings = new JsonSerializerSettings

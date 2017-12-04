@@ -89,7 +89,7 @@
                 var entities = await client.Model.GetApplicationVersionCompositeEntityInfosAsync(BaseTest.appId, "0.1");
                 var entityId = entities.Last().Id;
 
-                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new ChildEntity { Name = "datetimeV2" });
+                var result = await client.Model.CreateCompositeEntityChildModelAsync(BaseTest.appId, "0.1", entityId, new CompositeChildModelCreateObject { Name = "datetimeV2" });
 
                 Assert.True(Guid.TryParse(result, out Guid id));
             });
@@ -219,13 +219,15 @@
                 var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
                 var childEntity = entity.Children.Last();
-                childEntity.Name = "RenamedChildEntity";
 
-                await client.Model.UpdateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity.Id, childEntity);
+                await client.Model.UpdateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity.Id, new HierarchicalChildModelUpdateObject
+                {
+                    Name = "RenamedChildEntity"
+                });
 
                 entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
                 entity = entities.Last(e => e.Id == entity.Id);
-                childEntity = entity.Children.Last(c=> c.Id == childEntity.Id);
+                childEntity = entity.Children.Last(c => c.Id == childEntity.Id);
                 Assert.Equal("RenamedChildEntity", childEntity.Name);
             });
         }
@@ -237,13 +239,11 @@
             {
                 var entities = await client.Model.GetApplicationVersionHierarchicalEntityInfosAsync(BaseTest.appId, "0.1");
                 var entity = entities.Where(e => e.Children.Any()).Last();
-                var childEntity = new HierarchicalChildEntity
+
+                var result = await client.Model.CreateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, new HierarchicalChildModelCreateObject
                 {
                     Name = "NewChildEntity",
-                    TypeId = 6
-                };
-
-                var result = await client.Model.CreateHierarchicalEntityChildModelAsync(appId, "0.1", entity.Id, childEntity);
+                });
 
                 Assert.True(Guid.TryParse(result, out Guid id));
             });

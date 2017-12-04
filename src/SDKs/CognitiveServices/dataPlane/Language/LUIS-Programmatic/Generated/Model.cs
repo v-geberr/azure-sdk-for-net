@@ -268,10 +268,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("skip", skip);
-                tracingParameters.Add("take", take);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionIntentInfos", tracingParameters);
             }
@@ -755,8 +755,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
-        /// extractor.
+        /// A model containing the name and children of the new entity extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -779,7 +778,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> CreateHierarchicalEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject = default(HierarchicalModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateHierarchicalEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -789,6 +788,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
             }
+            if (hierarchicalModelCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "hierarchicalModelCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -796,9 +799,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("hierarchicalModelCreateObject", hierarchicalModelCreateObject);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("hierarchicalModelCreateObject", hierarchicalModelCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateHierarchicalEntityExtractor", tracingParameters);
             }
@@ -967,10 +970,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("skip", skip);
-                tracingParameters.Add("take", take);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionHierarchicalEntityInfos", tracingParameters);
             }
@@ -1103,8 +1106,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='hierarchicalModelCreateObject'>
-        /// A model object containing the name and children of the new entity
-        /// extractor.
+        /// A model containing the name and children of the new entity extractor.
         /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
@@ -1127,7 +1129,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> CreateCompositeEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject = default(HierarchicalModelCreateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateCompositeEntityExtractorWithHttpMessagesAsync(string appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -1136,6 +1138,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             if (versionId == null)
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "versionId");
+            }
+            if (hierarchicalModelCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "hierarchicalModelCreateObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -1630,7 +1636,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// The version ID of the task.
         /// </param>
         /// <param name='closedListModelCreateObject'>
-        /// A model object containing the name and words for the new closed list entity
+        /// A model containing the name and words for the new closed list entity
         /// extractor.
         /// </param>
         /// <param name='customHeaders'>
@@ -2018,10 +2024,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 _invocationId = ServiceClientTracing.NextInvocationId.ToString();
                 Dictionary<string, object> tracingParameters = new Dictionary<string, object>();
-                tracingParameters.Add("skip", skip);
-                tracingParameters.Add("take", take);
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
+                tracingParameters.Add("skip", skip);
+                tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionPrebuiltInfos", tracingParameters);
             }
@@ -7504,7 +7510,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='hChildId'>
         /// Format - guid. The hierarchical entity extractor child ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='hierarchicalChildModelUpdateObject'>
         /// Model object containing new name of the hierarchical entity child.
         /// </param>
         /// <param name='customHeaders'>
@@ -7525,7 +7531,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, object body, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, string hChildId, HierarchicalChildModelUpdateObject hierarchicalChildModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -7543,9 +7549,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "hChildId");
             }
-            if (body == null)
+            if (hierarchicalChildModelUpdateObject == null)
             {
-                throw new ValidationException(ValidationRules.CannotBeNull, "body");
+                throw new ValidationException(ValidationRules.CannotBeNull, "hierarchicalChildModelUpdateObject");
             }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
@@ -7558,7 +7564,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("hEntityId", hEntityId);
                 tracingParameters.Add("hChildId", hChildId);
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("hierarchicalChildModelUpdateObject", hierarchicalChildModelUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "UpdateHierarchicalEntityChildModel", tracingParameters);
             }
@@ -7592,9 +7598,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(hierarchicalChildModelUpdateObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(hierarchicalChildModelUpdateObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -7825,7 +7831,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='hEntityId'>
         /// Format - guid. The hierarchical entity extractor ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='hierarchicalChildModelCreateObject'>
         /// A model object containing the name of the new hierarchical child model.
         /// </param>
         /// <param name='customHeaders'>
@@ -7849,7 +7855,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> CreateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateHierarchicalEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string hEntityId, HierarchicalChildModelCreateObject hierarchicalChildModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -7863,6 +7869,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "hEntityId");
             }
+            if (hierarchicalChildModelCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "hierarchicalChildModelCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -7873,7 +7883,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("hEntityId", hEntityId);
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("hierarchicalChildModelCreateObject", hierarchicalChildModelCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateHierarchicalEntityChildModel", tracingParameters);
             }
@@ -7906,9 +7916,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(hierarchicalChildModelCreateObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(hierarchicalChildModelCreateObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }
@@ -8002,7 +8012,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='cEntityId'>
         /// Format - guid. The hierarchical entity extractor ID.
         /// </param>
-        /// <param name='body'>
+        /// <param name='compositeChildModelCreateObject'>
         /// A model object containing the name of the new composite child model.
         /// </param>
         /// <param name='customHeaders'>
@@ -8026,7 +8036,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<string>> CreateCompositeEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, object body = default(object), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<string>> CreateCompositeEntityChildModelWithHttpMessagesAsync(string appId, string versionId, string cEntityId, CompositeChildModelCreateObject compositeChildModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (appId == null)
             {
@@ -8040,6 +8050,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             {
                 throw new ValidationException(ValidationRules.CannotBeNull, "cEntityId");
             }
+            if (compositeChildModelCreateObject == null)
+            {
+                throw new ValidationException(ValidationRules.CannotBeNull, "compositeChildModelCreateObject");
+            }
             // Tracing
             bool _shouldTrace = ServiceClientTracing.IsEnabled;
             string _invocationId = null;
@@ -8050,7 +8064,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("cEntityId", cEntityId);
-                tracingParameters.Add("body", body);
+                tracingParameters.Add("compositeChildModelCreateObject", compositeChildModelCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "CreateCompositeEntityChildModel", tracingParameters);
             }
@@ -8083,9 +8097,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
 
             // Serialize Request
             string _requestContent = null;
-            if(body != null)
+            if(compositeChildModelCreateObject != null)
             {
-                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(body, Client.SerializationSettings);
+                _requestContent = Rest.Serialization.SafeJsonConvert.SerializeObject(compositeChildModelCreateObject, Client.SerializationSettings);
                 _httpRequest.Content = new StringContent(_requestContent, System.Text.Encoding.UTF8);
                 _httpRequest.Content.Headers.ContentType =System.Net.Http.Headers.MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
             }

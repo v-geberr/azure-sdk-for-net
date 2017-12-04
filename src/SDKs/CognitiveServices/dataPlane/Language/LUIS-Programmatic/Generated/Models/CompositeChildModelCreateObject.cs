@@ -13,23 +13,24 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class Setting
+    public partial class CompositeChildModelCreateObject
     {
         /// <summary>
-        /// Initializes a new instance of the Setting class.
+        /// Initializes a new instance of the CompositeChildModelCreateObject
+        /// class.
         /// </summary>
-        public Setting()
+        public CompositeChildModelCreateObject()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the Setting class.
+        /// Initializes a new instance of the CompositeChildModelCreateObject
+        /// class.
         /// </summary>
-        public Setting(string name = default(string), string value = default(string))
+        public CompositeChildModelCreateObject(string name = default(string))
         {
             Name = name;
-            Value = value;
             CustomInit();
         }
 
@@ -42,11 +43,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "value")]
-        public string Value { get; set; }
 
     }
 }
