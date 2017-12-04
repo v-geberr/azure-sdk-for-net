@@ -13,26 +13,27 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class ApplicationCreateObject
+    public partial class ApplicationCreateBaseObject
     {
         /// <summary>
-        /// Initializes a new instance of the ApplicationCreateObject class.
+        /// Initializes a new instance of the ApplicationCreateBaseObject
+        /// class.
         /// </summary>
-        public ApplicationCreateObject()
+        public ApplicationCreateBaseObject()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ApplicationCreateObject class.
+        /// Initializes a new instance of the ApplicationCreateBaseObject
+        /// class.
         /// </summary>
-        public ApplicationCreateObject(string culture = default(string), string domain = default(string), string description = default(string), string initialVersionId = default(string), string usageScenario = default(string), string name = default(string))
+        public ApplicationCreateBaseObject(string culture = default(string), string usageScenario = default(string), string description = default(string), string domain = default(string), string name = default(string))
         {
             Culture = culture;
-            Domain = domain;
-            Description = description;
-            InitialVersionId = initialVersionId;
             UsageScenario = usageScenario;
+            Description = description;
+            Domain = domain;
             Name = name;
             CustomInit();
         }
@@ -49,8 +50,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "domain")]
-        public string Domain { get; set; }
+        [JsonProperty(PropertyName = "usageScenario")]
+        public string UsageScenario { get; set; }
 
         /// <summary>
         /// </summary>
@@ -59,13 +60,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "initialVersionId")]
-        public string InitialVersionId { get; set; }
-
-        /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "usageScenario")]
-        public string UsageScenario { get; set; }
+        [JsonProperty(PropertyName = "domain")]
+        public string Domain { get; set; }
 
         /// <summary>
         /// </summary>

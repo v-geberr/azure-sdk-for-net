@@ -18,7 +18,7 @@
         {
             UseClientFor(async client =>
             {
-                var app = await client.Versions.ExportApplicationVersionAsync(appId, versionId);
+                var app = await client.Versions.ExportAsync(appId, versionId);
 
                 Assert.NotNull(app);
                 Assert.Equal("LuisBot", app.Name);
@@ -33,7 +33,7 @@
 
             UseClientFor(async client =>
             {
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject
                 {
                     Name = "Import Version Test LUIS App",
                     Description = "New LUIS App",
@@ -42,9 +42,9 @@
                     UsageScenario = "IoT"
                 });
 
-                var newVersion = await client.Versions.ImportVersionToApplicationAsync(testAppId, app, "0.2");
+                var newVersion = await client.Versions.ImportAsync(testAppId, app, "0.2");
 
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
 
                 Assert.Equal("0.2", newVersion);
             });
@@ -58,9 +58,9 @@
 
             UseClientFor(async client =>
             {
-                var testAppId = await client.Apps.ImportApplicationAsync(app, "Test Import LUIS App");
-                var testApp = await client.Apps.GetApplicationInfoAsync(testAppId);
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                var testAppId = await client.Apps.ImportAsync(app, "Test Import LUIS App");
+                var testApp = await client.Apps.GetAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
 
                 Assert.NotNull(testApp);
             });

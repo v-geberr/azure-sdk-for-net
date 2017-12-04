@@ -37,9 +37,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<System.Guid> AddApplicationAsync(this IApps operations, ApplicationCreateObject applicationCreateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<System.Guid> AddAsync(this IApps operations, ApplicationCreateObject applicationCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddApplicationWithHttpMessagesAsync(applicationCreateObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddWithHttpMessagesAsync(applicationCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -60,9 +60,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<ApplicationInfoResponse>> GetApplicationsListAsync(this IApps operations, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<ApplicationInfoResponse>> ListAsync(this IApps operations, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationsListWithHttpMessagesAsync(skip, take, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(skip, take, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -85,9 +85,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<System.Guid> ImportApplicationAsync(this IApps operations, LuisApp luisApp, string appName = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<System.Guid> ImportAsync(this IApps operations, LuisApp luisApp, string appName = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ImportApplicationWithHttpMessagesAsync(luisApp, appName, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ImportWithHttpMessagesAsync(luisApp, appName, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -102,9 +102,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PersonalAssistantsResponse> GetPersonalAssistantApplicationsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PersonalAssistantsResponse> ListCortanaEndpointsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPersonalAssistantApplicationsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListCortanaEndpointsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -119,9 +119,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<string>> GetApplicationDomainsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<string>> ListDomainsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationDomainsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListDomainsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -136,9 +136,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<string>> GetApplicationUsageScenariosAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<string>> ListUsageScenariosAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationUsageScenariosWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListUsageScenariosWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -153,9 +153,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<AvailableCulture>> GetApplicationCulturesAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<AvailableCulture>> ListSupportedCulturesAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationCulturesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListSupportedCulturesWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -173,9 +173,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<Stream> DownloadApplicationQueryLogsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<Stream> DownloadQueryLogsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                var _result = await operations.DownloadApplicationQueryLogsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false);
+                var _result = await operations.DownloadQueryLogsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false);
                 _result.Request.Dispose();
                 return _result.Body;
             }
@@ -192,9 +192,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ApplicationInfoResponse> GetApplicationInfoAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ApplicationInfoResponse> GetAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationInfoWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -215,9 +215,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RenameApplicationAsync(this IApps operations, System.Guid appId, ApplicationUpdateObject applicationUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateAsync(this IApps operations, System.Guid appId, ApplicationUpdateObject applicationUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RenameApplicationWithHttpMessagesAsync(appId, applicationUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateWithHttpMessagesAsync(appId, applicationUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -232,9 +232,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteApplicationAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteApplicationWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -253,9 +253,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ProductionOrStagingEndpointInfo> PublishApplicationAsync(this IApps operations, System.Guid appId, ApplicationPublishObject applicationPublishObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ProductionOrStagingEndpointInfo> PublishAsync(this IApps operations, System.Guid appId, ApplicationPublishObject applicationPublishObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.PublishApplicationWithHttpMessagesAsync(appId, applicationPublishObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.PublishWithHttpMessagesAsync(appId, applicationPublishObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -273,9 +273,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<ApplicationSettings> GetApplicationSettingsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<ApplicationSettings> GetSettingsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationSettingsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetSettingsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -296,9 +296,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateApplicationSettingsAsync(this IApps operations, System.Guid appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateSettingsAsync(this IApps operations, System.Guid appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.UpdateApplicationSettingsWithHttpMessagesAsync(appId, applicationSettingUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateSettingsWithHttpMessagesAsync(appId, applicationSettingUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -313,9 +313,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<AvailableEndpoints> GetEndpointsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<AvailableEndpoints> ListEndpointsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetEndpointsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListEndpointsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -330,9 +330,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<PrebuiltDomain>> GetAvailableCustomPrebuiltDomainsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<PrebuiltDomain>> ListAvailableCustomPrebuiltDomainsAsync(this IApps operations, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAvailableCustomPrebuiltDomainsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListAvailableCustomPrebuiltDomainsWithHttpMessagesAsync(null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -351,9 +351,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<System.Guid> AddCustomPrebuiltApplicationAsync(this IApps operations, PrebuiltDomainCreateObject prebuiltDomainCreateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<System.Guid> AddCustomPrebuiltDomainAsync(this IApps operations, PrebuiltDomainCreateObject prebuiltDomainCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.AddCustomPrebuiltApplicationWithHttpMessagesAsync(prebuiltDomainCreateObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddCustomPrebuiltDomainWithHttpMessagesAsync(prebuiltDomainCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -371,9 +371,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<PrebuiltDomain>> GetAvailableCustomPrebuiltDomainsForCultureAsync(this IApps operations, string culture, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<PrebuiltDomain>> ListAvailableCustomPrebuiltDomainsForCultureAsync(this IApps operations, string culture, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetAvailableCustomPrebuiltDomainsForCultureWithHttpMessagesAsync(culture, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListAvailableCustomPrebuiltDomainsForCultureWithHttpMessagesAsync(culture, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

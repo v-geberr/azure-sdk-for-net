@@ -14,7 +14,7 @@
             UseClientFor(async client =>
             {
                 var version = "0.1";
-                var intents = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
+                var intents = await client.Model.ListIntentsAsync(appId, version);
 
                 Assert.True(intents.All(i => i.ReadableType.Equals("Intent Classifier")));
             });
@@ -32,8 +32,8 @@
                     Name = "TestIntent"
                 };
 
-                var newIntentId = await client.Model.CreateIntentClassifierAsync(appId, version, newIntent);
-                var intents = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
+                var newIntentId = await client.Model.AddIntentAsync(appId, version, newIntent);
+                var intents = await client.Model.ListIntentsAsync(appId, version);
 
                 Assert.True(newIntentId != Guid.Empty);
                 Assert.Contains(intents, i => i.Id.Equals(newIntentId) && i.Name.Equals(newIntent.Name));
@@ -48,7 +48,7 @@
                 var version = "0.1";
                 var intentId = new Guid("d7a08f1a-d276-4364-b2d5-b0235c61e37f");
 
-                var intent = await client.Model.GetIntentInfoAsync(appId, version, intentId);
+                var intent = await client.Model.GetIntentAsync(appId, version, intentId);
 
                 Assert.Equal(intentId, intent.Id);
             });
@@ -66,9 +66,9 @@
                     Name = "NewTest"
                 };
 
-                var intent = await client.Model.GetIntentInfoAsync(appId, version, intentId);
-                await client.Model.RenameIntentModelAsync(appId, version, intentId, newName);
-                var newIntent = await client.Model.GetIntentInfoAsync(appId, version, intentId);
+                var intent = await client.Model.GetIntentAsync(appId, version, intentId);
+                await client.Model.UpdateIntentAsync(appId, version, intentId, newName);
+                var newIntent = await client.Model.GetIntentAsync(appId, version, intentId);
 
                 Assert.Equal(intent.Id, newIntent.Id);
                 Assert.NotEqual(intent.Name, newIntent.Name);
@@ -84,9 +84,9 @@
                 var version = "0.1";
                 var intentId = new Guid("d7a08f1a-d276-4364-b2d5-b0235c61e37f");
 
-                var intents = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
-                await client.Model.DeleteIntentModelAsync(appId, version, intentId);
-                var intentsWithoutDeleted = await client.Model.GetApplicationVersionIntentInfosAsync(appId, version);
+                var intents = await client.Model.ListIntentsAsync(appId, version);
+                await client.Model.DeleteIntentAsync(appId, version, intentId);
+                var intentsWithoutDeleted = await client.Model.ListIntentsAsync(appId, version);
 
                 Assert.Contains(intents, i => i.Id.Equals(intentId));
                 Assert.DoesNotContain(intentsWithoutDeleted, i => i.Id.Equals(intentId));
@@ -101,8 +101,8 @@
                 var version = "0.1";
                 var intentId = new Guid("d81d151e-59a1-49d0-bd2d-dce0533c7efe");
 
-                var intent = await client.Model.GetIntentInfoAsync(appId, version, intentId);
-                var suggestions = await client.Model.SuggestEndpointQueriesForIntentsAsync(appId, version, intentId);
+                var intent = await client.Model.GetIntentAsync(appId, version, intentId);
+                var suggestions = await client.Model.GetIntentSuggestionsAsync(appId, version, intentId);
 
                 Assert.Contains(suggestions, s => s.IntentPredictions.Any(i => i.Name.Equals(intent.Name)));
             });

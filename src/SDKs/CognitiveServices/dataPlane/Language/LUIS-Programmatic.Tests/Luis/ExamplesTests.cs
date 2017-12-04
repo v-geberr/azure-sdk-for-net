@@ -16,7 +16,7 @@
         {
             UseClientFor(async client =>
             {
-                var examples = await client.Examples.ReviewLabeledExamplesAsync(appId, versionId);
+                var examples = await client.Examples.ListAsync(appId, versionId);
 
                 Assert.NotEmpty(examples);
             });
@@ -27,7 +27,7 @@
         {
             UseClientFor(async client =>
             {
-                var appId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                var appId = await client.Apps.AddAsync(new ApplicationCreateObject
                 {
                     Name = "Examples Test App",
                     Description = "New LUIS App",
@@ -36,9 +36,9 @@
                     UsageScenario = "IoT"
                 });
 
-                var examples = await client.Examples.ReviewLabeledExamplesAsync(appId, versionId);
+                var examples = await client.Examples.ListAsync(appId, versionId);
 
-                await client.Apps.DeleteApplicationAsync(appId);
+                await client.Apps.DeleteAsync(appId);
 
                 Assert.Empty(examples);
             });
@@ -64,7 +64,7 @@
                     }
                 };
 
-                var result = await client.Examples.AddLabelAsync(appId, versionId, example);
+                var result = await client.Examples.AddAsync(appId, versionId, example);
 
                 Assert.Equal(example.Text, result.UtteranceText);
             });
@@ -106,7 +106,7 @@
                     },
                 };
 
-                var result = await client.Examples.BatchAddLabelsAsync(appId, versionId, examples);
+                var result = await client.Examples.BatchAsync(appId, versionId, examples);
 
                 Assert.Equal(examples.Count, result.Count);
                 Assert.Contains(result, o => examples.Any(e => e.Text.Equals(o.Value.UtteranceText, StringComparison.OrdinalIgnoreCase)));
@@ -119,8 +119,8 @@
             UseClientFor(async client =>
             {
                 var exampleId = -5313926;
-                await client.Examples.DeleteExampleLabelsAsync(appId, versionId, exampleId);
-                var examples = await client.Examples.ReviewLabeledExamplesAsync(appId, versionId);
+                await client.Examples.DeleteAsync(appId, versionId, exampleId);
+                var examples = await client.Examples.ListAsync(appId, versionId);
 
                 Assert.DoesNotContain(examples, o => o.Id == exampleId);
             });

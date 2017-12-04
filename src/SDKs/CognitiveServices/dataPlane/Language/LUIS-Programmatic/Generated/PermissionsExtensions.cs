@@ -32,9 +32,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<UserAccessList> GetApplicationUserAccessListAsync(this IPermissions operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<UserAccessList> ListAsync(this IPermissions operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationUserAccessListWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -56,9 +56,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task AddUserToAccessListAsync(this IPermissions operations, System.Guid appId, UserCollaborator userToAdd, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task AddAsync(this IPermissions operations, System.Guid appId, UserCollaborator userToAdd, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.AddUserToAccessListWithHttpMessagesAsync(appId, userToAdd, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.AddWithHttpMessagesAsync(appId, userToAdd, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -77,9 +77,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RemoveUserFromAccessListAsync(this IPermissions operations, System.Guid appId, UserCollaborator userToDelete, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteAsync(this IPermissions operations, System.Guid appId, UserCollaborator userToDelete, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RemoveUserFromAccessListWithHttpMessagesAsync(appId, userToDelete, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteWithHttpMessagesAsync(appId, userToDelete, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -98,9 +98,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdateAccessListAsync(this IPermissions operations, System.Guid appId, CollaboratorsArray collaborators, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateAsync(this IPermissions operations, System.Guid appId, CollaboratorsArray collaborators, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.UpdateAccessListWithHttpMessagesAsync(appId, collaborators, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateWithHttpMessagesAsync(appId, collaborators, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

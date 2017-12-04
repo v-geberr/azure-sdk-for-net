@@ -13,15 +13,15 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltDomainToAdd = new PrebuiltDomainCreateBaseObject
                 {
                     DomainName = "Gaming"
                 };
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomainToAdd);
-                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                var results = await client.Model.AddCustomPrebuiltDomainAsync(appId, version, prebuiltDomainToAdd);
+                var prebuiltModels = await client.Model.ListCustomPrebuiltModelsAsync(appId, version);
 
                 foreach (var result in results)
                 {
@@ -36,21 +36,21 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltDomain = new PrebuiltDomainCreateBaseObject
                 {
                     DomainName = "Gaming"
                 };
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
-                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                var results = await client.Model.AddCustomPrebuiltDomainAsync(appId, version, prebuiltDomain);
+                var prebuiltModels = await client.Model.ListCustomPrebuiltModelsAsync(appId, version);
 
                 Assert.True(prebuiltModels.Count > 0);
 
-                await client.Model.DeleteCustomPrebuiltDomainModelsAsync(appId, version, prebuiltDomain.DomainName);
+                await client.Model.DeleteCustomPrebuiltDomainAsync(appId, version, prebuiltDomain.DomainName);
 
-                prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                prebuiltModels = await client.Model.ListCustomPrebuiltModelsAsync(appId, version);
 
                 Assert.True(prebuiltModels.Count == 0);
             });
@@ -61,15 +61,15 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltDomain = new PrebuiltDomainCreateBaseObject
                 {
                     DomainName = "Gaming"
                 };
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
-                var prebuiltEntities = await client.Model.GetCustomPrebuiltDomainEntitiesInfoAsync(appId, version);
+                var results = await client.Model.AddCustomPrebuiltDomainAsync(appId, version, prebuiltDomain);
+                var prebuiltEntities = await client.Model.ListCustomPrebuiltEntitiesAsync(appId, version);
 
                 Assert.Contains(prebuiltEntities, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
             });
@@ -80,7 +80,7 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltModel = new PrebuiltDomainModelCreateObject
                 {
@@ -88,8 +88,8 @@
                     ModelName = "AppName"
                 };
 
-                var guidModel = await client.Model.AddCustomPrebuiltEntityModelAsync(appId, version, prebuiltModel);
-                var prebuiltEntities = await client.Model.GetCustomPrebuiltDomainEntitiesInfoAsync(appId, version);
+                var guidModel = await client.Model.AddCustomPrebuiltEntityAsync(appId, version, prebuiltModel);
+                var prebuiltEntities = await client.Model.ListCustomPrebuiltEntitiesAsync(appId, version);
 
                 Assert.Contains(prebuiltEntities, entity => entity.Id == guidModel);
             });
@@ -100,15 +100,15 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltDomain = new PrebuiltDomainCreateBaseObject
                 {
                     DomainName = "Gaming"
                 };
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
-                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+                var results = await client.Model.AddCustomPrebuiltDomainAsync(appId, version, prebuiltDomain);
+                var prebuiltIntents = await client.Model.ListCustomPrebuiltIntentsAsync(appId, version);
 
                 Assert.Contains(prebuiltIntents, entity => entity.CustomPrebuiltDomainName == prebuiltDomain.DomainName);
             });
@@ -119,7 +119,7 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltModel = new PrebuiltDomainModelCreateObject
                 {
@@ -127,8 +127,8 @@
                     ModelName = "Add"
                 };
 
-                var guidModel = await client.Model.AddCustomPrebuiltIntentModelAsync(appId, version, prebuiltModel);
-                var prebuiltIntents = await client.Model.GetCustomPrebuiltDomainIntentsInfoAsync(appId, version);
+                var guidModel = await client.Model.AddCustomPrebuiltIntentAsync(appId, version, prebuiltModel);
+                var prebuiltIntents = await client.Model.ListCustomPrebuiltIntentsAsync(appId, version);
 
                 Assert.Contains(prebuiltIntents, entity => entity.Id == guidModel);
             });
@@ -139,15 +139,15 @@
         {
             UseClientFor(async client =>
             {
-                var versionsApp = await client.Versions.GetApplicationVersionsAsync(appId);
+                var versionsApp = await client.Versions.ListAsync(appId);
                 var version = versionsApp.FirstOrDefault().Version;
                 var prebuiltDomain = new PrebuiltDomainCreateBaseObject
                 {
                     DomainName = "Calendar"
                 };
 
-                var results = await client.Model.AddCustomPrebuiltDomainToApplicationAsync(appId, version, prebuiltDomain);
-                var prebuiltModels = await client.Model.GetCustomPrebuiltDomainModelsInfoAsync(appId, version);
+                var results = await client.Model.AddCustomPrebuiltDomainAsync(appId, version, prebuiltDomain);
+                var prebuiltModels = await client.Model.ListCustomPrebuiltModelsAsync(appId, version);
                 
                 var validTypes = new string[] { "Intent Classifier", "Entity Extractor" };
 

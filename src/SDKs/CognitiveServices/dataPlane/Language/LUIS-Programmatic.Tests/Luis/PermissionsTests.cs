@@ -11,7 +11,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+                var result = await client.Permissions.ListAsync(appId);
 
                 Assert.Equal("owner.user@microsoft.com", result.Owner);
                 Assert.Equal(new string[] { "guest@outlook.com" }, result.Emails);
@@ -28,8 +28,8 @@
                     Email = "guest@outlook.com"
                 };
 
-                await client.Permissions.AddUserToAccessListAsync(appId, userToAdd);
-                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+                await client.Permissions.AddAsync(appId, userToAdd);
+                var result = await client.Permissions.ListAsync(appId);
 
                 Assert.True(result.Emails.Contains(userToAdd.Email));
             });
@@ -45,8 +45,8 @@
                     Email = "guest@outlook.com"
                 };
 
-                await client.Permissions.RemoveUserFromAccessListAsync(appId, userToRemove);
-                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+                await client.Permissions.DeleteAsync(appId, userToRemove);
+                var result = await client.Permissions.ListAsync(appId);
 
                 Assert.False(result.Emails.Contains(userToRemove.Email));
             });
@@ -66,8 +66,8 @@
                     }
                 };
 
-                await client.Permissions.UpdateAccessListAsync(appId, collaborators);
-                var result = await client.Permissions.GetApplicationUserAccessListAsync(appId);
+                await client.Permissions.UpdateAsync(appId, collaborators);
+                var result = await client.Permissions.ListAsync(appId);
 
                 Assert.Equal(collaborators.Emails, result.Emails);
             });
