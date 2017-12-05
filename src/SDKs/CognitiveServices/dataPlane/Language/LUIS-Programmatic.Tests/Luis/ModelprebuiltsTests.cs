@@ -9,7 +9,7 @@
     public class ModelPrebuiltsTests : BaseTest
     {
         [Fact]
-        public void GetAvailablePrebuiltEntityExtractorsAsync()
+        public void ListPrebuiltEntities()
         {
             UseClientFor(async client =>
             {
@@ -21,7 +21,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersionPrebuiltInfos()
+        public void ListPrebuilts()
         {
             UseClientFor(async client =>
             {
@@ -34,7 +34,7 @@
         }
 
         [Fact]
-        public void AddPrebuiltEntityExtractors()
+        public void AddPrebuilt()
         {
             UseClientFor(async client =>
             {
@@ -51,7 +51,7 @@
         }
 
         [Fact]
-        public void GetPrebuiltInfo()
+        public void GetPrebuilt()
         {
             UseClientFor(async client =>
             {
@@ -65,7 +65,7 @@
         }
 
         [Fact]
-        public void DeletePrebuiltModel()
+        public void DeletePrebuilt()
         {
             UseClientFor(async client =>
             {

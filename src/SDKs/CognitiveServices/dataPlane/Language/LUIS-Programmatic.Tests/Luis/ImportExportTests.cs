@@ -26,7 +26,7 @@
         }
 
         [Fact]
-        public void ImportVersionToApp()
+        public void ImportVersion()
         {
             var appJson = File.ReadAllText(Path.Combine(Directory.GetCurrentDirectory(), "SessionRecords/ImportApp.json"));
             var app = JsonConvert.DeserializeObject<LuisApp>(appJson);

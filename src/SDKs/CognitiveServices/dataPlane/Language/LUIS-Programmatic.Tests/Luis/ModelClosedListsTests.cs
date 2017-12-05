@@ -11,7 +11,7 @@
         private const string versionId = "0.1";
 
         [Fact]
-        public void GetLists()
+        public void ListClosedLists()
         {
             UseClientFor(async client =>
             {
@@ -23,7 +23,7 @@
         }
 
         [Fact]
-        public void CreateList()
+        public void AddClosedList()
         {
             UseClientFor(async client =>
             {
@@ -35,7 +35,7 @@
         }
 
         [Fact]
-        public void GetList()
+        public void GetClosedList()
         {
             UseClientFor(async client =>
             {
@@ -49,7 +49,7 @@
         }
 
         [Fact]
-        public void UpdateList()
+        public void UpdateClosedList()
         {
             UseClientFor(async client =>
             {
@@ -77,7 +77,7 @@
         }
 
         [Fact]
-        public void DeleteList()
+        public void DeleteClosedList()
         {
             UseClientFor(async client =>
             {
@@ -91,7 +91,7 @@
         }
 
         [Fact]
-        public void AddWordListsToExistingList()
+        public void PatchClosedList()
         {
             UseClientFor(async client =>
             {
@@ -123,7 +123,7 @@
         }
 
         [Fact]
-        public void AddWordListToExistingList()
+        public void AddSubList()
         {
             UseClientFor(async client =>
             {
@@ -143,7 +143,7 @@
         }
 
         [Fact]
-        public void DeleteWordListFromExistingList()
+        public void DeleteSubList()
         {
             UseClientFor(async client =>
             {
@@ -159,7 +159,7 @@
         }
 
         [Fact]
-        public void UpdateWordListFromExistingList()
+        public void UpdateSubList()
         {
             UseClientFor(async client =>
             {

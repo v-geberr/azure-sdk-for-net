@@ -10,7 +10,7 @@
     public class TrainTests : BaseTest
     {
         [Fact]
-        public void GetApplicationVersionTrainingStatus()
+        public void GetStatus()
         {
             UseClientFor(async client =>
             {
@@ -45,7 +45,7 @@
 
 
         [Fact]
-        public void TrainApplicationVersion()
+        public void TrainVersion()
         {
             UseClientFor(async client =>
             {

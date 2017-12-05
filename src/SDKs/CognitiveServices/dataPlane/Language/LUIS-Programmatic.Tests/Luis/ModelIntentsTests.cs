@@ -9,7 +9,7 @@
     public class ModelIntentsTests : BaseTest
     {
         [Fact]
-        public void GetApplicationVersionIntentInfos()
+        public void ListIntents()
         {
             UseClientFor(async client =>
             {
@@ -21,7 +21,7 @@
         }
 
         [Fact]
-        public void CreateIntentClassifier()
+        public void AddIntent()
         {
             UseClientFor(async client =>
             {
@@ -41,7 +41,7 @@
         }
 
         [Fact]
-        public void GetIntentInfo()
+        public void GetIntent()
         {
             UseClientFor(async client =>
             {
@@ -55,7 +55,7 @@
         }
 
         [Fact]
-        public void RenameIntentModel()
+        public void UpdateIntent()
         {
             UseClientFor(async client =>
             {
@@ -77,7 +77,7 @@
         }
 
         [Fact]
-        public void DeleteIntentModel()
+        public void DeleteIntent()
         {
             UseClientFor(async client =>
             {
@@ -94,7 +94,7 @@
         }
 
         [Fact]
-        public void SuggestEndpointQueriesForIntents()
+        public void GetIntentSuggestions()
         {
             UseClientFor(async client =>
             {

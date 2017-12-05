@@ -9,7 +9,7 @@
     public class ModelPrebuiltDomainTests: BaseTest
     {
         [Fact]
-        public void AddCustomPrebuiltDomainToApplication()
+        public void AddCustomPrebuiltDomain()
         {
             UseClientFor(async client =>
             {
@@ -32,7 +32,7 @@
         }
 
         [Fact]
-        public void DeleteCustomPrebuiltDomainModels()
+        public void DeleteCustomPrebuiltDomain()
         {
             UseClientFor(async client =>
             {
@@ -57,7 +57,7 @@
         }
 
         [Fact]
-        public void GetCustomPrebuiltDomainEntitiesInfo()
+        public void ListCustomPrebuiltEntities()
         {
             UseClientFor(async client =>
             {
@@ -76,7 +76,7 @@
         }
 
         [Fact]
-        public void AddCustomPrebuiltEntityModel()
+        public void AddCustomPrebuiltEntity()
         {
             UseClientFor(async client =>
             {
@@ -96,7 +96,7 @@
         }
 
         [Fact]
-        public void GetCustomPrebuiltDomainIntentsInfo()
+        public void ListCustomPrebuiltIntents()
         {
             UseClientFor(async client =>
             {
@@ -115,7 +115,7 @@
         }
 
         [Fact]
-        public void AddCustomPrebuiltIntentModel()
+        public void AddCustomPrebuiltIntent()
         {
             UseClientFor(async client =>
             {
@@ -135,7 +135,7 @@
         }
 
         [Fact]
-        public void GetCustomPrebuiltDomainModelsInfo()
+        public void ListCustomPrebuiltModels()
         {
             UseClientFor(async client =>
             {

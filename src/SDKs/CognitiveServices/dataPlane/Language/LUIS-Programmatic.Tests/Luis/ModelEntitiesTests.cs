@@ -10,7 +10,7 @@
         private const string versionId = "0.1";
 
         [Fact]
-        public void GetEntities()
+        public void ListEntities()
         {
             UseClientFor(async client =>
             {
@@ -49,7 +49,7 @@
         }
 
         [Fact]
-        public void CreateEntity()
+        public void AddEntity()
         {
             UseClientFor(async client =>
             {
@@ -69,7 +69,7 @@
         }
 
         [Fact]
-        public void RenameEntity()
+        public void UpdateEntity()
         {
             UseClientFor(async client =>
             {
@@ -111,7 +111,7 @@
         }
 
         [Fact]
-        public void GetSuggestionsForUntrainedEntity_ReturnsEmpty()
+        public void GetEntitySuggestions_ReturnsEmpty()
         {
             UseClientFor(async client =>
             {
@@ -130,7 +130,7 @@
         }
 
         [Fact]
-        public void GetSuggestionsForTrainedEntity_ReturnsResults()
+        public void GetEntitySuggestions_ReturnsResults()
         {
             UseClientFor(async client =>
             {

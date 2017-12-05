@@ -9,7 +9,7 @@
     public class VersionsTests: BaseTest
     {
         [Fact]
-        public void GetApplicationVersions()
+        public void ListVersions()
         {
             UseClientFor(async client =>
             {
@@ -24,7 +24,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersion()
+        public void GetVersion()
         {
             UseClientFor(async client =>
             {
@@ -39,7 +39,7 @@
         }
 
         [Fact]
-        public void RenameApplicationVersion()
+        public void UpdateVersion()
         {
             UseClientFor(async client =>
             {
@@ -64,7 +64,7 @@
         }
 
         [Fact]
-        public void DeleteApplicationVersion()
+        public void DeleteVersion()
         {
             UseClientFor(async client =>
             {
@@ -136,7 +136,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersions_ErrorSubscriptionKey()
+        public void ListVersions_ErrorSubscriptionKey()
         {
             var headers = new Dictionary<string, List<string>>
             {
@@ -154,7 +154,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersions_ErrorAppId()
+        public void ListVersions_ErrorAppId()
         {
             var errorCode = "BadArgument";
             UseClientFor(async client =>
@@ -168,7 +168,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersion_ErrorVersion()
+        public void GetVersion_ErrorVersion()
         {
             var errorCode = "BadArgument";
             UseClientFor(async client =>
@@ -184,7 +184,7 @@
         }
 
         [Fact]
-        public void RenameApplicationVersion_ErrorModel()
+        public void UpdateVersion_ErrorModel()
         {
             var errorCode = "BadArgument";
             UseClientFor(async client =>
@@ -205,7 +205,7 @@
         }
 
         [Fact]
-        public void DeleteApplicationVersion_ErrorModel()
+        public void DeleteVersion_ErrorModel()
         {
             var errorCode = "BadArgument";
             UseClientFor(async client =>

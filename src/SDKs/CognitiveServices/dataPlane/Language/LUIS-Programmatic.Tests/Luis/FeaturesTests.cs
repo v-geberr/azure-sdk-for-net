@@ -6,7 +6,7 @@
     public class FeaturesTests : BaseTest
     {
         [Fact]
-        public void GetApplicationVersionPatternFeatures()
+        public void ListFeatures()
         {
             UseClientFor(async client =>
             {

@@ -34,7 +34,7 @@
         }
 
         [Fact]
-        public void GetPhraseLists()
+        public void ListPhraseLists()
         {
             UseClientFor(async client =>
             {
@@ -53,7 +53,7 @@
         }
 
         [Fact]
-        public void GetSinglePhraseList()
+        public void GetPhraseList()
         {
             UseClientFor(async client =>
             {

@@ -7,7 +7,7 @@
     public class PermissionsTests : BaseTest
     {
         [Fact]
-        public void GetApplicationsList()
+        public void ListPermissions()
         {
             UseClientFor(async client =>
             {
@@ -19,7 +19,7 @@
         }
 
         [Fact]
-        public void AddUserToAccessList()
+        public void AddPermission()
         {
             UseClientFor(async client =>
             {
@@ -36,7 +36,7 @@
         }
 
         [Fact]
-        public void RemoveUserFromAccessList()
+        public void DeletePermission()
         {
             UseClientFor(async client =>
             {
@@ -53,7 +53,7 @@
         }
 
         [Fact]
-        public void UpdateAccessList()
+        public void UpdatePermission()
         {
             UseClientFor(async client =>
             {

@@ -10,7 +10,7 @@
     public class ModelTests : BaseTest
     {
         [Fact]
-        public void GetApplicationVersionCompositeEntityInfos()
+        public void ListCompositeEntities()
         {
             UseClientFor(async client =>
             {
@@ -25,7 +25,7 @@
         }
 
         [Fact]
-        public void CreateCompositeEntityExtractor()
+        public void AddCompositeEntity()
         {
             UseClientFor(async client =>
             {
@@ -37,7 +37,7 @@
         }
 
         [Fact]
-        public void GetCompositeEntityInfo()
+        public void GetCompositeEntity()
         {
             UseClientFor(async client =>
             {
@@ -51,7 +51,7 @@
         }
 
         [Fact]
-        public void UpdateCompositeEntityModel()
+        public void UpdateCompositeEntity()
         {
             UseClientFor(async client =>
             {
@@ -67,7 +67,7 @@
         }
 
         [Fact]
-        public void DeleteCompositeEntityModel()
+        public void DeleteCompositeEntity()
         {
             UseClientFor(async client =>
             {
@@ -82,7 +82,7 @@
         }
 
         [Fact]
-        public void CreateCompositeEntityChildModel()
+        public void AddCompositeEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -97,7 +97,7 @@
         }
 
         [Fact]
-        public void DeleteCompositeEntityChildModel()
+        public void DeleteCompositeEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -113,18 +113,18 @@
         }
 
         [Fact]
-        public void GetApplicationVersionHierarchicalEntityInfos()
+        public void ListHierarchicalEntities()
         {
             UseClientFor(async client =>
             {
                 var result = await client.Model.ListHierarchicalEntitiesAsync(appId, "0.1");
 
-                Assert.Equal(1, result.Count());
+                Assert.Single(result);
             });
         }
 
         [Fact]
-        public void CreateHierarchicalEntityExtractor()
+        public void AddHierarchicalEntity()
         {
             UseClientFor(async client =>
             {
@@ -137,7 +137,7 @@
         }
 
         [Fact]
-        public void GetHierarchicalEntityInfo()
+        public void GetHierarchicalEntity()
         {
             UseClientFor(async client =>
             {
@@ -151,7 +151,7 @@
         }
 
         [Fact]
-        public void UpdateHierarchicalEntityModel()
+        public void UpdateHierarchicalEntity()
         {
             UseClientFor(async client =>
             {
@@ -167,7 +167,7 @@
         }
 
         [Fact]
-        public void DeleteHierarchicalEntityModel()
+        public void DeleteHierarchicalEntity()
         {
             UseClientFor(async client =>
             {
@@ -182,7 +182,7 @@
         }
 
         [Fact]
-        public void GetHierarchicalEntityChildInfo()
+        public void GetHierarchicalEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -197,7 +197,7 @@
         }
 
         [Fact]
-        public void DeleteHierarchicalEntityChildModel()
+        public void DeleteHierarchicalEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -213,7 +213,7 @@
         }
 
         [Fact]
-        public void UpdateHierarchicalEntityChildModel()
+        public void UpdateHierarchicalEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -233,7 +233,7 @@
         }
 
         [Fact]
-        public void CreateHierarchicalEntityChildModel()
+        public void AddHierarchicalEntityChild()
         {
             UseClientFor(async client =>
             {
@@ -251,7 +251,7 @@
         }
 
         [Fact]
-        public void GetApplicationVersionModelInfos()
+        public void ListModels()
         {
             UseClientFor(async client =>
             {

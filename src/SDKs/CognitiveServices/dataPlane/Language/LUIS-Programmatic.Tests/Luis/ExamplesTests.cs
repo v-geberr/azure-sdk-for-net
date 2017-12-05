@@ -12,7 +12,7 @@
         private const string versionId = "0.1";
         
         [Fact]
-        public void GetExamples()
+        public void ListExamples()
         {
             UseClientFor(async client =>
             {
@@ -23,7 +23,7 @@
         }
 
         [Fact]
-        public void GetExamples_ForEmptyApplication_ReturnsEmpty()
+        public void ListExamples_ForEmptyApplication_ReturnsEmpty()
         {
             UseClientFor(async client =>
             {

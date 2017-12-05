@@ -11,7 +11,7 @@
     public class AppsTests : BaseTest
     {
         [Fact]
-        public void GetApplicationsList()
+        public void ListApplications()
         {
             UseClientFor(async client =>
             {
@@ -65,7 +65,7 @@
         }
 
         [Fact]
-        public void GetApplicationInfo()
+        public void GetApplication()
         {
             UseClientFor(async client =>
             {
@@ -92,7 +92,7 @@
         }
 
         [Fact]
-        public void RenameApplication()
+        public void UpdateApplication()
         {
             UseClientFor(async client =>
             {
@@ -146,7 +146,7 @@
         }
 
         [Fact]
-        public void GetApplicationEndpoints()
+        public void ListEndpoints()
         {
             UseClientFor(async client =>
             {
@@ -191,7 +191,7 @@
         }
 
         [Fact]
-        public void DownloadApplicationQueryLogs()
+        public void DownloadQueryLogs()
         {
             UseClientFor(async client =>
             {
@@ -217,7 +217,7 @@
         }
 
         [Fact]
-        public void GetApplicationSettings()
+        public void GetSettings()
         {
             UseClientFor(async client =>
             {
@@ -242,7 +242,7 @@
         }
 
         [Fact]
-        public void UpdateApplicationSettings()
+        public void UpdateSettings()
         {
             UseClientFor(async client =>
             {
@@ -271,7 +271,7 @@
         }
 
         [Fact]
-        public void GetApplicationDomains()
+        public void ListDomains()
         {
             UseClientFor(async client =>
             {
@@ -284,7 +284,7 @@
         }
 
         [Fact]
-        public void GetApplicationCultures()
+        public void ListSupportedCultures()
         {
             UseClientFor(async client =>
             {
@@ -298,7 +298,7 @@
         }
 
         [Fact]
-        public void GetApplicationUsageScenarios()
+        public void ListUsageScenarios()
         {
             UseClientFor(async client =>
             {
@@ -311,7 +311,7 @@
         }
 
         [Fact]
-        public void GetAvailableCustomPrebuiltDomains()
+        public void ListAvailableCustomPrebuiltDomains()
         {
             UseClientFor(async client =>
             {
@@ -327,7 +327,7 @@
         }
 
         [Fact]
-        public void GetAvailableCustomPrebuiltDomainsForCulture()
+        public void ListAvailableCustomPrebuiltDomainsForCulture()
         {
             UseClientFor(async client =>
             {
@@ -362,7 +362,7 @@
         }
         
         [Fact]
-        public void GetPersonalAssistantApplications()
+        public void ListCortanaEndpoints()
         {
             UseClientFor(async client =>
             {
