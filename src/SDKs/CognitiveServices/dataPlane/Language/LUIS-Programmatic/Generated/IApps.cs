@@ -47,7 +47,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<System.Guid>> AddApplicationWithHttpMessagesAsync(ApplicationCreateObject applicationCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.Guid>> AddWithHttpMessagesAsync(ApplicationCreateObject applicationCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Lists all of the user applications.
         /// </summary>
@@ -70,7 +70,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> GetApplicationsListWithHttpMessagesAsync(int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ApplicationInfoResponse>>> ListWithHttpMessagesAsync(int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Imports an application to LUIS, the application's structure should
         /// be included in in the request body.
@@ -97,7 +97,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<System.Guid>> ImportApplicationWithHttpMessagesAsync(LuisApp luisApp, string appName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.Guid>> ImportWithHttpMessagesAsync(LuisApp luisApp, string appName = default(string), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the endpoint URLs for the prebuilt Cortana applications.
         /// </summary>
@@ -113,7 +113,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<PersonalAssistantsResponse>> GetPersonalAssistantApplicationsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<PersonalAssistantsResponse>> ListCortanaEndpointsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the available application domains.
         /// </summary>
@@ -129,7 +129,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<string>>> GetApplicationDomainsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<string>>> ListDomainsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the application available usage scenarios.
         /// </summary>
@@ -145,7 +145,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<string>>> GetApplicationUsageScenariosWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<string>>> ListUsageScenariosWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the supported application cultures.
         /// </summary>
@@ -161,7 +161,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<AvailableCulture>>> GetApplicationCulturesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<AvailableCulture>>> ListSupportedCulturesWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the query logs of the past month for the application.
         /// </summary>
@@ -180,7 +180,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<Stream>> DownloadApplicationQueryLogsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<Stream>> DownloadQueryLogsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the application info.
         /// </summary>
@@ -199,7 +199,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ApplicationInfoResponse>> GetApplicationInfoWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ApplicationInfoResponse>> GetWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the name or description of the application.
         /// </summary>
@@ -221,7 +221,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> RenameApplicationWithHttpMessagesAsync(System.Guid appId, ApplicationUpdateObject applicationUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateWithHttpMessagesAsync(System.Guid appId, ApplicationUpdateObject applicationUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes an application.
         /// </summary>
@@ -237,7 +237,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="ErrorResponseException">
         /// Thrown when the operation returned an invalid status code
         /// </exception>
-        Task<HttpOperationResponse> DeleteApplicationWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Publishes a specific version of the application.
         /// </summary>
@@ -263,7 +263,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<ProductionOrStagingEndpointInfo>> PublishApplicationWithHttpMessagesAsync(System.Guid appId, ApplicationPublishObject applicationPublishObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ProductionOrStagingEndpointInfo>> PublishWithHttpMessagesAsync(System.Guid appId, ApplicationPublishObject applicationPublishObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Get the application settings.
         /// </summary>
@@ -282,7 +282,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<ApplicationSettings>> GetApplicationSettingsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<ApplicationSettings>> GetSettingsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Updates the application settings.
         /// </summary>
@@ -304,7 +304,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> UpdateApplicationSettingsWithHttpMessagesAsync(System.Guid appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> UpdateSettingsWithHttpMessagesAsync(System.Guid appId, ApplicationSettingUpdateObject applicationSettingUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns the available endpoint deployment regions and URLs.
         /// </summary>
@@ -323,7 +323,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<AvailableEndpoints>> GetEndpointsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<AvailableEndpoints>> ListEndpointsWithHttpMessagesAsync(System.Guid appId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all the available custom prebuilt domains for all cultures.
         /// </summary>
@@ -339,7 +339,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.SerializationException">
         /// Thrown when unable to deserialize the response
         /// </exception>
-        Task<HttpOperationResponse<IList<PrebuiltDomain>>> GetAvailableCustomPrebuiltDomainsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<PrebuiltDomain>>> ListAvailableCustomPrebuiltDomainsWithHttpMessagesAsync(Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a prebuilt domain along with its models as a new application.
         /// </summary>
@@ -362,7 +362,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<System.Guid>> AddCustomPrebuiltApplicationWithHttpMessagesAsync(PrebuiltDomainCreateObject prebuiltDomainCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.Guid>> AddCustomPrebuiltDomainWithHttpMessagesAsync(PrebuiltDomainCreateObject prebuiltDomainCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets all the available custom prebuilt domains for a specific
         /// culture.
@@ -385,6 +385,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<PrebuiltDomain>>> GetAvailableCustomPrebuiltDomainsForCultureWithHttpMessagesAsync(string culture, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<PrebuiltDomain>>> ListAvailableCustomPrebuiltDomainsForCultureWithHttpMessagesAsync(string culture, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

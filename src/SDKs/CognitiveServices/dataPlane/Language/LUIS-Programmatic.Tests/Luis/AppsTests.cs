@@ -16,7 +16,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "Existing LUIS App",
                     Description = "New LUIS App",
@@ -26,13 +26,13 @@
                 });
 
                 // Test
-                var result = await client.Apps.GetApplicationsListAsync();
+                var result = await client.Apps.ListAsync();
 
                 Assert.NotEqual(0, result.Count);
                 Assert.Contains(result, o => o.Name == "Existing LUIS App");
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -41,7 +41,7 @@
         {
             UseClientFor(async client =>
             {
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject
                 {
                     Name = "New LUIS App",
                     Description = "New LUIS App",
@@ -50,7 +50,7 @@
                     UsageScenario = "IoT"
                 });
 
-                var savedApp = await client.Apps.GetApplicationInfoAsync(testAppId);
+                var savedApp = await client.Apps.GetAsync(testAppId);
 
                 Assert.NotNull(savedApp);
                 Assert.Equal("New LUIS App", savedApp.Name);
@@ -60,7 +60,7 @@
                 Assert.Equal("IoT", savedApp.UsageScenario);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -70,7 +70,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "Existing LUIS App",
                     Description = "New LUIS App",
@@ -79,7 +79,7 @@
                     UsageScenario = "IoT"
                 });
 
-                var result = await client.Apps.GetApplicationInfoAsync(testAppId);
+                var result = await client.Apps.GetAsync(testAppId);
                 Assert.Equal(testAppId, result.Id);
                 Assert.Equal("Existing LUIS App", result.Name);
                 Assert.Equal("en-us", result.Culture);
@@ -87,7 +87,7 @@
                 Assert.Equal("IoT", result.UsageScenario);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -97,7 +97,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App to be renamed",
                     Description = "New LUIS App",
@@ -106,19 +106,19 @@
                     UsageScenario = "IoT"
                 });
 
-                await client.Apps.RenameApplicationAsync(testAppId, new ApplicationUpdateObject
+                await client.Apps.UpdateAsync(testAppId, new ApplicationUpdateObject
                 {
                     Name = "LUIS App name updated",
                     Description = "LUIS App description updated"
                 });
 
-                var app = await client.Apps.GetApplicationInfoAsync(testAppId);
+                var app = await client.Apps.GetAsync(testAppId);
 
                 Assert.Equal("LUIS App name updated", app.Name);
                 Assert.Equal("LUIS App description updated", app.Description);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -128,7 +128,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App to be deleted",
                     Description = "New LUIS App",
@@ -137,10 +137,10 @@
                     UsageScenario = "IoT"
                 });
 
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
 
                 // Assert
-                var result = await client.Apps.GetApplicationsListAsync();
+                var result = await client.Apps.ListAsync();
                 Assert.DoesNotContain(result, o => o.Id == testAppId);
             });
         }
@@ -151,7 +151,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App for endpoint test",
                     Description = "New LUIS App",
@@ -160,7 +160,7 @@
                     UsageScenario = "IoT"
                 });
 
-                var result = await client.Apps.GetEndpointsAsync(testAppId);
+                var result = await client.Apps.ListEndpointsAsync(testAppId);
 
                 Assert.Equal("https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Westus);
                 Assert.Equal("https://eastus2.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Eastus2);
@@ -168,7 +168,7 @@
                 Assert.Equal("https://southeastasia.api.cognitive.microsoft.com/luis/v2.0/apps/" + testAppId, result.Southeastasia);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -177,7 +177,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.PublishApplicationAsync(appId, new ApplicationPublishObject
+                var result = await client.Apps.PublishAsync(appId, new ApplicationPublishObject
                 {
                     IsStaging = false,
                     Region = AzureRegions.Westus.ToString().ToLowerInvariant(),
@@ -196,7 +196,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App for Query Logs test",
                     Description = "New LUIS App",
@@ -205,14 +205,14 @@
                     UsageScenario = "IoT"
                 });
 
-                var downloadStream = await client.Apps.DownloadApplicationQueryLogsAsync(testAppId);
+                var downloadStream = await client.Apps.DownloadQueryLogsAsync(testAppId);
                 var reader = new StreamReader(downloadStream);
 
                 var csv = reader.ReadToEnd();
                 Assert.False(string.IsNullOrEmpty(csv));
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -222,7 +222,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App for Settings test",
                     Description = "New LUIS App",
@@ -231,13 +231,13 @@
                     UsageScenario = "IoT"
                 });
 
-                var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
+                var settings = await client.Apps.GetSettingsAsync(testAppId);
 
                 Assert.Equal(testAppId, settings.Id);
                 Assert.False(settings.IsPublic);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -247,7 +247,7 @@
             UseClientFor(async client =>
             {
                 // Initialize
-                var testAppId = await client.Apps.AddApplicationAsync(new ApplicationCreateObject()
+                var testAppId = await client.Apps.AddAsync(new ApplicationCreateObject()
                 {
                     Name = "LUIS App for Settings test",
                     Description = "New LUIS App",
@@ -256,17 +256,17 @@
                     UsageScenario = "IoT"
                 });
 
-                await client.Apps.UpdateApplicationSettingsAsync(testAppId, new ApplicationSettingUpdateObject
+                await client.Apps.UpdateSettingsAsync(testAppId, new ApplicationSettingUpdateObject
                 {
                     PublicProperty = true
                 });
 
                 // Assert
-                var settings = await client.Apps.GetApplicationSettingsAsync(testAppId);
+                var settings = await client.Apps.GetSettingsAsync(testAppId);
                 Assert.True(settings.IsPublic);
 
                 // Cleanup
-                await client.Apps.DeleteApplicationAsync(testAppId);
+                await client.Apps.DeleteAsync(testAppId);
             });
         }
 
@@ -275,7 +275,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetApplicationDomainsAsync();
+                var result = await client.Apps.ListDomainsAsync();
                 foreach (var domain in result)
                 {
                     Assert.False(string.IsNullOrWhiteSpace(domain));
@@ -288,7 +288,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetApplicationCulturesAsync();
+                var result = await client.Apps.ListSupportedCulturesAsync();
                 foreach (var culture in result)
                 {
                     var cult = new CultureInfo(culture.Code);
@@ -302,7 +302,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetApplicationUsageScenariosAsync();
+                var result = await client.Apps.ListUsageScenariosAsync();
                 foreach (var scenario in result)
                 {
                     Assert.False(string.IsNullOrWhiteSpace(scenario));
@@ -315,7 +315,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetAvailableCustomPrebuiltDomainsAsync();
+                var result = await client.Apps.ListAvailableCustomPrebuiltDomainsAsync();
                 foreach (var prebuiltDomain in result)
                 {
                     Assert.NotNull(prebuiltDomain);
@@ -331,8 +331,8 @@
         {
             UseClientFor(async client =>
             {
-                var resultsUS = await client.Apps.GetAvailableCustomPrebuiltDomainsForCultureAsync("en-US");
-                var resultsCN = await client.Apps.GetAvailableCustomPrebuiltDomainsForCultureAsync("zh-CN");
+                var resultsUS = await client.Apps.ListAvailableCustomPrebuiltDomainsForCultureAsync("en-US");
+                var resultsCN = await client.Apps.ListAvailableCustomPrebuiltDomainsForCultureAsync("zh-CN");
 
                 foreach (var resultUS in resultsUS)
                 {
@@ -355,7 +355,7 @@
                     Culture = "en-US",
                     DomainName = "Calendar"
                 };
-                var result = await client.Apps.AddCustomPrebuiltApplicationAsync(domain);
+                var result = await client.Apps.AddCustomPrebuiltDomainAsync(domain);
 
                 Assert.True(result != Guid.Empty);
             });
@@ -366,7 +366,7 @@
         {
             UseClientFor(async client =>
             {
-                var result = await client.Apps.GetPersonalAssistantApplicationsAsync();
+                var result = await client.Apps.ListCortanaEndpointsAsync();
 
                 Assert.True(result.EndpointUrls.Values.All(url => Uri.TryCreate(url, UriKind.Absolute, out Uri uri)));
             });

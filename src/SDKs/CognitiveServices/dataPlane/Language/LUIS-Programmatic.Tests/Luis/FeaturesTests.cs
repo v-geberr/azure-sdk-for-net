@@ -11,7 +11,7 @@
             UseClientFor(async client =>
             {
                 var version = "0.1";
-                var features = await client.Features.GetApplicationVersionFeaturesAsync(appId, version);
+                var features = await client.Features.ListAsync(appId, version);
 
                 Assert.True(features.PatternFeatures.Count > 0);
                 Assert.True(features.PhraselistFeatures.Count > 0);

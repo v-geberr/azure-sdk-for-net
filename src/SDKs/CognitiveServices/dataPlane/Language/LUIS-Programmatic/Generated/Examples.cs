@@ -83,7 +83,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<LabelExampleResponse>> AddLabelWithHttpMessagesAsync(System.Guid appId, string versionId, ExampleLabelObject exampleLabelObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<LabelExampleResponse>> AddWithHttpMessagesAsync(System.Guid appId, string versionId, ExampleLabelObject exampleLabelObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -104,7 +104,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("exampleLabelObject", exampleLabelObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "AddLabel", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Add", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -251,7 +251,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchAddLabelsWithHttpMessagesAsync(System.Guid appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchWithHttpMessagesAsync(System.Guid appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -272,7 +272,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("exampleLabelObjectArray", exampleLabelObjectArray);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "BatchAddLabels", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Batch", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -422,7 +422,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<LabeledUtterance>>> ReviewLabeledExamplesWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<LabeledUtterance>>> ListWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -452,7 +452,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("skip", skip);
                 tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "ReviewLabeledExamples", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "List", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -603,7 +603,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeleteExampleLabelsWithHttpMessagesAsync(System.Guid appId, string versionId, int exampleId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeleteWithHttpMessagesAsync(System.Guid appId, string versionId, int exampleId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -620,7 +620,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("exampleId", exampleId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "DeleteExampleLabels", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "Delete", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;

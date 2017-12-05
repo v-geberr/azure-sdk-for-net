@@ -15,7 +15,7 @@
             UseClientFor(async client =>
             {
                 var versionId = "0.1";
-                var result = await client.Train.GetApplicationVersionTrainingStatusAsync(appId, versionId);
+                var result = await client.Train.GetStatusAsync(appId, versionId);
 
                 foreach (var trainResult in result)
                 {
@@ -51,16 +51,16 @@
             {
                 var versionId = "0.1";
 
-                var result = await client.Train.TrainApplicationVersionAsync(appId, versionId);
+                var result = await client.Train.TrainVersionAsync(appId, versionId);
                 var finishStates = new string[] { "Success", "UpToDate" };
 
                 while (!finishStates.Contains(result.Status))
                 {
                     await Task.Delay(1000);
-                    result = await client.Train.TrainApplicationVersionAsync(appId, versionId);
+                    result = await client.Train.TrainVersionAsync(appId, versionId);
                 }
 
-                result = await client.Train.TrainApplicationVersionAsync(appId, versionId);
+                result = await client.Train.TrainVersionAsync(appId, versionId);
 
                 Assert.Equal("UpToDate", result.Status);
             });

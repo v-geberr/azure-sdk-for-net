@@ -40,9 +40,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<int?> CreatePhraselistFeatureAsync(this IFeatures operations, System.Guid appId, string versionId, PhraselistCreateObject phraselistCreateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<int?> AddPhraseListAsync(this IFeatures operations, System.Guid appId, string versionId, PhraselistCreateObject phraselistCreateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CreatePhraselistFeatureWithHttpMessagesAsync(appId, versionId, phraselistCreateObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.AddPhraseListWithHttpMessagesAsync(appId, versionId, phraselistCreateObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -69,9 +69,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<PhraseListFeatureInfo>> GetApplicationVersionPhraselistFeaturesAsync(this IFeatures operations, System.Guid appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<PhraseListFeatureInfo>> ListPhraseListsAsync(this IFeatures operations, System.Guid appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationVersionPhraselistFeaturesWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListPhraseListsWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -98,9 +98,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<FeaturesResponseObject> GetApplicationVersionFeaturesAsync(this IFeatures operations, System.Guid appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<FeaturesResponseObject> ListAsync(this IFeatures operations, System.Guid appId, string versionId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationVersionFeaturesWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(appId, versionId, skip, take, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -124,9 +124,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<PhraseListFeatureInfo> GetPhraselistFeatureInfoAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<PhraseListFeatureInfo> GetPhraseListAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetPhraselistFeatureInfoWithHttpMessagesAsync(appId, versionId, phraselistId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetPhraseListWithHttpMessagesAsync(appId, versionId, phraselistId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -155,9 +155,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task UpdatePhraselistFeatureAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, PhraselistUpdateObject phraselistUpdateObject = default(PhraselistUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdatePhraseListAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, PhraselistUpdateObject phraselistUpdateObject = default(PhraselistUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.UpdatePhraselistFeatureWithHttpMessagesAsync(appId, versionId, phraselistId, phraselistUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdatePhraseListWithHttpMessagesAsync(appId, versionId, phraselistId, phraselistUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -178,9 +178,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeletePhraselistFeatureAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeletePhraseListAsync(this IFeatures operations, System.Guid appId, string versionId, int phraselistId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeletePhraselistFeatureWithHttpMessagesAsync(appId, versionId, phraselistId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeletePhraseListWithHttpMessagesAsync(appId, versionId, phraselistId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
     }

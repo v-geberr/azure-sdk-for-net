@@ -49,7 +49,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<LabelExampleResponse>> AddLabelWithHttpMessagesAsync(System.Guid appId, string versionId, ExampleLabelObject exampleLabelObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<LabelExampleResponse>> AddWithHttpMessagesAsync(System.Guid appId, string versionId, ExampleLabelObject exampleLabelObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Adds a batch of labeled examples to the application.
         /// </summary>
@@ -77,7 +77,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchAddLabelsWithHttpMessagesAsync(System.Guid appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<BatchLabelExample>>> BatchWithHttpMessagesAsync(System.Guid appId, string versionId, IList<ExampleLabelObject> exampleLabelObjectArray, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Returns examples to be reviewed.
         /// </summary>
@@ -109,7 +109,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<LabeledUtterance>>> ReviewLabeledExamplesWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<LabeledUtterance>>> ListWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes the labeled example with the specified ID.
         /// </summary>
@@ -134,6 +134,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse> DeleteExampleLabelsWithHttpMessagesAsync(System.Guid appId, string versionId, int exampleId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse> DeleteWithHttpMessagesAsync(System.Guid appId, string versionId, int exampleId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

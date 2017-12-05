@@ -84,7 +84,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<int?>> CreatePhraselistFeatureWithHttpMessagesAsync(System.Guid appId, string versionId, PhraselistCreateObject phraselistCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<int?>> AddPhraseListWithHttpMessagesAsync(System.Guid appId, string versionId, PhraselistCreateObject phraselistCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -105,7 +105,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("phraselistCreateObject", phraselistCreateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "CreatePhraselistFeature", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "AddPhraseList", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -255,7 +255,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<PhraseListFeatureInfo>>> GetApplicationVersionPhraselistFeaturesWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<PhraseListFeatureInfo>>> ListPhraseListsWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -285,7 +285,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("skip", skip);
                 tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionPhraselistFeatures", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "ListPhraseLists", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -442,7 +442,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<FeaturesResponseObject>> GetApplicationVersionFeaturesWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<FeaturesResponseObject>> ListWithHttpMessagesAsync(System.Guid appId, string versionId, int? skip = 0, int? take = 100, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -472,7 +472,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("skip", skip);
                 tracingParameters.Add("take", take);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionFeatures", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "List", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -626,7 +626,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<PhraseListFeatureInfo>> GetPhraselistFeatureInfoWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<PhraseListFeatureInfo>> GetPhraseListWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -643,7 +643,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("phraselistId", phraselistId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetPhraselistFeatureInfo", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GetPhraseList", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -787,7 +787,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> UpdatePhraselistFeatureWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, PhraselistUpdateObject phraselistUpdateObject = default(PhraselistUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> UpdatePhraseListWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, PhraselistUpdateObject phraselistUpdateObject = default(PhraselistUpdateObject), Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -805,7 +805,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("phraselistId", phraselistId);
                 tracingParameters.Add("phraselistUpdateObject", phraselistUpdateObject);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "UpdatePhraselistFeature", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "UpdatePhraseList", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -932,7 +932,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse> DeletePhraselistFeatureWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse> DeletePhraseListWithHttpMessagesAsync(System.Guid appId, string versionId, int phraselistId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -949,7 +949,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("phraselistId", phraselistId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "DeletePhraselistFeature", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "DeletePhraseList", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;

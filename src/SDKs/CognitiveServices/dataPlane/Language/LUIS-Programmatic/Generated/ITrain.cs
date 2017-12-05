@@ -52,7 +52,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<EnqueueTrainingResponse>> TrainApplicationVersionWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<EnqueueTrainingResponse>> TrainVersionWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets the training status of all models (intents and entities) for
         /// the specified LUIS app. You must call the train API to train the
@@ -81,6 +81,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<IList<ModelTrainingInfo>>> GetApplicationVersionTrainingStatusWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<IList<ModelTrainingInfo>>> GetStatusWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
     }
 }

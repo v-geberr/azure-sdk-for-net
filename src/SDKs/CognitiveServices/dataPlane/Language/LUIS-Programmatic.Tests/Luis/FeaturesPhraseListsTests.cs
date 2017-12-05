@@ -17,15 +17,15 @@
         {
             UseClientFor(async client =>
             {
-                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                var id = await client.Features.AddPhraseListAsync(appId, versionId, new PhraselistCreateObject
                 {
                     Name = "DayOfWeek",
                     Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
                     IsExchangeable = true
                 });
 
-                var phrases = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
-                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+                var phrases = await client.Features.GetPhraseListAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraseListAsync(appId, versionId, id.Value);
 
                 Assert.NotNull(phrases);
                 Assert.Equal("DayOfWeek", phrases.Name);
@@ -38,15 +38,15 @@
         {
             UseClientFor(async client =>
             {
-                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                var id = await client.Features.AddPhraseListAsync(appId, versionId, new PhraselistCreateObject
                 {
                     Name = "DayOfWeek",
                     Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
                     IsExchangeable = true
                 });
 
-                var phrases = await client.Features.GetApplicationVersionPhraselistFeaturesAsync(appId, versionId);
-                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+                var phrases = await client.Features.ListPhraseListsAsync(appId, versionId);
+                await client.Features.DeletePhraseListAsync(appId, versionId, id.Value);
 
                 Assert.True(phrases.Count > 0);
             });
@@ -57,15 +57,15 @@
         {
             UseClientFor(async client =>
             {
-                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                var id = await client.Features.AddPhraseListAsync(appId, versionId, new PhraselistCreateObject
                 {
                     Name = "DayOfWeek",
                     Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
                     IsExchangeable = true
                 });
 
-                var phrase = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
-                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+                var phrase = await client.Features.GetPhraseListAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraseListAsync(appId, versionId, id.Value);
 
                 Assert.Equal("DayOfWeek", phrase.Name);
                 Assert.True(phrase.IsActive);
@@ -78,22 +78,22 @@
         {
             UseClientFor(async client =>
             {
-                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                var id = await client.Features.AddPhraseListAsync(appId, versionId, new PhraselistCreateObject
                 {
                     Name = "DayOfWeek",
                     Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
                     IsExchangeable = true
                 });
 
-                await client.Features.UpdatePhraselistFeatureAsync(appId, versionId, id.Value, new PhraselistUpdateObject
+                await client.Features.UpdatePhraseListAsync(appId, versionId, id.Value, new PhraselistUpdateObject
                 {
                     IsActive = false,
                     Name = "Month",
                     Phrases = "january,february,march,april,may,june,july,august,september,october,november,december"
                 });
 
-                var updated = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
-                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+                var updated = await client.Features.GetPhraseListAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraseListAsync(appId, versionId, id.Value);
 
                 Assert.Equal("Month", updated.Name);
                 Assert.Equal("january,february,march,april,may,june,july,august,september,october,november,december", updated.Phrases);
@@ -106,17 +106,17 @@
         {
             UseClientFor(async client =>
             {
-                var id = await client.Features.CreatePhraselistFeatureAsync(appId, versionId, new PhraselistCreateObject
+                var id = await client.Features.AddPhraseListAsync(appId, versionId, new PhraselistCreateObject
                 {
                     Name = "DayOfWeek",
                     Phrases = "monday,tuesday,wednesday,thursday,friday,saturday,sunday",
                     IsExchangeable = true
                 });
 
-                var phrase = await client.Features.GetPhraselistFeatureInfoAsync(appId, versionId, id.Value);
-                await client.Features.DeletePhraselistFeatureAsync(appId, versionId, id.Value);
+                var phrase = await client.Features.GetPhraseListAsync(appId, versionId, id.Value);
+                await client.Features.DeletePhraseListAsync(appId, versionId, id.Value);
 
-                var phrases = await client.Features.GetApplicationVersionPhraselistFeaturesAsync(appId, versionId);
+                var phrases = await client.Features.ListPhraseListsAsync(appId, versionId);
 
                 Assert.DoesNotContain(phrases, o => o.Id == id);
             });

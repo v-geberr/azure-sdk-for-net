@@ -40,9 +40,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> CloneVersionAsync(this IVersions operations, System.Guid appId, string versionId, TaskUpdateObject versionCloneObject = default(TaskUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> CloneAsync(this IVersions operations, System.Guid appId, string versionId, TaskUpdateObject versionCloneObject = default(TaskUpdateObject), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.CloneVersionWithHttpMessagesAsync(appId, versionId, versionCloneObject, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.CloneWithHttpMessagesAsync(appId, versionId, versionCloneObject, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -66,9 +66,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<IList<VersionInfo>> GetApplicationVersionsAsync(this IVersions operations, System.Guid appId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IList<VersionInfo>> ListAsync(this IVersions operations, System.Guid appId, int? skip = 0, int? take = 100, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationVersionsWithHttpMessagesAsync(appId, skip, take, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ListWithHttpMessagesAsync(appId, skip, take, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -89,9 +89,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<VersionInfo> GetApplicationVersionAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<VersionInfo> GetAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.GetApplicationVersionWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.GetWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -115,9 +115,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task RenameApplicationVersionAsync(this IVersions operations, System.Guid appId, string versionId, TaskUpdateObject versionUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task UpdateAsync(this IVersions operations, System.Guid appId, string versionId, TaskUpdateObject versionUpdateObject, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.RenameApplicationVersionWithHttpMessagesAsync(appId, versionId, versionUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.UpdateWithHttpMessagesAsync(appId, versionId, versionUpdateObject, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -135,9 +135,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task DeleteApplicationVersionAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task DeleteAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                (await operations.DeleteApplicationVersionWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false)).Dispose();
+                (await operations.DeleteWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false)).Dispose();
             }
 
             /// <summary>
@@ -155,9 +155,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<LuisApp> ExportApplicationVersionAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<LuisApp> ExportAsync(this IVersions operations, System.Guid appId, string versionId, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ExportApplicationVersionWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ExportWithHttpMessagesAsync(appId, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
@@ -182,9 +182,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<string> ImportVersionToApplicationAsync(this IVersions operations, System.Guid appId, LuisApp luisApp, string versionId = default(string), CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<string> ImportAsync(this IVersions operations, System.Guid appId, LuisApp luisApp, string versionId = default(string), CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.ImportVersionToApplicationWithHttpMessagesAsync(appId, luisApp, versionId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.ImportWithHttpMessagesAsync(appId, luisApp, versionId, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }

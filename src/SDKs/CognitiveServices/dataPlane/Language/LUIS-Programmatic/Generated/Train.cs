@@ -86,7 +86,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<EnqueueTrainingResponse>> TrainApplicationVersionWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<EnqueueTrainingResponse>> TrainVersionWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -102,7 +102,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "TrainApplicationVersion", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "TrainVersion", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
@@ -244,7 +244,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<IList<ModelTrainingInfo>>> GetApplicationVersionTrainingStatusWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<IList<ModelTrainingInfo>>> GetStatusWithHttpMessagesAsync(System.Guid appId, string versionId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -260,7 +260,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("cancellationToken", cancellationToken);
-                ServiceClientTracing.Enter(_invocationId, this, "GetApplicationVersionTrainingStatus", tracingParameters);
+                ServiceClientTracing.Enter(_invocationId, this, "GetStatus", tracingParameters);
             }
             // Construct URL
             var _baseUrl = Client.BaseUri;
