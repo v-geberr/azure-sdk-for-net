@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Sublist of items for a Closed list.
+    /// </summary>
     public partial class SubClosedListResponse : SubClosedList
     {
         /// <summary>
@@ -28,6 +31,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the SubClosedListResponse class.
         /// </summary>
+        /// <param name="canonicalForm">The standard form that the list
+        /// represents.</param>
+        /// <param name="list">List of synonym words.</param>
+        /// <param name="id">The sublist ID</param>
         public SubClosedListResponse(string canonicalForm = default(string), IList<string> list = default(IList<string>), int id = default(int))
             : base(canonicalForm, list)
         {
@@ -41,6 +48,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the sublist ID
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public int Id { get; set; }

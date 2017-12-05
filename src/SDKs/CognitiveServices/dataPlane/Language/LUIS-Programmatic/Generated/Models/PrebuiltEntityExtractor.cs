@@ -12,6 +12,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 {
     using System.Linq;
 
+    /// <summary>
+    /// Prebuilt Entity Extractor.
+    /// </summary>
     public partial class PrebuiltEntityExtractor : ModelInfo
     {
         /// <summary>
@@ -25,7 +28,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the PrebuiltEntityExtractor class.
         /// </summary>
-        /// <param name="id">The GUID of the Entity Model.</param>
+        /// <param name="id">The ID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List

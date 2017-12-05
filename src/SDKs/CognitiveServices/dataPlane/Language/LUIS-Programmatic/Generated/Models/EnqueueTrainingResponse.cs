@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Response model when requesting to train the model.
+    /// </summary>
     public partial class EnqueueTrainingResponse
     {
         /// <summary>
@@ -26,6 +29,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the EnqueueTrainingResponse class.
         /// </summary>
+        /// <param name="statusId">The train request status ID.</param>
         /// <param name="status">Possible values include: 'Queued',
         /// 'InProgress', 'UpToDate', 'Fail', 'Success'</param>
         public EnqueueTrainingResponse(int? statusId = default(int?), string status = default(string))
@@ -41,6 +45,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the train request status ID.
         /// </summary>
         [JsonProperty(PropertyName = "statusId")]
         public int? StatusId { get; set; }

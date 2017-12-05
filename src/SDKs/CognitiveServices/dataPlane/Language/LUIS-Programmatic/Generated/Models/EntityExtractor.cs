@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Entity Extractor.
+    /// </summary>
     public partial class EntityExtractor : ModelInfo
     {
         /// <summary>
@@ -26,7 +29,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the EntityExtractor class.
         /// </summary>
-        /// <param name="id">The GUID of the Entity Model.</param>
+        /// <param name="id">The ID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
@@ -34,6 +37,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Classifier'</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
+        /// <param name="customPrebuiltDomainName">The domain name.</param>
+        /// <param name="customPrebuiltModelName">The intent name or entity
+        /// name.</param>
         public EntityExtractor(System.Guid id, string readableType, string name = default(string), int? typeId = default(int?), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string))
             : base(id, readableType, name, typeId)
         {
@@ -48,11 +54,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the domain name.
         /// </summary>
         [JsonProperty(PropertyName = "customPrebuiltDomainName")]
         public string CustomPrebuiltDomainName { get; set; }
 
         /// <summary>
+        /// Gets or sets the intent name or entity name.
         /// </summary>
         [JsonProperty(PropertyName = "customPrebuiltModelName")]
         public string CustomPrebuiltModelName { get; set; }

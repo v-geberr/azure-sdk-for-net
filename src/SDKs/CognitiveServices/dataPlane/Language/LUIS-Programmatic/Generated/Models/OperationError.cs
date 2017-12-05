@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Operation error details when invoking an operation on the API.
+    /// </summary>
     public partial class OperationError
     {
         /// <summary>

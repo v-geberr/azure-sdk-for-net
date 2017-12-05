@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Closed List Entity Extractor.
+    /// </summary>
     public partial class ClosedListEntityExtractor : ModelInfo
     {
         /// <summary>
@@ -28,7 +31,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ClosedListEntityExtractor class.
         /// </summary>
-        /// <param name="id">The GUID of the Entity Model.</param>
+        /// <param name="id">The ID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
@@ -36,6 +39,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Classifier'</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
+        /// <param name="subLists">List of sub-lists.</param>
         public ClosedListEntityExtractor(System.Guid id, string readableType, string name = default(string), int? typeId = default(int?), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>))
             : base(id, readableType, name, typeId)
         {
@@ -49,6 +53,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets list of sub-lists.
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
         public IList<SubClosedListResponse> SubLists { get; set; }

@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Exported Model - A Closed List.
+    /// </summary>
     public partial class ClosedList
     {
         /// <summary>
@@ -28,6 +31,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ClosedList class.
         /// </summary>
+        /// <param name="name">Name of the closed list feature.</param>
+        /// <param name="subLists">Sublists for the feature.</param>
         public ClosedList(string name = default(string), IList<SubClosedList> subLists = default(IList<SubClosedList>))
         {
             Name = name;
@@ -41,11 +46,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets name of the closed list feature.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets sublists for the feature.
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
         public IList<SubClosedList> SubLists { get; set; }

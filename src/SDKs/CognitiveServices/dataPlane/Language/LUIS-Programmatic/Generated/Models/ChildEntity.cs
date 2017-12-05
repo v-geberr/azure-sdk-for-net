@@ -14,7 +14,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Linq;
 
     /// <summary>
-    /// The base child entity class.
+    /// The base child entity type.
     /// </summary>
     public partial class ChildEntity
     {
@@ -29,7 +29,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ChildEntity class.
         /// </summary>
-        /// <param name="id">The GUID belonging to a child entity.</param>
+        /// <param name="id">The ID (GUID) belonging to a child entity.</param>
         /// <param name="name">The name of a child entity.</param>
         public ChildEntity(System.Guid id, string name = default(string))
         {
@@ -44,7 +44,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets the GUID belonging to a child entity.
+        /// Gets or sets the ID (GUID) belonging to a child entity.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

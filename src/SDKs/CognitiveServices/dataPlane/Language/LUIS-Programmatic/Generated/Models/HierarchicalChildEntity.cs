@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// A Hierarchical Child Entity.
+    /// </summary>
     public partial class HierarchicalChildEntity : ChildEntity
     {
         /// <summary>
@@ -26,8 +29,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the HierarchicalChildEntity class.
         /// </summary>
-        /// <param name="id">The GUID belonging to a child entity.</param>
+        /// <param name="id">The ID (GUID) belonging to a child entity.</param>
         /// <param name="name">The name of a child entity.</param>
+        /// <param name="typeId">The type ID of the Entity Model.</param>
         /// <param name="readableType">Possible values include: 'Entity
         /// Extractor', 'Hierarchical Entity Extractor', 'Hierarchical Child
         /// Entity Extractor', 'Composite Entity Extractor', 'Closed List
@@ -47,6 +51,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the type ID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "typeId")]
         public int? TypeId { get; set; }

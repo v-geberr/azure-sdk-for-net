@@ -16,6 +16,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Object model of an application version.
+    /// </summary>
     public partial class VersionInfo
     {
         /// <summary>
@@ -29,8 +32,26 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the VersionInfo class.
         /// </summary>
-        /// <param name="trainingStatus">Possible values include:
-        /// 'NeedsTraining', 'InProgress', 'Trained'</param>
+        /// <param name="version">The version ID. E.g.: "0.1"</param>
+        /// <param name="trainingStatus">The current training status. Possible
+        /// values include: 'NeedsTraining', 'InProgress', 'Trained'</param>
+        /// <param name="createdDateTime">The version's creation
+        /// timestamp.</param>
+        /// <param name="lastModifiedDateTime">Timestamp of the last
+        /// update.</param>
+        /// <param name="lastTrainedDateTime">Timestamp of the last time the
+        /// model was trained.</param>
+        /// <param name="lastPublishedDateTime">Timestamp when was last
+        /// published.</param>
+        /// <param name="endpointUrl">The Runtime endpoint URL for this model
+        /// version.</param>
+        /// <param name="assignedEndpointKey">The endpoint key.</param>
+        /// <param name="externalApiKeys">External keys.</param>
+        /// <param name="intentsCount">Number of intents in this model.</param>
+        /// <param name="entitiesCount">Number of entities in this
+        /// model.</param>
+        /// <param name="endpointHitsCount">Number of calls made to this
+        /// endpoint.</param>
         public VersionInfo(string version, TrainingStatus trainingStatus, System.DateTime? createdDateTime = default(System.DateTime?), System.DateTime? lastModifiedDateTime = default(System.DateTime?), System.DateTime? lastTrainedDateTime = default(System.DateTime?), System.DateTime? lastPublishedDateTime = default(System.DateTime?), string endpointUrl = default(string), IDictionary<string, string> assignedEndpointKey = default(IDictionary<string, string>), object externalApiKeys = default(object), int? intentsCount = default(int?), int? entitiesCount = default(int?), int? endpointHitsCount = default(int?))
         {
             Version = version;
@@ -54,63 +75,74 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the version ID. E.g.: "0.1"
         /// </summary>
         [JsonProperty(PropertyName = "version")]
         public string Version { get; set; }
 
         /// <summary>
+        /// Gets or sets the version's creation timestamp.
         /// </summary>
         [JsonProperty(PropertyName = "createdDateTime")]
         public System.DateTime? CreatedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets timestamp of the last update.
         /// </summary>
         [JsonProperty(PropertyName = "lastModifiedDateTime")]
         public System.DateTime? LastModifiedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets timestamp of the last time the model was trained.
         /// </summary>
         [JsonProperty(PropertyName = "lastTrainedDateTime")]
         public System.DateTime? LastTrainedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets timestamp when was last published.
         /// </summary>
         [JsonProperty(PropertyName = "lastPublishedDateTime")]
         public System.DateTime? LastPublishedDateTime { get; set; }
 
         /// <summary>
+        /// Gets or sets the Runtime endpoint URL for this model version.
         /// </summary>
         [JsonProperty(PropertyName = "endpointUrl")]
         public string EndpointUrl { get; set; }
 
         /// <summary>
+        /// Gets or sets the endpoint key.
         /// </summary>
         [JsonProperty(PropertyName = "assignedEndpointKey")]
         public IDictionary<string, string> AssignedEndpointKey { get; set; }
 
         /// <summary>
+        /// Gets or sets external keys.
         /// </summary>
         [JsonProperty(PropertyName = "externalApiKeys")]
         public object ExternalApiKeys { get; set; }
 
         /// <summary>
+        /// Gets or sets number of intents in this model.
         /// </summary>
         [JsonProperty(PropertyName = "intentsCount")]
         public int? IntentsCount { get; set; }
 
         /// <summary>
+        /// Gets or sets number of entities in this model.
         /// </summary>
         [JsonProperty(PropertyName = "entitiesCount")]
         public int? EntitiesCount { get; set; }
 
         /// <summary>
+        /// Gets or sets number of calls made to this endpoint.
         /// </summary>
         [JsonProperty(PropertyName = "endpointHitsCount")]
         public int? EndpointHitsCount { get; set; }
 
         /// <summary>
-        /// Gets or sets possible values include: 'NeedsTraining',
-        /// 'InProgress', 'Trained'
+        /// Gets or sets the current training status. Possible values include:
+        /// 'NeedsTraining', 'InProgress', 'Trained'
         /// </summary>
         [JsonProperty(PropertyName = "trainingStatus")]
         public TrainingStatus TrainingStatus { get; set; }

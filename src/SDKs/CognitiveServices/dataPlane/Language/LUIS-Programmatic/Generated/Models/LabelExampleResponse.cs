@@ -13,6 +13,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
+    /// <summary>
+    /// Response when adding a labeled example.
+    /// </summary>
     public partial class LabelExampleResponse
     {
         /// <summary>
@@ -26,6 +29,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the LabelExampleResponse class.
         /// </summary>
+        /// <param name="utteranceText">The sample's utterance.</param>
+        /// <param name="exampleId">The newly created sample ID.</param>
         public LabelExampleResponse(string utteranceText = default(string), int? exampleId = default(int?))
         {
             UtteranceText = utteranceText;
@@ -39,11 +44,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the sample's utterance.
         /// </summary>
         [JsonProperty(PropertyName = "UtteranceText")]
         public string UtteranceText { get; set; }
 
         /// <summary>
+        /// Gets or sets the newly created sample ID.
         /// </summary>
         [JsonProperty(PropertyName = "ExampleId")]
         public int? ExampleId { get; set; }

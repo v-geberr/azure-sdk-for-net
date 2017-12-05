@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// An application model info.
+    /// </summary>
     public partial class ModelInfoResponse
     {
         /// <summary>
@@ -28,7 +31,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ModelInfoResponse class.
         /// </summary>
-        /// <param name="id">The GUID of the Entity Model.</param>
+        /// <param name="id">The ID of the Entity Model.</param>
+        /// <param name="children">List of child entities.</param>
+        /// <param name="subLists">List of sub-lists.</param>
+        /// <param name="customPrebuiltDomainName">The domain name.</param>
+        /// <param name="customPrebuiltModelName">The intent name or entity
+        /// name.</param>
         /// <param name="name">Name of the Entity Model.</param>
         /// <param name="typeId">The type ID of the Entity Model.</param>
         public ModelInfoResponse(System.Guid id, IList<ChildEntity> children = default(IList<ChildEntity>), IList<SubClosedListResponse> subLists = default(IList<SubClosedListResponse>), string customPrebuiltDomainName = default(string), string customPrebuiltModelName = default(string), string name = default(string), int? typeId = default(int?))
@@ -49,27 +57,31 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets list of child entities.
         /// </summary>
         [JsonProperty(PropertyName = "children")]
         public IList<ChildEntity> Children { get; set; }
 
         /// <summary>
+        /// Gets or sets list of sub-lists.
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
         public IList<SubClosedListResponse> SubLists { get; set; }
 
         /// <summary>
+        /// Gets or sets the domain name.
         /// </summary>
         [JsonProperty(PropertyName = "customPrebuiltDomainName")]
         public string CustomPrebuiltDomainName { get; set; }
 
         /// <summary>
+        /// Gets or sets the intent name or entity name.
         /// </summary>
         [JsonProperty(PropertyName = "customPrebuiltModelName")]
         public string CustomPrebuiltModelName { get; set; }
 
         /// <summary>
-        /// Gets or sets the GUID of the Entity Model.
+        /// Gets or sets the ID of the Entity Model.
         /// </summary>
         [JsonProperty(PropertyName = "id")]
         public System.Guid Id { get; set; }

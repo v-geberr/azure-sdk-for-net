@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Object model for updating a closed list.
+    /// </summary>
     public partial class ClosedListModelUpdateObject
     {
         /// <summary>
@@ -30,6 +33,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// Initializes a new instance of the ClosedListModelUpdateObject
         /// class.
         /// </summary>
+        /// <param name="subLists">The new sublists for the feature.</param>
+        /// <param name="name">The new name of the closed list feature.</param>
         public ClosedListModelUpdateObject(IList<WordListObject> subLists = default(IList<WordListObject>), string name = default(string))
         {
             SubLists = subLists;
@@ -43,11 +48,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets the new sublists for the feature.
         /// </summary>
         [JsonProperty(PropertyName = "subLists")]
         public IList<WordListObject> SubLists { get; set; }
 
         /// <summary>
+        /// Gets or sets the new name of the closed list feature.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }

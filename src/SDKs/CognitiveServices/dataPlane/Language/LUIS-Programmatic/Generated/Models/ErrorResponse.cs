@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Error response when invoking an operation on the API.
+    /// </summary>
     public partial class ErrorResponse
     {
         /// <summary>

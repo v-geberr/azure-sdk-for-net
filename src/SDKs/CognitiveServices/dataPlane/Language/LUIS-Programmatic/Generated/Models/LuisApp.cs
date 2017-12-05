@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Exported Model - An exported LUIS Application.
+    /// </summary>
     public partial class LuisApp
     {
         /// <summary>
@@ -30,7 +33,21 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="additionalProperties">Unmatched properties from the
         /// message are deserialized this collection</param>
-        public LuisApp(IDictionary<string, object> additionalProperties = default(IDictionary<string, object>), string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<JSONAction> actions = default(IList<JSONAction>), IList<ClosedList> closedLists = default(IList<ClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
+        /// <param name="name">The name of the application.</param>
+        /// <param name="versionId">The version ID of the application that was
+        /// exported.</param>
+        /// <param name="desc">The description of the application.</param>
+        /// <param name="culture">The culture of the application. E.g.:
+        /// en-us.</param>
+        /// <param name="intents">List of intents.</param>
+        /// <param name="entities">List of entities.</param>
+        /// <param name="bingEntities">List of prebuilt intents.</param>
+        /// <param name="closedLists">List of closed lists.</param>
+        /// <param name="composites">List of composite entities.</param>
+        /// <param name="regexFeatures">List of pattern features.</param>
+        /// <param name="modelFeatures">List of model features.</param>
+        /// <param name="utterances">List of sample utterances.</param>
+        public LuisApp(IDictionary<string, object> additionalProperties = default(IDictionary<string, object>), string name = default(string), string versionId = default(string), string desc = default(string), string culture = default(string), IList<HierarchicalModel> intents = default(IList<HierarchicalModel>), IList<HierarchicalModel> entities = default(IList<HierarchicalModel>), IList<string> bingEntities = default(IList<string>), IList<ClosedList> closedLists = default(IList<ClosedList>), IList<HierarchicalModel> composites = default(IList<HierarchicalModel>), IList<JSONRegexFeature> regexFeatures = default(IList<JSONRegexFeature>), IList<JSONModelFeature> modelFeatures = default(IList<JSONModelFeature>), IList<JSONUtterance> utterances = default(IList<JSONUtterance>))
         {
             AdditionalProperties = additionalProperties;
             Name = name;
@@ -40,7 +57,6 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
             Intents = intents;
             Entities = entities;
             BingEntities = bingEntities;
-            Actions = actions;
             ClosedLists = closedLists;
             Composites = composites;
             RegexFeatures = regexFeatures;
@@ -62,66 +78,73 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
+        /// Gets or sets the name of the application.
         /// </summary>
         [JsonProperty(PropertyName = "name")]
         public string Name { get; set; }
 
         /// <summary>
+        /// Gets or sets the version ID of the application that was exported.
         /// </summary>
         [JsonProperty(PropertyName = "versionId")]
         public string VersionId { get; set; }
 
         /// <summary>
+        /// Gets or sets the description of the application.
         /// </summary>
         [JsonProperty(PropertyName = "desc")]
         public string Desc { get; set; }
 
         /// <summary>
+        /// Gets or sets the culture of the application. E.g.: en-us.
         /// </summary>
         [JsonProperty(PropertyName = "culture")]
         public string Culture { get; set; }
 
         /// <summary>
+        /// Gets or sets list of intents.
         /// </summary>
         [JsonProperty(PropertyName = "intents")]
         public IList<HierarchicalModel> Intents { get; set; }
 
         /// <summary>
+        /// Gets or sets list of entities.
         /// </summary>
         [JsonProperty(PropertyName = "entities")]
         public IList<HierarchicalModel> Entities { get; set; }
 
         /// <summary>
+        /// Gets or sets list of prebuilt intents.
         /// </summary>
         [JsonProperty(PropertyName = "bing_entities")]
         public IList<string> BingEntities { get; set; }
 
         /// <summary>
-        /// </summary>
-        [JsonProperty(PropertyName = "actions")]
-        public IList<JSONAction> Actions { get; set; }
-
-        /// <summary>
+        /// Gets or sets list of closed lists.
         /// </summary>
         [JsonProperty(PropertyName = "closedLists")]
         public IList<ClosedList> ClosedLists { get; set; }
 
         /// <summary>
+        /// Gets or sets list of composite entities.
         /// </summary>
         [JsonProperty(PropertyName = "composites")]
         public IList<HierarchicalModel> Composites { get; set; }
 
         /// <summary>
+        /// Gets or sets list of pattern features.
         /// </summary>
         [JsonProperty(PropertyName = "regex_features")]
         public IList<JSONRegexFeature> RegexFeatures { get; set; }
 
         /// <summary>
+        /// Gets or sets list of model features.
         /// </summary>
         [JsonProperty(PropertyName = "model_features")]
         public IList<JSONModelFeature> ModelFeatures { get; set; }
 
         /// <summary>
+        /// Gets or sets list of sample utterances.
         /// </summary>
         [JsonProperty(PropertyName = "utterances")]
         public IList<JSONUtterance> Utterances { get; set; }

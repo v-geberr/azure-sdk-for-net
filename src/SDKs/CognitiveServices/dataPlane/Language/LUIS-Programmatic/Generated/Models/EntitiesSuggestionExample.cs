@@ -15,6 +15,9 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using System.Collections.Generic;
     using System.Linq;
 
+    /// <summary>
+    /// Predicted/suggested entity.
+    /// </summary>
     public partial class EntitiesSuggestionExample
     {
         /// <summary>
@@ -30,7 +33,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         /// <param name="text">The utterance. E.g.: what's the weather like in
         /// seattle?</param>
-        /// <param name="tokenizedText">the utterance tokenized.</param>
+        /// <param name="tokenizedText">The utterance tokenized.</param>
+        /// <param name="intentPredictions">Predicted/suggested
+        /// intents.</param>
+        /// <param name="entityPredictions">Predicted/suggested
+        /// entities.</param>
         public EntitiesSuggestionExample(string text = default(string), IList<string> tokenizedText = default(IList<string>), IList<IntentPrediction> intentPredictions = default(IList<IntentPrediction>), IList<EntityPrediction> entityPredictions = default(IList<EntityPrediction>))
         {
             Text = text;
@@ -59,11 +66,13 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         public IList<string> TokenizedText { get; set; }
 
         /// <summary>
+        /// Gets or sets predicted/suggested intents.
         /// </summary>
         [JsonProperty(PropertyName = "intentPredictions")]
         public IList<IntentPrediction> IntentPredictions { get; set; }
 
         /// <summary>
+        /// Gets or sets predicted/suggested entities.
         /// </summary>
         [JsonProperty(PropertyName = "entityPredictions")]
         public IList<EntityPrediction> EntityPredictions { get; set; }
