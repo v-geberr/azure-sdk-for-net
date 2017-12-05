@@ -2,6 +2,7 @@
 {
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic;
     using Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models;
+    using System.Collections.Generic;
     using System.Linq;
     using Xunit;
 
@@ -34,20 +35,6 @@
                     Assert.Equal(version.Version, result.Version);
                     Assert.Equal(version.TrainingStatus, result.TrainingStatus);
                 }
-            });
-        }
-
-        [Fact]
-        public void GetApplicationVersionError()
-        {
-            var errorCode = "BadArgument";
-            UseClientFor(async client =>
-            {
-                var versions = await client.Versions.ListAsync(appId);
-                var errorVersion = versions.FirstOrDefault().Version + "_";
-                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.GetAsync(appId, errorVersion));
-                var error = exeption.Body;
-                Assert.Equal(errorCode, error.Code);
             });
         }
 
@@ -125,7 +112,7 @@
                 await client.Versions.DeleteAsync(appId, newVersion);
             });
         }
-        
+
         [Fact]
         public void DeleteUnlabelledUtterance()
         {
@@ -145,6 +132,115 @@
                 var suggestionsWithoutDeleted = await client.Model.GetIntentSuggestionsAsync(appId, versionId, intentId);
 
                 Assert.DoesNotContain(suggestionsWithoutDeleted, v => v.Text.Equals(utteranceToDelete));
+            });
+        }
+
+        [Fact]
+        public void GetApplicationVersions_ErrorSubscriptionKey()
+        {
+            var headers = new Dictionary<string, List<string>>
+            {
+                { "Ocp-Apim-Subscription-Key", new List<string> { "3eff76bb229942899255402725b72933" } }
+            };
+            var errorCode = "401";
+            UseClientFor(async client =>
+            {
+                var exception = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.ListWithHttpMessagesAsync(appId, customHeaders: headers));
+                var error = exception.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("subscription key", error.Message);
+            });
+        }
+
+        [Fact]
+        public void GetApplicationVersions_ErrorAppId()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var exception = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.ListAsync(appId_error));
+                var error = exception.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("application", error.Message);
+            });
+        }
+
+        [Fact]
+        public void GetApplicationVersion_ErrorVersion()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.ListAsync(appId);
+                var errorVersion = versions.FirstOrDefault().Version + "_";
+                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.GetAsync(appId, errorVersion));
+                var error = exeption.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("task", error.Message);
+            });
+        }
+
+        [Fact]
+        public void RenameApplicationVersion_ErrorModel()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.ListAsync(appId);
+                var first = versions.FirstOrDefault();
+                var versionToUpdate = new TaskUpdateObject
+                {
+                    Version = ""
+                };
+
+                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.UpdateAsync(appId, first.Version, versionToUpdate));
+                var error = exeption.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("Version Id", error.Message);
+            });
+        }
+
+        [Fact]
+        public void DeleteApplicationVersion_ErrorModel()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.ListAsync(appId);
+                var first = versions.FirstOrDefault();
+
+                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.DeleteAsync(appId, first.Version + "0"));
+                var error = exeption.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("task", error.Message);
+            });
+        }
+
+        [Fact]
+        public void CloneVersion_ErrorModel()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.ListAsync(appId);
+                var first = versions.FirstOrDefault();
+                var testVersion = new TaskUpdateObject
+                {
+                    Version = ""
+                };
+
+                Assert.DoesNotContain(versions, v => v.Version.Equals(testVersion.Version));
+
+                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.CloneAsync(appId, first.Version, testVersion));
+                var error = exeption.Body;
+
+                Assert.Equal(errorCode, error.Code);
+                Assert.Contains("Version Id", error.Message);
             });
         }
     }

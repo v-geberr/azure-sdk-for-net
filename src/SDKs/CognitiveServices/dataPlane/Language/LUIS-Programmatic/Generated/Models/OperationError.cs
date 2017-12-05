@@ -13,20 +13,20 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
     using Newtonsoft.Json;
     using System.Linq;
 
-    public partial class ApiError
+    public partial class OperationError
     {
         /// <summary>
-        /// Initializes a new instance of the ApiError class.
+        /// Initializes a new instance of the OperationError class.
         /// </summary>
-        public ApiError()
+        public OperationError()
         {
             CustomInit();
         }
 
         /// <summary>
-        /// Initializes a new instance of the ApiError class.
+        /// Initializes a new instance of the OperationError class.
         /// </summary>
-        public ApiError(string code = default(string), string message = default(string))
+        public OperationError(string code = default(string), string message = default(string))
         {
             Code = code;
             Message = message;
@@ -40,7 +40,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "statusCode")]
+        [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
 
         /// <summary>

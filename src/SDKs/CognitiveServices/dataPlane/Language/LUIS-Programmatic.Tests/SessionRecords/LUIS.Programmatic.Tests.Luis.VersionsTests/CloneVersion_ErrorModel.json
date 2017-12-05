@@ -13,10 +13,10 @@
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
-      "ResponseBody": "[\r\n  {\r\n    \"version\": \"0.1\",\r\n    \"createdDateTime\": \"2017-11-29T18:46:10Z\",\r\n    \"lastModifiedDateTime\": \"2017-12-04T18:31:55Z\",\r\n    \"lastTrainedDateTime\": null,\r\n    \"lastPublishedDateTime\": \"2017-11-29T19:32:55Z\",\r\n    \"endpointUrl\": \"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b\",\r\n    \"assignedEndpointKey\": {\r\n      \"SubscriptionKey\": \"\",\r\n      \"SubscriptionRegion\": \"westus\",\r\n      \"SubscriptionName\": \"\"\r\n    },\r\n    \"externalApiKeys\": {},\r\n    \"intentsCount\": 4,\r\n    \"entitiesCount\": 6,\r\n    \"endpointHitsCount\": 17,\r\n    \"trainingStatus\": \"InProgress\"\r\n  }\r\n]",
+      "ResponseBody": "[\r\n  {\r\n    \"version\": \"0.1\",\r\n    \"createdDateTime\": \"2017-07-18T13:41:43Z\",\r\n    \"lastModifiedDateTime\": \"2017-07-20T19:22:55Z\",\r\n    \"lastTrainedDateTime\": \"2017-07-20T19:23:22Z\",\r\n    \"lastPublishedDateTime\": \"2017-07-20T19:23:23Z\",\r\n    \"endpointUrl\": \"https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b\",\r\n    \"assignedEndpointKey\": {\r\n      \"SubscriptionKey\": \"\",\r\n      \"SubscriptionRegion\": \"westus\",\r\n      \"SubscriptionName\": \"\"\r\n    },\r\n    \"externalApiKeys\": {},\r\n    \"intentsCount\": 5,\r\n    \"entitiesCount\": 0,\r\n    \"endpointHitsCount\": 21,\r\n    \"trainingStatus\": \"NeedsTraining\"\r\n  }\r\n]",
       "ResponseHeaders": {
         "Content-Length": [
-          "497"
+          "518"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -25,16 +25,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Tue, 05 Dec 2017 14:19:22 GMT"
+          "Tue, 05 Dec 2017 19:50:06 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "9ff8a6cf-18f2-4594-ad8e-0a9cad99b705"
+          "d3570af1-1f7a-4db0-ac12-33782b7cd92e"
         ],
         "Request-Id": [
-          "9ff8a6cf-18f2-4594-ad8e-0a9cad99b705"
+          "d3570af1-1f7a-4db0-ac12-33782b7cd92e"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"
@@ -55,10 +55,16 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1_/",
-      "RequestMethod": "GET",
-      "RequestBody": "",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/clone",
+      "RequestMethod": "POST",
+      "RequestBody": "{\r\n  \"version\": \"\"\r\n}",
       "RequestHeaders": {
+        "Content-Type": [
+          "application/json; charset=utf-8"
+        ],
+        "Content-Length": [
+          "21"
+        ],
         "Ocp-Apim-Subscription-Key": [
           "00000000000000000000000000000000"
         ],
@@ -67,10 +73,10 @@
           "Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.LuisProgrammaticAPI/2.0.0.0"
         ]
       },
-      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"BadArgument\",\r\n    \"message\": \"Cannot find a task with the specified version ID\"\r\n  }\r\n}",
+      "ResponseBody": "{\r\n  \"error\": {\r\n    \"code\": \"BadArgument\",\r\n    \"message\": \"Version Id can consist only of characters, digits or '.'\"\r\n  }\r\n}",
       "ResponseHeaders": {
         "Content-Length": [
-          "118"
+          "126"
         ],
         "Content-Type": [
           "application/json; charset=utf-8"
@@ -79,16 +85,16 @@
           "no-store, proxy-revalidate, no-cache, max-age=0, private"
         ],
         "Date": [
-          "Tue, 05 Dec 2017 14:19:23 GMT"
+          "Tue, 05 Dec 2017 19:50:07 GMT"
         ],
         "Pragma": [
           "no-cache"
         ],
         "Apim-Request-Id": [
-          "bd4b783b-4dcb-4a96-a6d6-a4fddc2a06d2"
+          "b66a9549-4686-47d5-a779-db0fc4167985"
         ],
         "Request-Id": [
-          "bd4b783b-4dcb-4a96-a6d6-a4fddc2a06d2"
+          "b66a9549-4686-47d5-a779-db0fc4167985"
         ],
         "Request-Context": [
           "appId=cid-v1:26a3540d-a02a-4998-a060-715488fd769b"

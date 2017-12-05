@@ -1,7 +1,5 @@
-﻿
-namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
+﻿namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 {
-    using System.Collections.Generic;
     using Newtonsoft.Json;
 
     public partial class ErrorResponse
@@ -13,45 +11,53 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         {
             get
             {
-                if (code != null) return code;
-                if (AdditionalProperties.TryGetValue("error", out object data))
+                if (code == null)
                 {
-                    var error = JsonConvert.DeserializeObject<ApiError>(data.ToString());
-                    code = error.Code;
-                }
-                else if (AdditionalProperties.TryGetValue("statusCode", out data))
-                {
-                    code = data.ToString();
+                    code = GetCodeFromAdditionalProperties();
                 }
                 return code;
             }
         }
-
         public string Message
         {
             get
             {
-                if (message != null) return message;
-                if (AdditionalProperties.TryGetValue("error", out object data))
+                if (message == null)
                 {
-                    var error = JsonConvert.DeserializeObject<ApiError>(data.ToString());
-                    message = error.Message;
-                }
-                else if (AdditionalProperties.TryGetValue("message", out data))
-                {
-                    message = data.ToString();
+                    message = GetMessageFromAdditionalProperties();
                 }
                 return message;
             }
         }
 
-        partial void CustomInit()
+        private string GetCodeFromAdditionalProperties()
         {
-            if (AdditionalProperties == null)
+            if (AdditionalProperties == null) return "Generic error";
+            if (AdditionalProperties.TryGetValue("error", out object data))
             {
-                AdditionalProperties = new Dictionary<string, object>();
+                var error = JsonConvert.DeserializeObject<OperationError>(data.ToString());
+                return error.Code;
             }
-            ErrorType = nameof(ApiError);
+            if (AdditionalProperties.TryGetValue("statusCode", out data))
+            {
+                return data.ToString();
+            }
+            return "Generic error";
+        }
+
+        private string GetMessageFromAdditionalProperties()
+        {
+            if (AdditionalProperties == null) return "Generic error";
+            if (AdditionalProperties.TryGetValue("error", out object data))
+            {
+                var error = JsonConvert.DeserializeObject<OperationError>(data.ToString());
+                return error.Message;
+            }
+            if (AdditionalProperties.TryGetValue("message", out data))
+            {
+                return data.ToString();
+            }
+            return "Generic message";
         }
     }
 }
