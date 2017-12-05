@@ -38,6 +38,20 @@
         }
 
         [Fact]
+        public void GetApplicationVersionError()
+        {
+            var errorCode = "BadArgument";
+            UseClientFor(async client =>
+            {
+                var versions = await client.Versions.ListAsync(appId);
+                var errorVersion = versions.FirstOrDefault().Version + "_";
+                var exeption = await Assert.ThrowsAsync<ErrorResponseException>(async () => await client.Versions.GetAsync(appId, errorVersion));
+                var error = exeption.Body;
+                Assert.Equal(errorCode, error.Code);
+            });
+        }
+
+        [Fact]
         public void RenameApplicationVersion()
         {
             UseClientFor(async client =>

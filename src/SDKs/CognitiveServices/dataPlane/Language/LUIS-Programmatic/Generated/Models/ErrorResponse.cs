@@ -11,6 +11,8 @@
 namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
 {
     using Newtonsoft.Json;
+    using System.Collections;
+    using System.Collections.Generic;
     using System.Linq;
 
     public partial class ErrorResponse
@@ -26,10 +28,12 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the ErrorResponse class.
         /// </summary>
-        public ErrorResponse(int statusCode = default(int), string message = default(string))
+        /// <param name="additionalProperties">Unmatched properties from the
+        /// message are deserialized this collection</param>
+        public ErrorResponse(IDictionary<string, object> additionalProperties = default(IDictionary<string, object>), string errorType = default(string))
         {
-            StatusCode = statusCode;
-            Message = message;
+            AdditionalProperties = additionalProperties;
+            ErrorType = errorType;
             CustomInit();
         }
 
@@ -39,14 +43,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
+        /// Gets or sets unmatched properties from the message are deserialized
+        /// this collection
         /// </summary>
-        [JsonProperty(PropertyName = "statusCode")]
-        public int StatusCode { get; set; }
+        [JsonExtensionData]
+        public IDictionary<string, object> AdditionalProperties { get; set; }
 
         /// <summary>
         /// </summary>
-        [JsonProperty(PropertyName = "message")]
-        public string Message { get; set; }
+        [JsonProperty(PropertyName = "errorType")]
+        public string ErrorType { get; set; }
 
     }
 }
