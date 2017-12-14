@@ -49,6 +49,25 @@
         {
             UseClientFor(async client =>
             {
+                var appId = await client.Apps.AddAsync(new ApplicationCreateObject
+                {
+                    Name = "Examples Test App",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                await client.Model.AddIntentAsync(appId, "0.1", new ModelCreateObject
+                {
+                    Name = "WeatherInPlace"
+                });
+
+                await client.Model.AddEntityAsync(appId, "0.1", new ModelCreateObject
+                {
+                    Name = "Place"
+                });
+
                 var example = new ExampleLabelObject
                 {
                     Text = "whats the weather in buenos aires?",
@@ -66,6 +85,8 @@
 
                 var result = await client.Examples.AddAsync(appId, versionId, example);
 
+                await client.Apps.DeleteAsync(appId);
+
                 Assert.Equal(example.Text, result.UtteranceText);
             });
         }
@@ -75,6 +96,25 @@
         {
             UseClientFor(async client =>
             {
+                var appId = await client.Apps.AddAsync(new ApplicationCreateObject
+                {
+                    Name = "Examples Test App",
+                    Description = "New LUIS App",
+                    Culture = "en-us",
+                    Domain = "Comics",
+                    UsageScenario = "IoT"
+                });
+
+                await client.Model.AddIntentAsync(appId, "0.1", new ModelCreateObject
+                {
+                    Name = "WeatherInPlace"
+                });
+
+                await client.Model.AddEntityAsync(appId, "0.1", new ModelCreateObject
+                {
+                    Name = "Place"
+                });
+
                 var examples = new List<ExampleLabelObject>() {
                     new ExampleLabelObject
                     {
@@ -107,6 +147,8 @@
                 };
 
                 var result = await client.Examples.BatchAsync(appId, versionId, examples);
+
+                await client.Apps.DeleteAsync(appId);
 
                 Assert.Equal(examples.Count, result.Count);
                 Assert.Contains(result, o => examples.Any(e => e.Text.Equals(o.Value.UtteranceText, StringComparison.OrdinalIgnoreCase)));
