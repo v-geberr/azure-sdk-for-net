@@ -355,8 +355,13 @@
                     Culture = "en-US",
                     DomainName = "Calendar"
                 };
+
                 var result = await client.Apps.AddCustomPrebuiltDomainAsync(domain);
 
+                // Cleanup
+                await client.Apps.DeleteAsync(result);
+
+                // Assert
                 Assert.True(result != Guid.Empty);
             });
         }
