@@ -322,7 +322,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<AvailableEndpoints> ListEndpointsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<IDictionary<string, string>> ListEndpointsAsync(this IApps operations, System.Guid appId, CancellationToken cancellationToken = default(CancellationToken))
             {
                 using (var _result = await operations.ListEndpointsWithHttpMessagesAsync(appId, null, cancellationToken).ConfigureAwait(false))
                 {
