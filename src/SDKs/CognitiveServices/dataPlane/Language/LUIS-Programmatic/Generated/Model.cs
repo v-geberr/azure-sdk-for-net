@@ -2859,6 +2859,10 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='intentId'>
         /// The intent classifier ID.
         /// </param>
+        /// <param name='deleteUtterances'>
+        /// Also delete the intent's utterances (true). Or move the utterances to the
+        /// None intent (false).
+        /// </param>
         /// <param name='customHeaders'>
         /// Headers that will be added to request.
         /// </param>
@@ -2880,7 +2884,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <return>
         /// A response object containing the response body and response headers.
         /// </return>
-        public async Task<HttpOperationResponse<OperationStatus>> DeleteIntentWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid intentId, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
+        public async Task<HttpOperationResponse<OperationStatus>> DeleteIntentWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid intentId, bool? deleteUtterances = true, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken))
         {
             if (versionId == null)
             {
@@ -2896,6 +2900,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
                 tracingParameters.Add("appId", appId);
                 tracingParameters.Add("versionId", versionId);
                 tracingParameters.Add("intentId", intentId);
+                tracingParameters.Add("deleteUtterances", deleteUtterances);
                 tracingParameters.Add("cancellationToken", cancellationToken);
                 ServiceClientTracing.Enter(_invocationId, this, "DeleteIntent", tracingParameters);
             }
@@ -2906,6 +2911,15 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             _url = _url.Replace("{appId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(appId, Client.SerializationSettings).Trim('"')));
             _url = _url.Replace("{versionId}", System.Uri.EscapeDataString(versionId));
             _url = _url.Replace("{intentId}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(intentId, Client.SerializationSettings).Trim('"')));
+            List<string> _queryParameters = new List<string>();
+            if (deleteUtterances != null)
+            {
+                _queryParameters.Add(string.Format("deleteUtterances={0}", System.Uri.EscapeDataString(Rest.Serialization.SafeJsonConvert.SerializeObject(deleteUtterances, Client.SerializationSettings).Trim('"'))));
+            }
+            if (_queryParameters.Count > 0)
+            {
+                _url += "?" + string.Join("&", _queryParameters);
+            }
             // Create HTTP transport objects
             var _httpRequest = new HttpRequestMessage();
             HttpResponseMessage _httpResponse = null;

@@ -474,12 +474,16 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
             /// <param name='intentId'>
             /// The intent classifier ID.
             /// </param>
+            /// <param name='deleteUtterances'>
+            /// Also delete the intent's utterances (true). Or move the utterances to the
+            /// None intent (false).
+            /// </param>
             /// <param name='cancellationToken'>
             /// The cancellation token.
             /// </param>
-            public static async Task<OperationStatus> DeleteIntentAsync(this IModel operations, System.Guid appId, string versionId, System.Guid intentId, CancellationToken cancellationToken = default(CancellationToken))
+            public static async Task<OperationStatus> DeleteIntentAsync(this IModel operations, System.Guid appId, string versionId, System.Guid intentId, bool? deleteUtterances = true, CancellationToken cancellationToken = default(CancellationToken))
             {
-                using (var _result = await operations.DeleteIntentWithHttpMessagesAsync(appId, versionId, intentId, null, cancellationToken).ConfigureAwait(false))
+                using (var _result = await operations.DeleteIntentWithHttpMessagesAsync(appId, versionId, intentId, deleteUtterances, null, cancellationToken).ConfigureAwait(false))
                 {
                     return _result.Body;
                 }
