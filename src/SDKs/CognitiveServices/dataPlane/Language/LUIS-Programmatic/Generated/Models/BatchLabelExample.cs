@@ -29,10 +29,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the BatchLabelExample class.
         /// </summary>
-        public BatchLabelExample(LabelExampleResponse value = default(LabelExampleResponse), bool? hasError = default(bool?))
+        public BatchLabelExample(LabelExampleResponse value = default(LabelExampleResponse), bool? hasError = default(bool?), OperationStatus error = default(OperationStatus))
         {
             Value = value;
             HasError = hasError;
+            Error = error;
             CustomInit();
         }
 
@@ -50,6 +51,11 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// </summary>
         [JsonProperty(PropertyName = "hasError")]
         public bool? HasError { get; set; }
+
+        /// <summary>
+        /// </summary>
+        [JsonProperty(PropertyName = "error")]
+        public OperationStatus Error { get; set; }
 
     }
 }
