@@ -29,7 +29,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         /// <summary>
         /// Initializes a new instance of the OperationStatus class.
         /// </summary>
-        /// <param name="code">Status Code.</param>
+        /// <param name="code">Status Code. Possible values include: 'Failed',
+        /// 'FAILED', 'Success'</param>
         /// <param name="message">Status details.</param>
         public OperationStatus(string code = default(string), string message = default(string))
         {
@@ -44,7 +45,8 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic.Models
         partial void CustomInit();
 
         /// <summary>
-        /// Gets or sets status Code.
+        /// Gets or sets status Code. Possible values include: 'Failed',
+        /// 'FAILED', 'Success'
         /// </summary>
         [JsonProperty(PropertyName = "code")]
         public string Code { get; set; }
