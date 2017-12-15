@@ -123,8 +123,7 @@
       "StatusCode": 200
     },
     {
-      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/intents/efa1d957-1319-45b7-b6d3-c64773d05754",
-      "EncodedRequestUri": "L2x1aXMvYXBpL3YyLjAvYXBwcy84NjIyNmM1My1iN2E2LTQxNmYtODc2Yi0yMjZiMmI1YWIwN2IvdmVyc2lvbnMvMC4xL2ludGVudHMvZWZhMWQ5NTctMTMxOS00NWI3LWI2ZDMtYzY0NzczZDA1NzU0",
+      "RequestUri": "/luis/api/v2.0/apps/86226c53-b7a6-416f-876b-226b2b5ab07b/versions/0.1/intents/efa1d957-1319-45b7-b6d3-c64773d05754?deleteUtterances=false",
       "RequestMethod": "DELETE",
       "RequestBody": "",
       "RequestHeaders": {
