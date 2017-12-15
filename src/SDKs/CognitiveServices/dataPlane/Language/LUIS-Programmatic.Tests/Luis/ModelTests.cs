@@ -14,7 +14,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest"));
+                var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest"));
                 var result = await client.Model.ListCompositeEntitiesAsync(appId, "0.1");
                 await client.Model.DeleteCompositeEntityAsync(appId, "0.1", entityId);
 
@@ -27,7 +27,7 @@
         {
             UseClientFor(async client =>
             {
-                var entity = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest");
+                var entity = new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest");
                 var result = await client.Model.AddCompositeEntityAsync(appId, "0.1", entity);
                 await client.Model.DeleteCompositeEntityAsync(appId, "0.1", result);
 
@@ -40,7 +40,7 @@
         {
             UseClientFor(async client =>
             {
-                var entity = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest");
+                var entity = new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest");
                 var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", entity);
                 var result = await client.Model.GetCompositeEntityAsync(appId, "0.1", entityId);
                 await client.Model.DeleteCompositeEntityAsync(appId, "0.1", entityId);
@@ -54,9 +54,9 @@
         {
             UseClientFor(async client =>
             {
-                var entity = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest");
+                var entity = new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest");
                 var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", entity);
-                await client.Model.UpdateCompositeEntityAsync(appId, "0.1", entityId, new HierarchicalModelUpdateObject(new List<string>() { "datetime" }, name: "HierarchicalTestUpdate"));
+                await client.Model.UpdateCompositeEntityAsync(appId, "0.1", entityId, new CompositeEntityModel(new List<string>() { "datetime" }, name: "HierarchicalTestUpdate"));
 
                 var entities = await client.Model.ListCompositeEntitiesAsync(appId, "0.1");
                 await client.Model.DeleteCompositeEntityAsync(appId, "0.1", entityId);
@@ -70,7 +70,7 @@
         {
             UseClientFor(async client =>
             {
-                var entity = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest");
+                var entity = new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest");
                 var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", entity);
                 await client.Model.DeleteCompositeEntityAsync(appId, "0.1", entityId);
 
@@ -85,7 +85,7 @@
             UseClientFor(async client =>
             {
                 var childEntityId = await client.Model.AddEntityAsync(appId, "0.1", new ModelCreateObject("ChildTest"));
-                var entity = new HierarchicalModelCreateObject(new List<string>() { "datetime" }, name: "CompositeTest");
+                var entity = new CompositeEntityModel(new List<string>() { "datetime" }, name: "CompositeTest");
                 var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", entity);
 
                 var child = new CompositeChildModelCreateObject("ChildTest");
@@ -103,7 +103,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "datetime", "email" }, name: "CompositeTest"));
+                var entityId = await client.Model.AddCompositeEntityAsync(appId, "0.1", new CompositeEntityModel(new List<string>() { "datetime", "email" }, name: "CompositeTest"));
                 var entity = await client.Model.GetCompositeEntityAsync(appId, "0.1", entityId);
                 var childEntityId = entity.Children.Last().Id;
 
@@ -121,7 +121,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var result = await client.Model.ListHierarchicalEntitiesAsync(appId, "0.1");
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
 
@@ -134,7 +134,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
 
                 Assert.True(entityId != Guid.Empty);
@@ -146,7 +146,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var result = await client.Model.GetHierarchicalEntityAsync(appId, "0.1", entityId);
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
 
@@ -159,8 +159,8 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
-                await client.Model.UpdateHierarchicalEntityAsync(appId, "0.1", entityId, new HierarchicalModelUpdateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTestUpdate"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                await client.Model.UpdateHierarchicalEntityAsync(appId, "0.1", entityId, new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTestUpdate"));
                 var entities = await client.Model.ListHierarchicalEntitiesAsync(appId, "0.1");
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
 
@@ -173,7 +173,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var entities = await client.Model.ListHierarchicalEntitiesAsync(appId, "0.1");
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
 
@@ -187,7 +187,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var entity = await client.Model.GetHierarchicalEntityAsync(appId, "0.1", entityId);
                 var result = await client.Model.GetHierarchicalEntityChildAsync(appId, "0.1", entityId, entity.Children.First().Id);
                 await client.Model.DeleteHierarchicalEntityAsync(appId, "0.1", entityId);
@@ -201,7 +201,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest", "AnotherChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest", "AnotherChildTest" }, name: "HierarchicalTest"));
                 var entity = (await client.Model.ListHierarchicalEntitiesAsync(appId, "0.1")).SingleOrDefault(o => o.Id == entityId);
                 var childEntityId = entity.Children.First().Id;
 
@@ -218,7 +218,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var entity = await client.Model.GetHierarchicalEntityAsync(appId, "0.1", entityId);
                 var childEntity = entity.Children.Last();
                 var updateEntity = new HierarchicalChildModelUpdateObject("RenamedChildEntity");
@@ -239,7 +239,7 @@
         {
             UseClientFor(async client =>
             {
-                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalModelCreateObject(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
+                var entityId = await client.Model.AddHierarchicalEntityAsync(appId, "0.1", new HierarchicalEntityModel(new List<string>() { "ChildTest" }, name: "HierarchicalTest"));
                 var childEntity = new HierarchicalChildModelCreateObject
                 {
                     Name = "NewChildEntity"

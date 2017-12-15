@@ -170,7 +170,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<System.Guid>> AddHierarchicalEntityWithHttpMessagesAsync(System.Guid appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.Guid>> AddHierarchicalEntityWithHttpMessagesAsync(System.Guid appId, string versionId, HierarchicalEntityModel hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the hierarchical entity models.
         /// </summary>
@@ -212,7 +212,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='versionId'>
         /// The version ID.
         /// </param>
-        /// <param name='hierarchicalModelCreateObject'>
+        /// <param name='compositeModelCreateObject'>
         /// A model containing the name and children of the new entity
         /// extractor.
         /// </param>
@@ -231,7 +231,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<System.Guid>> AddCompositeEntityWithHttpMessagesAsync(System.Guid appId, string versionId, HierarchicalModelCreateObject hierarchicalModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<System.Guid>> AddCompositeEntityWithHttpMessagesAsync(System.Guid appId, string versionId, CompositeEntityModel compositeModelCreateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the composite entity models.
         /// </summary>
@@ -516,7 +516,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// </param>
         /// <param name='deleteUtterances'>
         /// Also delete the intent's utterances (true). Or move the utterances
-        /// to the None intent (false).
+        /// to the None intent (false - the default value).
         /// </param>
         /// <param name='customHeaders'>
         /// The headers that will be added to request.
@@ -533,7 +533,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<OperationStatus>> DeleteIntentWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid intentId, bool? deleteUtterances = true, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<OperationStatus>> DeleteIntentWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid intentId, bool? deleteUtterances = false, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Gets information about the entity model.
         /// </summary>
@@ -679,7 +679,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<OperationStatus>> UpdateHierarchicalEntityWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<OperationStatus>> UpdateHierarchicalEntityWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid hEntityId, HierarchicalEntityModel hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a hierarchical entity extractor from the application
         /// version.
@@ -749,7 +749,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <param name='cEntityId'>
         /// The composite entity extractor ID.
         /// </param>
-        /// <param name='hierarchicalModelUpdateObject'>
+        /// <param name='compositeModelUpdateObject'>
         /// A model object containing the new entity extractor name and
         /// children.
         /// </param>
@@ -768,7 +768,7 @@ namespace Microsoft.Azure.CognitiveServices.Language.LUIS.Programmatic
         /// <exception cref="Microsoft.Rest.ValidationException">
         /// Thrown when a required parameter is null
         /// </exception>
-        Task<HttpOperationResponse<OperationStatus>> UpdateCompositeEntityWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid cEntityId, HierarchicalModelUpdateObject hierarchicalModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
+        Task<HttpOperationResponse<OperationStatus>> UpdateCompositeEntityWithHttpMessagesAsync(System.Guid appId, string versionId, System.Guid cEntityId, CompositeEntityModel compositeModelUpdateObject, Dictionary<string, List<string>> customHeaders = null, CancellationToken cancellationToken = default(CancellationToken));
         /// <summary>
         /// Deletes a composite entity extractor from the application.
         /// </summary>
